@@ -19,6 +19,8 @@ body {
   font-family: work-sans, sans-serif;
   font-style: normal;
   font-weight: 100;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 a {
   color: #000;
@@ -32,12 +34,10 @@ section {
 }
 .container {
   scroll-snap-type: y mandatory;
+  height: 100%;
+  overflow: scroll;
 }
-.container {
-  -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;
-}
-h1 {
+.container h1 {
   transform: translateY(-50%);
   height: 100vh;
   position: fixed;
@@ -55,7 +55,7 @@ h1 {
   margin: 13px;
 }
 p {
-  margin: 0px;
+  margin: 0;
 }
 .motion-common() {
   animation-duration: 15s;
@@ -154,6 +154,9 @@ p {
 #page0 {
   z-index: 9;
 }
+.page1,
+.page2,
+.page3,
 .home-title {
   position: relative;
 }
@@ -169,7 +172,7 @@ span {
   justify-content: flex-start;
   align-items: flex-start;
   height: 0;
-  top: calc((100vw + 100vh) / 2 / 6);
+  top: calc(((100vw + 100vh) / 2 / 6));
   z-index: 99 !important;
 }
 .intro div {
@@ -248,7 +251,7 @@ span {
   display: flex;
   position: absolute;
   background-color: transparent;
-  border: 0;
+  border: none;
 }
 .tween-one h2 {
   text-align: left;
