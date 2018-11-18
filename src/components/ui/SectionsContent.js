@@ -4,30 +4,19 @@ const content = [
     hash: "page",
     classe: "pack-page page",
     zindex: "7",
-    bg: '#f0f0f0',
+    bg: '#999999',
     h2: "Vivo",
-    descricao: "Novo app Vivo Easy empresas",
-    expanded: [
-            {
-              titulo: "Pop",
-              descricao: "Nova Pop Credicard"
-            }
-          ]
+    descricao: "Nova Maquininha"
+          
   },
   {
     id: 2,
     hash: "page",
     classe: "pack-page page",
     zindex: "7",
-    bg: '#f0f0f0',
+    bg: '#aaaaaa',
     h2: "Pop",
-    descricao: "Nova Maquininha",
-    expanded: [
-            {
-              titulo: "Pop",
-              descricao: "Nova Pop Credicard"
-            }
-          ]
+    descricao: "Nova Maquininha"
   },
   {
     id: 3,
@@ -36,13 +25,7 @@ const content = [
     zindex: "7",
     bg: '#f0f0f0',
     h2: "Dkids",
-    descricao: "Novo portal Discovery Kids",
-    expanded: [
-            {
-              titulo: "Pop",
-              descricao: "Nova Pop Credicard"
-            }
-          ]
+    descricao: "Novo portal Discovery Kids"
   }
 
 ];

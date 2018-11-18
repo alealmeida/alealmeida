@@ -15,12 +15,17 @@ body {
   width: 100%;
   height: 100%;
 }
+html {
+  height: 100%;
+}
 body {
   font-family: work-sans, sans-serif;
   font-style: normal;
   font-weight: 100;
   overflow-x: hidden;
   overflow-y: scroll;
+  perspective: 1px;
+  transform-style: preserve-3d;
 }
 a {
   color: #000;
@@ -57,10 +62,6 @@ h1 {
 p {
   margin: 0;
 }
-.motion-common() {
-  animation-duration: 15s;
-  animation-fill-mode: both;
-}
 .fade-enter,
 .fade-leave,
 .fade-appear {
@@ -95,6 +96,10 @@ p {
 .fade-leave.fade-leave-active {
   animation-play-state: running;
 }
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 .logo {
   height: 58px;
   font-size: calc(10px + 5 * ((100vw + 100vh) / 2 / 1120));
@@ -106,12 +111,17 @@ p {
   justify-content: center;
   flex-direction: column;
   margin: 0 0 0 calc(1em + 2vw);
+  position: fixed;
+  top: 0;
+  left: 10vw;
 }
 .nav {
-  position: fixed;
   display: flex;
-  z-index: 8;
+  align-items: flex-start;
+  justify-content: flex-start;
   top: 0;
+  left: 10vw;
+  position: fixed;
 }
 .nav .nav-wap {
   float: right;
@@ -119,7 +129,6 @@ p {
 }
 .nav .nav-list {
   width: 100px;
-  height: 100%;
   float: left;
   line-height: 58px;
   text-align: center;
@@ -167,12 +176,13 @@ span {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 86vw;
+  width: 100vw;
   text-align: left;
   justify-content: flex-start;
   align-items: flex-start;
   height: 0;
-  top: calc(((100vw + 100vh) / 2 / 6));
+  left: 10vw;
+  top: calc(((100vw + 100vh) / 2 / 2.2));
   z-index: 99 !important;
 }
 .intro div {
@@ -189,86 +199,77 @@ span {
   color: #c73953;
   font-size: 1.1em;
 }
-.container .pack-page,
-.modal-body .pack-page {
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100vh;
-  top: 0;
-}
-.container .tween-one,
-.modal-body .tween-one {
-  overflow-y: auto;
-  flex-direction: column;
-  width: 80vw;
-  min-height: 100vh;
-  text-align: left;
-  justify-items: flex-start;
-  align-items: flex-start;
-  top: 4em;
-  position: absolute;
-  margin: 0 0 0 calc(2.6em + 4vw);
-}
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1050;
-  overflow-y: scroll;
-}
-.modal .close {
-  position: fixed;
-  top: 1em;
-  right: 1em;
-}
 .container .pack-page {
   position: relative;
   display: flex;
   min-height: 100vh;
-  background-color: #f0f0f0;
 }
 .container .pack-page .tween-one {
+  position: fixed;
+}
+.tween {
+  width: auto;
+  height: auto;
+  left: 10vw;
+}
+.tween button {
+  padding: 1px;
+}
+.tween-one {
   overflow-y: auto;
   flex-direction: column;
-  width: 80vw;
+  width: 100vw;
   min-height: 100vh;
-  opacity: 0;
+  opacity: 1;
   text-align: left;
   justify-items: flex-start;
   align-items: flex-start;
+  position: absolute;
   top: 4em;
-  position: fixed;
+  left: 10vw;
 }
-.container .pack-page .tween-one div {
+.tween-one div {
   text-align: left;
   font-size: calc(12px + 10 * ((100vw + 100vh) / 2 / 1120));
   line-height: calc(20px + 10 * ((100vw + 100vh) / 2 / 1120));
 }
-.container .pack-page .tween-one .rc-collapse {
+.tween-one .rc-collapse {
   display: flex;
   position: absolute;
   background-color: transparent;
   border: none;
 }
+#anchor1,
+#anchor2,
+#anchor3 {
+  background-color: transparent;
+}
+div:nth-child(1) {
+  background-color: transparent;
+  box-shadow: none;
+  outline: 10;
+}
+div:nth-child(1) div {
+  background-color: transparent;
+}
+div:nth-child(1) div div {
+  background: transparent;
+}
 .tween-one h2 {
   text-align: left;
-  color: #444;
   font-size: calc(20px + 40 * ((100vw + 100vh) / 2 / 1120));
 }
 .demo-content {
   margin: 0 auto;
   width: 600px;
-  height: 80px;
+  height: 180px;
   margin-bottom: 30px;
   border-radius: 4px;
 }
 .demo-content2 {
   margin: 0 auto;
   width: 600px;
-  height: 80px;
+  height: 180px;
   margin-top: 30px;
   border-radius: 4px;
 }
@@ -300,4 +301,25 @@ span {
 .ver_mais {
   font-size: calc(12px + 10 * ((100vw + 100vh) / 2 / 1120));
   transform: 'translateY(100px)';
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 44px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+/* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+/* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+/* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+/* Support for IE. */
+  font-feature-settings: 'liga';
 }
