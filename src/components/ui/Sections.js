@@ -112,8 +112,8 @@ class Home extends React.Component {
     // true});     }, 100);     window.addEventListener('resize',
     // this.handleWindowSizeChange.bind(this)); window.removeEventListener('resize',
     // this.handleWindowSizeChange.bind(this)); } handleWindowSizeChange = () => {
-    //   ScrollAnim         .scrollScreen   .init({loop: false, duration: 1200,
-    // ease: "easeInOutQuart", scrollInterval: 800}); };
+    // ScrollAnim         .scrollScreen   .init({loop: false, duration: 1200, ease:
+    // "easeInOutQuart", scrollInterval: 800}); };
     handleClose = () => {
         this.setState({items: []});
         this.setState({paused: false, reverse: true, buttonCloseReverse: true, show: true});
@@ -136,17 +136,15 @@ class Home extends React.Component {
                         id={i.hash + i.id}
                         className={i.classe + i.id}
                         style={{
-                        backgroundColor: i.bg,
-                        zIndex: i.zindex
+                        backgroundColor: i.bg
                     }}
                         playScale={0.1}>
-
-                        <TweenOne
+                        <Tween
                             show={this.state.show}
-                            className={"tween-one"}
+                            className={"tween cabecalho"}
                             key="0"
                             animation={{
-                            delay: 200,
+                            delay: 20,
                             duration: 0,
                             translateY: 0,
                             opacity: 1
@@ -155,39 +153,42 @@ class Home extends React.Component {
                             transform: 'translateY(0px)',
                             opacity: 0
                         }}>
+                            <h1 style={{color: i.cor }}>{i.letra}</h1>
+                            <label>{i.label}</label>
                             <h2>{i.h2}</h2>
-                            <div>{i.descricao}</div>
-                        </TweenOne>
-                        <Tween
-                            className="tween"
-                            reverse={this.state.buttonEnterReverse}
-                            reverseDelay={600}
-                            animation={[{
-                                delay: 1200,
-                                duration: 1600,
-                                x: 0,
-                                opacity: 1,
-                                ease: "easeOutExpo"
-                            }
-                        ]}
-                            style={{
-                            transform: 'translateX(2em)',
-                            opacity: 0,
-                            position: 'fixed',
-                            zIndex: '9999',
-                            justifyContent: 'flex-start',
-                            top: '50%'
-                        }}>
-
-                            <Button
+                            <div className='descricao'>{i.descricao}
+                            
+                        <TweenOne
+                                className="button"
+                                resetStyle={true}
+                                reverse={this.state.buttonEnterReverse}
+                                reverseDelay={600}
+                                scroll={this.state.reverse}
+                                animation={[{
+                                    delay: 1200,
+                                    duration: 1600,
+                                    x: 0,
+                                    opacity: 1,
+                                    ease: "easeOutExpo"
+                                }
+                            ]}
                                 style={{
-                                width: 'auto',
-                                height: 'auto'
-                            }}
-                                onClick={this.onPlay}>
-                                Ver projeto
-                            </Button>
+                                transform: 'translateX(-2em)',
+                                opacity: 0,
+                                top:0,
+                                position: "fixed"
+                            }}>
+
+                                <Button
+                                    onClick={this.onPlay}>
+                                    <i class="material-icons ver_mais">
+trending_flat
+</i>
+                                </Button>
+                            </TweenOne>
+                        </div>
                         </Tween>
+
                         <Dialog
                             fullScreen
                             id={'anchor' + i.id}
@@ -202,7 +203,7 @@ class Home extends React.Component {
                         }}
                             TransitionComponent={Transition}
                             style={{
-                            backgroundColor: i.bg,
+                            backgroundColor: '#ffffff',
                             zIndex: 10,
                             position: relative,
                             height: '100%'
@@ -246,10 +247,36 @@ class Home extends React.Component {
                                     }}/>
                                 </Tween>
                             </Button>
+                            <Tween
+                                show={this.state.show}
+                                className={"tween-one"}
+                                reverse={this.state.reverse}
+                                reverseDelay={400}
+                                key="0"
+                                animation={{
+                                delay: 1200,
+                                duration: 1500,
+                                translateY: '-10vh',
+                                ease: 'easeInOutExpo',
+                                top: 0,
+                                bezier: 2,
+                                opacity: 1
+                            }}
+                                style={{
+                                transform: 'translateY(0px)',
+                                opacity: 1,
+                                zIndex: 1,
+                                height: '95vh',
+                                width: '100vw',
+                                top: 0,
+                                left: 0,
+                                backgroundColor: i.bg,
+                                position: "absolute"
+                            }}/>
                             <TweenOne
                                 id={'anchor' + i.id}
                                 show={this.state.show}
-                                className={"tween-one"}
+                                className={"tween-one cabecalho"}
                                 reverse={this.state.reverse}
                                 reverseDelay={400}
                                 key="0"
@@ -262,22 +289,31 @@ class Home extends React.Component {
                                 style={{
                                 transform: 'translateY(0px)',
                                 opacity: 1,
-                                zIndex: 1
+                                zIndex: 1,
+                                width: '80vw',
+                                overflow: 'hidden'
                             }}>
+                                <h1 style={{color: i.cor }}>{i.letra}</h1>
+                                <label>{i.label}</label>
                                 <h2>{i.h2}</h2>
-                                <div>{i.descricao}</div>
+                                <div className='descricao'>{i.descricao}</div>
                                 <QueueAnim
                                     type={['right', 'right']}
                                     interval={[300, 800]}
                                     delay={4000}
                                     duration={[1000, 1000]}
                                     ease={['easeOutBack', 'easeInOutCirc']}
-                                    leaveReverse>
+                                    leaveReverse
+                                    style={{}}>
                                     {this
                                         .state
                                         .items
                                         .map((item) => <div key={item.key}>
-                                            <section>
+                                            <section
+                                                style={{
+                                                width: '80vw',
+                                                overflow: 'hidden'
+                                            }}>
                                                 <p>A scrollScreen demo</p>
                                                 {/* {item.children} */}
                                             </section>
@@ -297,7 +333,7 @@ class Home extends React.Component {
                     animation={{
                     x: '0vw',
                     width: '500vw',
-                    left: '100%',
+                    left: '110vw',
                     delay: 1200,
                     duration: 5000,
                     ease: 'easeInOutExpo',
@@ -305,7 +341,7 @@ class Home extends React.Component {
                 }}
                     style={{
                     transform: 'translateX("0vw")',
-                    backgroundColor: '#222',
+                    backgroundColor: '#c73953',
                     height: '100vh',
                     top: '0',
                     left: '-150%',

@@ -54,17 +54,14 @@ function IntroContent({match}) {
                 key='queueAnim'
                 type={['right', 'alpha']}
                 className="intro"
-                interval={[200, 700]}
-                delay={800}
-                duration={[800, 500]}
+                interval={[150, 800]}
+                delay={1000}
+                duration={[1000, 1000]}
                 playScale={0.1}>
                 <div key='a'>Olá!</div>
-                <div key='b'>Sou Alexandre Almeida,</div>
-                <div key='c'>Senior Product Designer na
-                    <a href="http://ogilvy.com.br">Ogilvy & Mather Brasil</a>,
-                </div>
-                <div key='d'></div>
-                <div key='e'>São Paulo.</div>
+                <div key='b'>Sou  Alê  Almeida,</div>
+                <div key='c'>UX  Designer,</div>
+                <div key='d'>São  Paulo.</div>
 
             </QueueAnim>
         </Element>

@@ -4,28 +4,52 @@ const content = [
     hash: "page",
     classe: "pack-page page",
     zindex: "7",
-    bg: '#999999',
-    h2: "Vivo",
-    descricao: "Nova Maquininha"
+    bg: '#f2f2f2',
+    cor: '#660099',
+    letra: 'V',
+    label: "Vivo",
+    h2: `Turbine
+suas
+vendas.`,
+    descricao: "Novo programa de incentivo para colaboradores Vivo. "
           
   },
   {
     id: 2,
     hash: "page",
     classe: "pack-page page",
-    zindex: "7",
-    bg: '#aaaaaa',
-    h2: "Pop",
-    descricao: "Nova Maquininha"
+    zindex: "10",
+    bg: '#ffffff',
+    cor: '#2779B3',
+    letra: 'C',
+    label: "Caixa",
+    h2: `Redesign.`,
+    descricao:`Nova interface.
+Bonita. Limpa. Direta.`
   },
   {
     id: 3,
     hash: "page",
     classe: "pack-page page",
-    zindex: "7",
-    bg: '#f0f0f0',
-    h2: "Dkids",
-    descricao: "Novo portal Discovery Kids"
+    zindex: "8",
+    bg: '#e0e0e0',
+    cor: '#6125A2',
+    letra: 'C',
+    label: "Credicard",
+    h2: `Pop.`,
+    descricao: "Interface de lançamento da maquininha da Credicard. Conheça e compre online."
+  },
+  {
+    id: 4,
+    hash: "page",
+    classe: "pack-page page",
+    zindex: "11",
+    bg: '#f8f8f8',
+    cor: '#2FC967',
+    letra: 'D',
+    label: `Discovery Channel`,
+    h2: `Dkids.`,
+    descricao: "Redesign do portal da Discovery Kids."
   }
 
 ];
