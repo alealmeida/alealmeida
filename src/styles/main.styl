@@ -77,7 +77,8 @@ body
 	margin 0
 	padding 0
 	width 100%
-	height 100%
+    height: 100%;
+    min-height: 100%;
 
 html
 	height 100%
@@ -88,35 +89,21 @@ body
 	font-style normal
 	font-weight 100
 	overflow-x hidden
-	overflow-y scroll
-	perspective 1px
-	transform-style preserve-3d
+	overflow-y auto
 	/* Support for all WebKit browsers. */
 	-webkit-font-smoothing: auto;
 	/* Support for Safari and Chrome. */
 	text-rendering: optimizeLegibility;
-
 	/* Support for Firefox. */
 	-moz-osx-font-smoothing: grayscale;
-
 a
 	color #000000
 
 a:hover
 	color #ff0000
 
-section
-	height 100vh
-	width 100vw
 
-.container
-	scroll-snap-type y mandatory
-	height 100%
-	overflow scroll
 
-.container
-	// -ms-overflow-style none
-	// overflow -moz-scrollbars-none
 
 // all css
 html
@@ -211,12 +198,11 @@ p
 	left 10vw
 
 .nav
-	display flex
-	align-items flex-start
-	justify-content flex-start
 	top 0
 	left 10vw
 	position fixed
+	z-index 9
+	display none
 
 	& .nav-wap
 		float right
@@ -236,52 +222,28 @@ p
 
 	& .nav-bar
 		width 100px
-		position absolute
+		position fixed
 		top 58px
 		left 0
 		height 2px
 		transition left 0.3s
 
-#page1,
-#page2,
-#page3,
-#page4,
-#page5,
-#page6
-	margin 0 auto
-	position relative
-	height 100vh
-	display flex
-	text-align center
-	overflow hidden
-	height 100vh
+
 
 #page0
-	z-index 9
+	height 100vh
 
-.page1,
-.page2,
-.page3,
-.home-title
-	position relative
-
-// $calc_font = 10 * ( ( 100vw + 100vh ) / 2 / 1120 )
-span
-	position relative
-
-.intro
-	position absolute
-	display flex
-	flex-direction column
-	width 100vw
-	text-align left
-	justify-content center
-	align-items flex-start
-	// height 10vh
-	left: 10vw
-	top calc(0.01em + 360 * ((100vw + 100vh) / 2 / 1120));
-	// margin-top calc( ( 100vh ) / 5 ) )
-	z-index 99 !important
+	.intro
+		position fixed
+		display flex
+		flex-direction column
+		width 100vw
+		text-align left
+		justify-content center
+		align-items flex-start
+		// height 10vh
+		left: 10vw
+		top calc(0.01em + 300 * ((100vw + 100vh) / 2 / 1120));
 
 	div
 		text-align: left;
@@ -307,15 +269,8 @@ span
 		color #C73953
 		font-size 1.1em
 
-.pack-page
-	z-index: 7
-.pack-page.active
-	z-index: 8
-	// display flex
-	// align-items center
-	// justify-content center
-	// flex-direction column
-	// top 0
+
+
 // .tween-one
 // 	overflow-y auto
 // 	flex-direction column
@@ -328,22 +283,35 @@ span
 // 	position absolute
 // 	margin 0 0 0 calc( 2.6em + 4vw )
 
-section
-	justify-content: center
-	display: flex
-	flex-direction: column
 
 .container
+	width 100%
+	height 100%
+	scroll-snap-type y mandatory
+	overflow scroll
 	.pack-page
-		position relative
-		display flex
-		min-height 100vh
-		.tween-one, .tween
-			position fixed
+		z-index: 6
+		// position relative
+		width 100%
+		height 100vh
+		overflow hidden
+		display: flex;
+		flex-direction: column;
+		flex-wrap: revert;
+		.tween-one
+			width 100vw
+			height 100vh 
+			display: block;
+			position: fixed
+			margin: 0
+			padding: 0
+			-webkit-transform: translateZ(0);
+			top:0
+	.pack-page.active
+		z-index: 8
+
 
 .tween
-	width auto
-	height auto
 	left 10vw
 	width 100vw
 	flex-direction column
@@ -351,20 +319,11 @@ section
 	text-align left
 	justify-items flex-start
 	align-items flex-start
-	position: absolute
+	height 100vh
 
 .tween-one
-	overflow-y auto
-	flex-direction column
-	width 100vw
-	min-height 100vh
-	opacity 1
 	text-align left
-	justify-items flex-start
-	align-items flex-start
-	position: absolute
-	top 4em
-	left 10vw
+	
 
 	& .rc-collapse
 		display flex
@@ -373,12 +332,6 @@ section
 		border none
 
 .cabecalho
-	display: flex;
-	flex-direction: column;
-	width: 80vw
-	height 90vh
-	top 5vh
-
 	h1
 		font-family: neue-kabel,sans-serif;
 		font-weight: 800;

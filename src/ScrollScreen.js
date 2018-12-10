@@ -142,6 +142,7 @@ const ScrollScreen = {
       }
       if (deltaY < 0) {
         this.num--;
+        console.log(this)
       } else if (deltaY > 0) {
         this.num++;
       }

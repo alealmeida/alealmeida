@@ -7,46 +7,17 @@ import Intro from './components/ui/Intro';
 import content from './components/ui/SectionsContent';
 const Link = ScrollAnim.Link;
 const EventListener = ScrollAnim.Event;
-ScrollAnim
-    .scrollScreen
-    .init({loop: false, duration: 1200, ease: "easeInOutQuart", scrollInterval: 600});
+
 class Demo extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            show: false,
-            css: {
-                backgroundColor: '#174270',
-                height: 920
-            },
-            cssNoPosition: true
-        };
+    constructor(props) {
+        super(props);
     }
-    onComplete = (e) => {
-        console.log(e);
-    };
-    setCss = (e) => {
-        const css = this.state.css;
-        console.log(e);
-        if (this.state.cssNoPosition) {
-            css.position = 'fixed';
-            css.top = 0;
-        } else {
-            css.position = '';
-            css.top = '';
-        }
-        this.setState({
-            css,
-            cssNoPosition: !this.state.cssNoPosition
-        });
-    };
     componentDidMount() {
         EventListener.addEventListener('resize.userResize', this.barAnimate.bind(this));
-        setTimeout(() => {
-            this.setState({show: true});
-        }, 1500);
         window.addEventListener('resize', this.handleWindowSizeChange.bind(this));
         window.removeEventListener('resize', this.handleWindowSizeChange.bind(this));
+        
+        window.addEventListener('load', this.onLoad.bind(this));
     }
     onFocus = (e) => {
         this.dom = e.target;
@@ -54,6 +25,12 @@ class Demo extends React.Component {
         var idOn = document.getElementById(e.to)
         // if(e.target.index)
         idOn.className = "pack-page " + e.to + " active"
+    }
+    onLoad = () => {
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 100);
+
     }
     onBlur = (e) => {
         var idOn = document.getElementById(e.to);
@@ -81,16 +58,18 @@ class Demo extends React.Component {
 
                 <div className="nav">
                     <div className="nav-wap">
-                    <Link className="nav-list logo" style={{
-                    zIndex: 99999
-                }} onClick={this.handleClose}>
-                    Alê Almeida
-                </Link>
+                        <Link
+                            className="nav-list logo"
+                            to={"page0"}
+                            toShowHeight
+                            onFocus={this.onFocus}
+                            onBlur={this.onBlur}>
+                            Alê Almeida
+                        </Link>
                         {content.map(i => (
                             <Link
                                 className="nav-list"
                                 to={"page" + i.id}
-                                showHeightActive={['10%', '60%']}
                                 toShowHeight
                                 onFocus={this.onFocus}
                                 onBlur={this.onBlur}>
@@ -100,8 +79,7 @@ class Demo extends React.Component {
                         <div ref= {(c) => { this.bar = c; } } className="nav-bar"/>
                     </div>
                 </div>
-
-                <Intro/>
+                {/* <Intro/> */}
                 <Sections/>
             </div>
         );
