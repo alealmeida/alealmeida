@@ -27,7 +27,7 @@ var scroll = Scroll.animateScroll;
 var scrollSpy = Scroll.scrollSpy;
 ScrollAnim
     .scrollScreen
-    .init({loop: false, duration: 1700, ease: "linear", scrollInterval: 1000});
+    .init({loop: false, duration: 1700, ease: "linear", scrollInterval: 1000, he});
 function find(id) {
     return content.find(p => p.id === id);
 }

@@ -1,28 +1,29 @@
 const content = [
   {
     id: 1,
-    hash: "page",
-    classe: "pack-page page",
+    hash: "page1",
+    classe: "pack-page page1",
     zindex: "1400",
     bg: '#f2f2f2',
-    cor1: '#000',
+    cor1: '#EA3841',
     cor2: '#660099',
+    cor3: '#590086',
     letra: 'V',
     label: "Vivo",
     h2: `Turbine
-suas
-vendas.`,
+as vendas.`,
     descricao: "Novo programa de incentivo para colaboradores Vivo. "
           
   },
   {
     id: 2,
-    hash: "page",
-    classe: "pack-page page",
+    hash: 'page2',
+    classe: "pack-page page2",
     zindex: "1300",
     bg: '#ffffff',
     cor1: '#660099',
     cor2: '#2779B3',
+    cor3: '#1B6DA7',
     letra: 'C',
     label: "Caixa",
     h2: `Redesign.`,
@@ -31,12 +32,13 @@ Bonita. Limpa. Direta.`
   },
   {
     id: 3,
-    hash: "page",
-    classe: "pack-page page",
+    hash: "page3",
+    classe: "pack-page page3",
     zindex: "1200",
     bg: '#e0e0e0',
     cor1: '#2779B3',
     cor2: '#6125A2',
+    cor3: '#541A93',
     letra: 'C',
     label: "Credicard",
     h2: `Pop.`,
@@ -44,142 +46,77 @@ Bonita. Limpa. Direta.`
   },
   {
     id: 4,
-    hash: "page",
-    classe: "pack-page page",
+    hash: "page4",
+    classe: "pack-page page4",
     zindex: "1100",
     bg: '#f8f8f8',
     cor1: '#6125A2',
+    cor2: '#E5B417',
+    cor3: '#D5A60E',
+    letra: 'M',
+    label: `Mars`,
+    h2: "MM's",
+    descricao: "Redesign do portal da Discovery Kids."
+  },
+  {
+    id: 5,
+    hash: "page5",
+    classe: "pack-page page5",
+    zindex: "1100",
+    bg: '#f8f8f8',
+    cor1: '#E5B417',
+    cor2: '#D40D0D',
+    cor3: '#C50202',
+    letra: 'N',
+    label: `Nacional Gás`,
+    h2: `Gás de Cozinha`,
+    descricao: "Portal da Nacional Gás"
+  },
+  {
+    id: 6,
+    hash: "page6",
+    classe: "pack-page page6",
+    zindex: "1100",
+    bg: '#f8f8f8',
+    cor1: '#D40D0D',
+    cor2: '#D2A11F',
+    cor3: '#C69514',
+    letra: 'D',
+    label: `Diageo`,
+    h2: `Drinkstore`,
+    descricao: "Redesign do portal da Discovery Kids."
+  },
+  {
+    id: 7,
+    hash: "page7",
+    classe: "pack-page page7",
+    zindex: "1100",
+    bg: '#f8f8f8',
+    cor1: '#D2A11F',
     cor2: '#2FC967',
+    cor3: '#1FC25A',
     letra: 'D',
     label: `Discovery Channel`,
     h2: `Dkids.`,
     descricao: "Redesign do portal da Discovery Kids."
+  },
+  {
+    id: 8,
+    hash: "page8",
+    classe: "pack-page page8",
+    zindex: "1100",
+    bg: '#f8f8f8',
+    cor1: '#6125A2',
+    cor2: '#EE3530',
+    cor3: '#E3231E',
+    letra: 'B',
+    label: `Bauducco`,
+    h2: `Cereale`,
+    descricao: "Linha Cereale."
   }
 
 ];
 
 export default content;
-  // h2: "Vivo",
-  //   descricao: "Novo app Vivo Easy empresas",
-  //   expanded: [
-  //     {
-  //       titulo: "Pop",
-  //       descricao: "Nova Pop Credicard"
-  //     }
-  //   ]
-  // },
-  // {
-  //   id: 1,
-  //   hash: "page",
-  //   classe: "pack-page page",
-  //   zindex: "7",
-  //   bg: '#f0f0f0',
-  //   h2: "Pop",
-  //   descricao: "Nova Pop Credicard",
-  //   expanded: [
-  //     {
-  //       titulo: "Pop",
-  //       descricao: "Nova Pop Credicard"
-  //     }
-  //   ]
-  // },
-  //   {
-  //     id: 2,
-  //     hash: "page",
-  //     classe: "pack-page page",
-  //     zindex: "6",
-  //     bg: '#ffffff',
-  //     h2: "Vivo",
-  //     descricao: "Novo app Vivo Easy empresas",
-  //     expanded: [
-  //     {
-  //       titulo: "Pop",
-  //       descricao: "Nova Pop Credicard"
-  //     }
-  //   ]
-  //   },
-  //   {
-  //     id: 3,
-  //     hash: "page",
-  //     classe: "pack-page page",
-  //     zindex: "5",
-  //     bg: '#f0f0f0',
-  //     h2: "Caixa",
-  //     descricao: "Novo portal Caixa",
-  //     expanded: [
-  //       {
-  //         titulo: "Caixa",
-  //         descricao: "Novo portal Caixa"
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     id: 4,
-  //     hash: "page",
-  //     classe: "pack-page page",
-  //     zindex: "5",
-  //     bg: '#f0f0f0',
-  //     h2: "dKids",
-  //     descricao: "Novo portal Discovery Kids",
-  //     expanded: [
-  //       {
-  //         titulo: "dKids",
-  //         descricao: "Novo portal Caixa"
-  //       }
-  //     ]
-  //   }
 
-
-
-
-
-
-
-
-
-
-
-    // ,
-    // {
-    //   idnum: 4,
-    //   id: "page4",
-    //   classe: "pack-page",
-    //   zindex: "4",
-    //   conteudo: [
-    //     {
-          
-    //       titulo: "Diageo",
-    //       descricao: "Nova Drinkstore",
-    //       bg: '#f5f5f5'
-    //     }
-    //   ]
-    // },
-    // {
-    //   idnum: 5,
-    //   id: "page5",
-    //   classe: "pack-page",
-    //   zindex: "3",
-    //   conteudo: [
-    //     {
-          
-    //       titulo: "Mars",
-    //       descricao: "Landing Page MM's",
-    //       bg: '#f0f0f0'
-    //     }
-    //   ]
-    // },
-    // {
-    //   idnum: 6,
-    //   id: "page6",
-    //   classe: "pack-page",
-    //   zindex: "3",
-    //   conteudo: [
-    //     {
-          
-    //       titulo: "Nacional Gás",
-    //       descricao: "Portal",
-    //       bg: '#eee'
-    //     }
-    //   ]
-    // }
   
