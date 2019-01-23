@@ -1,0 +1,565 @@
+w = 100vw
+h = 100vh
+calculo(a, b)
+	"calc(%s + %s * ((%s + %s) / 2 / 1120))" % (a b w h)
+
+
+dist(left, top)
+	left 'calc(%s * ((80vw + 20vh)  / 1000))' % (left w h)
+	top 'calc(%s * ((34vw + 66vh) / 1000))' % (top w h)
+
+resolucao(width, height)
+	width 'calc(1em + %s * ((%s + %s) / 1000))' % (width w h)
+	height 'calc(1em + %s * ((%s + %s) / 1000))' % (height w h)
+
+min(n)
+	min-width n
+	min-height n
+max(n)
+	max-width n
+	max-height n
+
+font(weight, size, family, wid)
+	font-weight weight
+	font-size 'calc(1em + %s * ((76vw + 24vh) / 1000))' % (size)
+	font-family family
+	width 'calc(%s * ((86vw + 14vh) / 100))' % (wid)
+
+line_letter(lines, letter)
+	line-height 'calc(1em + %s * ((76vw + 24vh) / 1000))' % (lines)
+	letter-spacing 'calc(.01em + %s * ((76vw + 24vh) / 1000))' % (letter)
+
+flex_column(justify, align)
+	display flex
+	flex-direction: column
+	justify-content: justify
+	align-items: align
+
+cubic(num)
+	transition: all num cubic-bezier(0,.49,.85,.91) 0.01s
+smoo()
+	-webkit-font-smoothing antialiased
+	-moz-osx-font-smoothing grayscale
+reset()
+	margin 0
+	padding 0
+
+neue-h = neue-haas-grotesk-display, sans-serif
+neue-k = neue-kabel, sans-serif
+neue-t = neue-haas-grotesk-text, sans-serif
+material = Material Icons
+
+
+darker = #111116
+magenta = #FF2B6A
+
+
+
+
+
+
+
+
+
+
+
+
+
+html
+body
+	reset()
+	width w
+	position: relative	
+	overflow-x hidden
+body
+	background-color: darker
+	font-size: 16px
+	color white
+	height 100%
+	smoo()
+nav
+	.nav-wap
+		.logo
+			i = 2.2em
+			position absolute
+			resolucao(30,30)
+			min(i)
+			max(i*1.8)
+			reset()
+			dist(60, 180)
+.container
+	.main
+		width: 100%;
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		position relative
+		height 100%
+		overflow hidden
+         
+section
+	width 100%
+	p
+		font(400, 3, neue-h, 48)
+		line_letter(12,2)
+		position relative
+		margin: 0 0 calculo(1em, 32)
+		cubic(4400ms)
+	position relative
+	&#intro
+		height 72vh
+		header
+			dist(40, 130)
+			flex_column(center, flex-start)
+			position relative
+			height 70vh
+			width: 100vw
+			transform: translateY(0)
+			h3
+				color white
+				position: relative	
+				font(300,32, neue-h, 100)
+				flex_column(center, flex-start)
+				dist(220, -70)
+				height 100%
+				width 70%
+				reset()
+				cubic(5400ms)
+				span
+					line_letter(12, 4)
+					padding: 0;
+					color: white
+					scroll-behavior: smooth
+	&#page1
+	&#page2
+		p
+			dist(520, 60)
+	&#page1
+		header
+			h1
+				cubic(6400ms)
+				.jss1
+					i = 20em
+					min(i)
+					max(i*3.8)
+					position relative
+					margin: 0
+					resolucao(640, 580)
+					dist(-10, 0)
+	&#page2
+		header
+			h2
+				cubic(6500ms)
+				font(900, 176, neue-h, 96)
+				line_letter(-30, -10)
+				position relative
+				display flex
+				flex-direction column
+				text-align left
+				justify-content flex-start
+				align-items flex-start
+				margin 0
+				padding 0
+				dist(40, 40)
+				white-space: pre-wrap;
+				-webkit-font-smoothing: antialiased;
+		article
+			p
+				dist(520, 160)
+	&#page3
+		width: 80%
+		height 100%
+		smoo()
+		header
+			margin calculo(1em, 280) 0 calculo(1em, 130)
+			height auto
+			h3
+				color white
+				position: relative	
+				line_letter(8, -0.6)
+				font(300,74, neue-h, 80)
+				flex_column(center, flex-start)
+				dist(-1, 0)
+				reset()
+				cubic(6400ms)
+				smoo()
+				white-space pre-wrap
+		article	
+			width: 100%;
+			height 130vh
+			ul
+				display: flex;
+				align-items: flex-start
+				list-style: none
+				height 100%
+				reset()
+				justify-content: space-between
+				cubic(5400ms)
+				li
+					width: 29%
+					display: flex
+					align-items: center
+					justify-content flex-start
+					flex-direction: column
+					opacity 0
+					h4
+						font(600, 38, neue-k, 20)
+						width: 100%
+						line_letter(-2, -3.4)
+						dist(-1, 0)
+						reset()
+					span
+						font(500, 6, neue-k, 20)
+						width: 100%
+						line_letter(2.7, 0.61)
+						margin: calculo(1em, 20) 0 calculo(1em, 30)
+						display: block
+						color: #E42B6E;
+						height: calculo(1em, 40)
+					p
+						display: flex
+						align-items: center
+						dist(0, 0)
+						font(500, 2.5, neue-h, 20)
+						resolucao(150,34)
+						line_letter(10, 1.2)
+						reset()
+						width: 100%
+						border-bottom: 1px solid #2A2830
+						opacity 0
+						transition: none
+	&#page4
+		align-items: center
+		background-color: white
+		color: darker
+		height auto
+		padding: calculo(0.01em, 130) 0
+		header
+			h2
+				font(600, 118, neue-h, 99)
+				reset()
+				line_letter(-4, -6)
+				smoo()
+				dist(50, 0)
+				position relative
+				white-space pre-wrap
+				cubic(6400ms)
+		article
+			margin calculo(0.01em, 140) 0
+			position relative
+			dist(380, 0)
+			height 100%
+			header
+			.job_description
+				width: calculo(1em, 700);
+			&::before
+				content: " ";
+				display: block;
+				position absolute
+				dist(-270, 35)
+				resolucao(120,120)
+				padding: 0.1em
+			&.perfil_1::before
+				background: url('./images/photo_bianca.png') no-repeat;
+				background-size: cover
+			&.perfil_2::before
+				background: url('./images/photo_ale.png') no-repeat;
+				background-size: cover
+			header
+				padding-top 0
+				margin-bottom: calc(0.01em + 90 * ((100vw + 50vh) / 2 / 1120))
+				h4
+					font(700, 35, neue-k, 80)
+					line_letter(10, -2.8)
+					dist(-2, -2)
+					reset()
+					position relative
+					white-space pre-wrap
+					cubic(5400ms)
+				span
+					font(500, 3.2, neue-t, 80)
+					color #222225
+					line_letter(2, 0.3)
+					smoo()
+					white-space pre-wrap
+					display: flex
+					flex-direction: column
+					a
+						font(800, -1.4, neue-t, 60)
+						line_letter(8, 1)
+						dist(0, 25)
+						position relative
+						color magenta
+			p
+				dist(0, 90)	
+				font(400, 2.8, neue-t, 60)
+				width:100%
+				line_letter(10, 0.1)
+				smoo()
+				color #001
+				text-align: justify
+			.job_description
+				display: flex;
+				align-items: flex-start;
+				justify-content: space-between
+				p
+					width:47.3%
+	&#footer
+		position relative
+		width 100vw
+		display: flex
+		position relative
+		flex-direction: column
+		align-items: center
+		justify-content: center
+		header
+		article
+			width 80vw
+			left 0
+		header
+			display: flex
+			position relative
+			align-items: flex-start
+			justify-content: flex-start
+			flex-direction: column
+			padding: 0 0.5em
+			height auto
+			padding-top: calculo(1em, 200);
+			border-bottom: 1px solid #30303A
+			h3
+				font(300,74, neue-h, 62)
+				line_letter(9, 1.1)
+				color: #fff
+				margin: 0
+				position relative
+				text-align left
+				-webkit-font-smoothing: antialiased;
+				height auto
+				cubic(6400ms)
+			h5
+				font(600,12, neue-h, 20)
+				line_letter(8, 1.5)
+				dist(3,0)
+				position relative
+				padding: calculo(1em, 100) 0
+				cubic(4400ms)
+				
+		article
+			align-items: flex-start
+			justify-content: space-between
+			display: flex
+			position relative
+			top 0
+			padding-bottom: 10vh
+			p
+				align-items: flex-start
+				justify-content: center
+				display: flex
+				flex-direction: column
+				position relative
+				dist(0,0)
+				font(600,1.3, neue-k, 80)
+				line_letter(8, .5)
+				color: #E42B6E;
+				b
+					color: #fff
+					font(500,0.8, neue-k, 80)
+					line_letter(20, 1)
+				&.right
+					font(300,-3, neue-t, 70)
+					dist(0,70)
+					line_letter(10, 1)
+					position: relative
+					text-align: right
+					color white
+					align-items: flex-end
+					b
+						font(400,4, neue-t, 80)
+						text-align: right
+						width: auto
+						color white
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (orientation: portrait)
+	nav
+		.nav-wap
+			.logo
+				i = 2.2em
+				resolucao(20,20)
+				min(i)
+				max(i*1.8)
+				dist(40, 150)
+	section
+		&#intro
+			height 85vh
+			header
+				h3
+					font(300, 51, neue-h, 76)
+					dist(60, -60)
+					span
+						line_letter(18, 4)
+		&#page1
+		&#page2
+			article
+				p
+					position relative
+					font(500, 1, neue-h, 50)
+					line_letter(20, 3.2)
+		&#page1
+			article
+				p
+					dist(310, 100)
+		&#page2
+			article
+				p
+					dist(310, 200)
+		&#page1
+			header
+				h1
+					.jss1
+						i = 7.6em
+						min(i/4)
+						max(i*3.3)
+						resolucao(360,340)
+		&#page2
+			header
+				h2
+					font(900, 130, neue-h, 85)
+					line_letter(-20, -9)
+					dist(30, 150)
+		&#page3
+			header
+				h3
+					font(300, 75, neue-h, 85)
+					dist(-30, 110)
+			article
+				height auto
+				padding-bottom: calc(1em + 25 * ((100vmin)/100)) 
+				*
+					text-align: center
+				ul
+					flex-direction: column;
+					justify-content: center
+					align-items: center
+					height auto
+					li
+						width: 90%
+						align-items: center
+						margin: calc(1em + 5 * ((100vmin)/100)) 0
+						h4
+							width: 90%
+							text-align: center
+							font(700, 54, neue-k, 55)
+							line_letter(7, -2)
+						span
+							font(600, 5, neue-k, 60)
+							justify-content: center
+							align-items: center
+							display: flex
+							min-height 3em
+							padding: 0
+						p
+							justify-content: center
+							font(500, -0.6, neue-h, 60)
+							line_letter(10, 4)
+							align-items: center
+							height auto
+							border: 0px
+							margin: 0 0 calc(1em + 1.4 * ((100vmin)/100))
+		&#page4
+			display: flex;
+			flex-direction: column;
+			align-items: center
+			justify-content: center
+			left 0
+			position relative
+			padding: calculo(0.01em, 160) 0
+			header
+				dist(0, 0)
+				width: 100%
+				h2
+					font(800, 100, neue-h, 80)
+					line_letter(-3, 1)
+					white-space normal
+					
+			article
+				dist(0, 100)
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content center
+				*
+					text-align: center
+				&::before
+					position: relative
+					dist(0, -50)
+				header
+				.job_description
+					dist(0, 10)
+					width: 80vw
+					display: flex
+					flex-direction: column
+					align-items: center
+				header
+					h4
+						font(700, 55, neue-k, 55)
+						line_letter(10, -3)
+						width: 100vw
+						white-space: nowrap
+					span
+						dist(0, 2)
+						font(400, 2, neue-t, 72)
+						position relative
+						smoo()
+						width 100vw
+						line_letter(14, 2)
+						justify-content center
+						white-space: nowrap
+						a
+							width: auto
+							line_letter(8, 2)
+							margin-bottom: 1em
+				p
+				.job_description
+					flex-direction: column
+					p
+						width: auto
+						white-space pre-wrap
+						margin-bottom calculo(1em, 90)
+				p
+					font(300, 0.2, neue-t, 72)
+					width: auto
+					line_letter(21, 1)
+					display: flex;
+					align-items: center;
+					text-align: center;
+		&#footer
+			header
+				h3
+					font(300, 50, neue-h, 70)
+					line_letter(3, 3)
+			article
+				flex-direction: column
+				padding-bottom: 13vh
+				p
+					width: 100%
+					&.right
+						dist(0,40)
+						font(300,-7.5, neue-t, 70)
+						line_letter(23, 3)
