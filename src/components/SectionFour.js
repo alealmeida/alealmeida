@@ -1,105 +1,216 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import ScrollAnim from 'rc-scroll-anim';
-import screen from './mixins';
+import {withRouter} from 'react-router';
+import TweenOne from 'rc-tween-one';
+import QueueAnim from 'rc-queue-anim';
+import CONTENT from './CONTENT';
+import {Link} from 'react-router-dom';
+import Arrow from './Icons/Arrow'
+import ProgressiveImage from 'react-progressive-image';
 const ScrollElement = ScrollAnim.Element;
 const ScrollParallax = ScrollAnim.Parallax;
+const ScrollOverPack = ScrollAnim.OverPack;
 
-const LoadSection = () => {
-    const CONTENT = {
-        h2: `Uma  agência       nova  feita  de       gente  experiente.`,
-        items: [
-            {
-                classe: 'perfil_1',
-                perfil: 'Bianca  Aguiar',
-                cargo: 'Sócia Diretora de Atendimento',
-                email: 'bianca@agenciaonoff.com',
-                destaque: 'Com experiência de 15 anos na área de atendimento, passei por grandes agências c' +
-                        'omo Integer Outpromo, Accuracy, Bullet e Marketing House, sempre pensando no cli' +
-                        'ente em primeiro lugar com a excelência da entrega de um job completo.',
-                coluna_1: 'Atendi a grandes clientes como P&G, Reckitt Benckiser, Nissin, Mondelez, Mars, D' +
-                        'iageo, Philips, Adidas, Camil, Akzo Nobel, Raízen, Comgás, Ypê, Bridgestone, Gru' +
-                        'po DPSP e FedEx, trabalhando desde o briefing até sua conclusão junto às equipes' +
-                        ' de criação, planejamento, produção e operações.',
-                coluna_2: 'Forte expertise em promoções com sorteio e premiação instantânea, campanhas de i' +
-                        'ncentivo, ações de endomarketing, sampling, money back, concurso cultural, lança' +
-                        'mento de produto, ações de relacionamento, convenções e eventos, ações e materia' +
-                        'is de PDV, gerenciando da criação do conceito à execução e entrega.',
-                key: 1
-            }, {
-                classe: 'perfil_2',
-                perfil: 'Alexandre  Almeida',
-                cargo: 'Sócio Diretor de Criação',
-                email: 'ale@agenciaonoff.com',
-                destaque: 'Sou especialista em produtos digitais, com 15 anos de experiência atuando na con' +
-                        'strução de interfaces para grandes marcas e com passagem por agências como HUGE,' +
-                        ' Ogilvy & Mather, Wunderman, Integer Outpromo.',
-                coluna_1: 'Realizei trabalhos para clientes como Coca-Cola, Discovery Channel, Caixa, P&G, ' +
-                        'Reckitt Benckiser, Mars, Diageo, Oi, Vivo, Bradesco Seguros, Itaú, Banco Safra, ' +
-                        'Extra, Ponto Frio, Porto Seguro e Ministério da Cultura. Nesse período aprendi, ' +
-                        'com os processos de Design, a simplificar produtos a partir de modelos complexos' +
-                        ' através de metodologias e conceitos de inovação.',
-                coluna_2: 'Forte expertise em estratégia e concepção de produtos, passando por todas as eta' +
-                        'pas do processo da sua construção: pesquisas de imersão e descoberta, para ident' +
-                        'ificar os objetivos do negócio; em seguida é feita a ideação, para encontrar as ' +
-                        'necessidades do cliente; a partir daí, chega a etapa de criação do conceito e de' +
-                        'senvolvimento da interface. Acompanho toda a execução até sua entrega.',
-                key: 2
-            }
-        ]
-    };
-    const PROP = {
-        timeline_1: [
-            {
-                ease: 'easeOutBack',
-                playScale: [
-                    -1, -1
-                ],
-                opacity: 1,
-                scale: 0.88,
-                translateY: screen(10),
-                translateX: screen(-0.4)
-            }, {
-                opacity: 1,
-                ease: 'easeInOutElastic',
-                playScale: [
-                    -1.8, 3
-                ],
-                scale: 1,
-                translateY: screen(0),
-                translateX: screen(0)
-            }
-        ]
-    }
-    return (
-        <ScrollElement component='section' id='page4'>
-            <ScrollParallax always={true} component='header' animation={PROP.timeline_1}>
-                <h2>{CONTENT.h2}</h2>
-            </ScrollParallax>
-            {CONTENT
-                .items
-                .map((item) => (
-                    <ScrollParallax always={true} component='article' className={item.classe}>
-                        <header>
-                            <h4>{item.perfil}</h4>
-                            <span>
-                                {item.cargo}
-                                <a href={item.email}>{item.email}</a>
-                            </span>
-                            <p className='destaque'>{item.destaque}</p>
-                        </header>
-                        <div className='job_description'>
-                            <p>{item.coluna_1}</p>
-                            <p>{item.coluna_2}</p>
-                        </div>
-                    </ScrollParallax>
-                ))}
-        </ScrollElement>
-    );
-};
+const find = id => CONTENT.find(p => p.id === id);
 
 class SectionFour extends React.Component {
+    constructor({props, to, target, data}) {
+        super({props, data})
+        this.target = target
+        this.to = to
+        this.state = {
+            reverse: false,
+            items: [
+                {
+                    key: 1
+                }, {
+                    key: 2
+                }, {
+                    key: 3
+                }, {
+                    key: 4
+                }, {
+                    key: 5
+                }, {
+                    key: 6
+                }
+            ]
+        }
+
+        this.i = find(data.params.id);
+        this.onClick = this
+            .onClick
+            .bind(this);
+    }
+
+    onClick = (e) => {
+        e.preventDefault()
+        this.setState({reverse: true, items: []});
+        setTimeout(() => {
+            this
+                .props
+                .history
+                .push(this.to)
+        }, 1500)
+
+    }
     render() {
-        return (<LoadSection/>)
+        return (
+            <ScrollElement
+                id='home'
+                style={{
+                width: '100vw',
+                display: 'flex',
+                flexDirection: 'column'
+            }}>
+                <section
+                    style={{
+                    backgroundColor: this.i.bg
+                }}
+                    id={this.i.id}
+                    className='cases'>
+
+                    <ScrollOverPack
+                        appear={true}
+                        always={true}
+                        component='header'
+                        playScale={[0, 1]}>
+                        <QueueAnim
+                            interval={[120, 100]}
+                            delay={[0, 0]}
+                            duration={[100, 600]}
+                            ease={['easeOutQuint']}
+                            type={['bottom', 'top']}
+                            animConfig={[
+                            [
+                                {
+                                    opacity: [
+                                        1, 0
+                                    ],
+                                    y: [0, 10]
+                                }, {
+                                    opacity: [
+                                        1, 0
+                                    ],
+                                    y: [0, 10]
+                                }
+                            ]
+                        ]}>
+
+                            <Link
+                                key={this
+                                .state
+                                .items
+                                .map(key => 0)}
+                                to='/'
+                                className='logo'
+                                style={{
+                                color: this.i.cores.cor_chamada,
+                                opacity: 0,
+                                position: 'fixed'
+                            }}>
+
+                                Ale
+                                <br/>
+                                Almeida
+                                <span>
+                                    Product Design, Creative Direction
+                                </span>
+
+                            </Link>
+                        </QueueAnim>
+                        <QueueAnim
+                            interval={[120, 100]}
+                            delay={[0, 0]}
+                            duration={[1300, 300]}
+                            ease={['easeOutQuint']}
+                            leaveReverse
+                            type={['bottom', 'top']}
+                            animConfig={[
+                            [
+                                {
+                                    opacity: [
+                                        1, 0
+                                    ],
+                                    y: [0, 60]
+                                }, {
+                                    opacity: [
+                                        1, 0
+                                    ],
+                                    y: [0, 60]
+                                }
+                            ]
+                        ]}>
+
+                            <label
+                                key={this
+                                .state
+                                .items
+                                .map(key => 1)}
+                                style={{
+                                color: this.i.cores.cor_chamada
+                            }}>{this.i.letra}
+                            </label>
+                            <h3
+                                key={this
+                                .state
+                                .items
+                                .map((i) => i.key = 2)}>{this.i.h3}</h3>
+                            <h4
+                                key={this
+                                .state
+                                .items
+                                .map((item) => item.key = 3)}>{this.i.h4}</h4>
+                            <p
+                                key={this
+                                .state
+                                .items
+                                .map((item) => item.key = 4)}>{this.i.p}</p>
+                            <figure
+                                key={this
+                                .state
+                                .items
+                                .map((item) => item.key = 5)}><Arrow cor={this.i.cores.cor_chamada}/></figure>
+                            <Link
+                                key={this
+                                .state
+                                .items
+                                .map((item) => item.key = 6)}
+                                to={this.to}
+                                onClick={this.onClick}
+                                className='callcase'/>
+
+                        </QueueAnim>
+                        
+
+                    </ScrollOverPack><ScrollParallax
+                            location={this.i.id}
+                            component='article'
+                            always={true}
+                            animation={this.i.timeline}>
+                            <TweenOne
+                                reverse={this.state.reverse}
+                                id={CONTENT.id}
+                                component='div'
+                                key={CONTENT.id}
+                                className='interna cases'
+                                reverseDelay={0}
+                                animation={this.i.tween}
+                                style={{
+                                opacity: 0
+                            }}><ProgressiveImage
+                            src={this.i.image}
+                            placeholder={this.i.imagetiny}
+                          >
+                            {(src, loading) => (<img style={{ opacity: loading ? 0.1 : 1 }} src={src} alt="an image" />)}
+                          </ProgressiveImage>
+                            </TweenOne>
+                        </ScrollParallax>
+                </section>
+            </ScrollElement>
+        );
     }
 }
-export default SectionFour;
+
+export default withRouter(SectionFour);

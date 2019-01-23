@@ -1,5 +1,4 @@
 const gulp = require('gulp'),
-    // jshint = require('gulp-jshint'),
     gutil = require('gulp-util'),
     uglify = require('gulp-uglify'),
     stylus = require('gulp-stylus');

@@ -1,17 +1,12 @@
 import React from 'react';
-import {BrowserRouter as Router, Link} from 'react-router-dom';
-import Logo from './Logo'
-const Nav = () => {
+import { Link} from 'react-router-dom';
+const Nav = ({style,opacity}) => {
     return (
-        <nav>
             <div className='nav-wap'>
-                <Router>
-                    <Link to='/' className='nav-list'>
-                        <Logo />
+                    <Link to='/' className='logo' style={style}>
+                        Ale <br /> Almeida  <span> Product Design, Creative Direction </span>
                     </Link>
-                </Router>
             </div>
-        </nav>
     );
 };
 

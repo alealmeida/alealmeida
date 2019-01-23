@@ -7,16 +7,19 @@ const ScrollParallax = ScrollAnim.Parallax;
 
 const LoadIntro = () => {
     const QUEUEANIM = {
-        items: [
+        items: [ 
             {
-                children: 'Ajudamos a conectar marcas e',
-                key: 1
+                children: 'Sou Ale Almeida,',
+                key: 1,
+                classe: 'white'
             }, {
-                children: 'pessoas através de soluções em',
-                key: 2
+                children: 'Product Designer,',
+                key: 2,
+                classe: 'red'
             }, {
-                children: 'produtos e serviços.',
-                key: 3
+                children: 'em São Paulo',
+                key: 3,
+                classe: 'red'
             }
         ]
     };
@@ -25,44 +28,45 @@ const LoadIntro = () => {
                 opacity: 1,
                 ease: 'linear',
                 playScale: [
-                    0, 0.5
+                    0, 1
                 ],
                 translateY: '0'
             }, {
                 opacity: 1,
                 ease: 'easeInOutSine',
                 playScale: [
-                    0.5, 1.5
+                    1, 2.5
                 ],
-                translateY: screen(4)
+                translateY: screen(-4)
             }]
         ,
         ease: [
-            'easeInOutBack', 'easeInQuad'
+            'easeInOutElastic', 'easeInOutElastic'
         ],
-        interval: [
-            300, 1300
-        ],
+        interval: 
+            220,
         delay: [
-            400, 200
+            800, 2400
         ],
-        duration: [1600, 1300]
+        duration: [3800, 2200]
     }
     return (
             <ScrollElement component='section' id='intro'>
                 <ScrollParallax component="header" always={true} animation={PROP.timeline}>
+                    <label>
+                        Olá.
+                    </label>
                     <QueueAnim
-                        type={['bottom', 'top']}
+                        type={['right', 'left']}
                         component='h3'
                         forcedReplay
                         animConfig={[
-                        [
-                            {
-                                y: ['15vh', 0]
-                            }, {
-                                y: ['15vh', 0]
+                        
+                             {
+                                x: ['-15vw','15vw'],
+                                opacity:[1,0]
                             }
-                        ]
+                        
                     ]}
                         ease={PROP.ease}
                         interval={PROP.interval}
@@ -70,7 +74,7 @@ const LoadIntro = () => {
                         duration={PROP.duration}>{QUEUEANIM
                             .items
                             .map((item) => (
-                                <span key={item.key}>{item.children}</span>
+                                <span key={item.key} className={item.classe}>{item.children}</span>
                             ))}
                     </QueueAnim>
                 </ScrollParallax>
@@ -79,7 +83,6 @@ const LoadIntro = () => {
 };
 
 class Intro extends React.Component {
-    
     render() { 
         return (
                         <LoadIntro

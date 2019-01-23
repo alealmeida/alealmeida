@@ -6,8 +6,8 @@ const ScrollParallax = ScrollAnim.Parallax;
 
 const LoadSection = () => {
     const CONTENT = {
-        h3: 'Sinta-se à vontade para falar com a gente.',
-        descricao: 'Ficaremos felizes em ajudar.'
+        h3: 'Obrigado!',
+        descricao: 'Fique a vontade para entrar em contato.'
     };
     const PROP = {
         timeline_1: [
@@ -67,20 +67,11 @@ const LoadSection = () => {
                 <h5>{CONTENT.descricao}</h5>
             </ScrollParallax>
             <ScrollParallax component='article' always={true} animation={PROP.timeline_2}>
-                <p>
-                    <b>São Paulo
-                    </b>
-                    R. Luis Correia de Melo, 92, Cj 2301
-                    <br/>
-                    Chácara Santo Antônio, São Paulo, SP
-                    <br/>
-                    04726-220
-                    <br/>
-                    +55 11 2649.9729
+                <p> <a href='https://instagram.com/142.ale' target={'_blank'} className='white'> Instagram</a>, <a href='https://www.linkedin.com/in/almeidaale/' target={'_blank'} className='white'> Linkedin</a>,<a href='mailto:ale.142@icloud.com' target={'_blank'} className='white'> ale.142@icloud.com</a>. 
                 </p>
                 <p className='right'>
-                    <b>©</b>
-                    On/Off<br/>2019</p>
+                    <b>©</b><br/>
+                    2019<br/>Ale Almeida</p>
 
             </ScrollParallax>
         </ScrollElement>

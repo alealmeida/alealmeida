@@ -6,23 +6,51 @@ const ScrollParallax = ScrollAnim.Parallax;
 
 const LoadSection = () => {
     const CONTENT = {
-        h2: 'O  que  fazemos  de   melhor.',
+        h2: 'Experiência',
+        p: 
+        {
+            children: <span>Nesse período, tive o privilégio realizar melhorias significativas para os clientes e usuários das marcas: 
+                <br /> <br />
+                <b>Coca-Cola</b>
+                <b>Discovery Channel LATAM</b>
+                <b>Caixa </b>
+                <b> Procter & Gamble</b>
+                <b>Reckitt Benckiser</b>
+                <b>Mars &nbsp;  &nbsp;  DIAGEO</b>
+                <b>Vivo &nbsp;  &nbsp;  Oi</b>
+                <b>Bradesco Seguros</b>
+                <b>Credicard &nbsp;  &nbsp;  Itaú </b>
+                <b>Banco Safra</b>
+                <b>Extra &nbsp;  &nbsp;  Ponto Frio</b>
+                <b>Globo.com &nbsp;  &nbsp; SporTV</b>
+                <b>Porto Seguro</b></span>,
+            
+        },
         items: [
             {
-                children: 'Somos uma equipe multidisciplinar composta de profissionais de atendimento, cria' +
-                        'ção, planejamento, produção, operação e desenvolvimento web.',
+                children: 'Mars',
                 key: 1
             }, {
-                children: 'Nosso ambiente de trabalho está inserido nos moldes da cultura de inovação, dos ' +
-                        'quais a cocriação, metodologias ágeis, melhorias contínuas fazem parte do nosso ' +
-                        'processo criativo.',
+                children: 'Pop Credicard',
                 key: 2
             }, {
-                children: 'Planejamos e executamos campanhas integradas com a finalidade de desenvolver neg' +
-                        'ócios, melhorando e unificando a experiência de marca.',
+                children: 'Caixa',
                 key: 3
             }
-        ]
+            , {
+                children: 'Discovery Channel',
+                key: 3
+            }
+            , {
+                children: 'Vivo',
+                key: 3
+            }
+            , {
+                children: 'Reckitt Benkiser',
+                key: 3
+            }
+        ],
+        h3: 'Cases',
     };
     const PROP = {
         timeline_1: [
@@ -32,7 +60,7 @@ const LoadSection = () => {
                     -2, -2
                 ],
                 opacity: 0.8,
-                scale: 0.84,
+                scale: 0.9,
                 translateY: screen(15),
                 translateX: screen(-0.5)
             }, {
@@ -55,7 +83,7 @@ const LoadSection = () => {
         ],
         timeline_2: [
             {
-                opacity: 0.03,
+                opacity: 1,
                 ease: 'linear',
                 playScale: [
                     -1, -1
@@ -72,6 +100,20 @@ const LoadSection = () => {
                 ],
                 translateY: screen(0)
             }
+        ],
+        timeline_3: [
+            {
+                opacity: 0,
+                ease: 'linear',
+                playScale: [
+                    -1, -1
+                ],
+                translateY: screen(-10)
+            }, {
+                opacity: 1,
+                ease: 'linear',
+                playScale: [1.3, 1.6]
+            },
         ]
     }
     return (
@@ -79,19 +121,14 @@ const LoadSection = () => {
             <ScrollParallax
                 always={true}
                 component='header'
-                animation={PROP.timeline_1}
-                style={{
-                opacity: 0
-            }}>
+                animation={PROP.timeline_1}>
                 <h2>{CONTENT.h2}</h2>
             </ScrollParallax>
-            <ScrollParallax component='article' animation={PROP.timeline_2}>{CONTENT
-                    .items
-                    .map((item) => (
-                        <p key={item.key}>{item.children}</p>
-                    ))}
+            <ScrollParallax component='article' animation={PROP.timeline_2}>
+                <p>{CONTENT.p.children}</p>
+                <h3>{CONTENT.h3}</h3>
             </ScrollParallax>
-
+            <ScrollParallax component='div' animation={PROP.timeline_3} className='section_bg' />
         </ScrollElement>
     );
 };
