@@ -119,6 +119,8 @@ body
 	color magenta
 .white
 	color white
+.darker
+	color darker
 .container
 	.main
 		width: 100%;
@@ -138,8 +140,8 @@ section
 	header
 		reset()
 	p
-		font(300, 21, neue-h, 60)
-		line_letter(15,1.5)
+		font(500, 21, neue-h, 60)
+		line_letter(15,-0.5)
 		position relative
 		margin: 0 0 calculo(1em, 0, 30)
 		smoo()
@@ -161,8 +163,8 @@ section
 					opacity 0.6
 					position relative
 	&#intro
-		height 130vh
-		background-color: darker
+		height 110vh
+		background-color: white
 		header
 			dist(40, 250)
 			flex_column(center, flex-start)
@@ -170,7 +172,7 @@ section
 			width: 100vw
 			transform: translateY(0)
 			label
-				color white
+				color darker
 				position absolute
 				font(700,6, neue-h, 60)
 				dist(0, 60)
@@ -179,15 +181,15 @@ section
 			h3
 				color white
 				position: relative	
-				font(500,76, neue-t, 90)
+				font(500,46, neue-t, 70)
 				flex_column(flex-start, flex-start)
-				dist(320, 60)
+				dist(300, 100)
 				height 80vh
 				reset()
 				cubic(800ms)
 				opacity 1
 				span
-					line_letter(2.5, -5)
+					line_letter(3.2, -4)
 					padding: 0;
 					scroll-behavior: smooth
 					white-space: pre-wrap;
@@ -198,14 +200,14 @@ section
 
 	&#page1
 	&#page2
-		background-color: darker
+		background-color white
 		article
 			p
 				dist(380, 10)
 				cubic(600ms)
-				color: white
+				color: darker
 				i
-					font-weight: 400
+					font-weight: 500
 					margin: 0 1.2vmin 0 0.8vmin
 	&#page1
 		header

@@ -8,10 +8,11 @@ const ScrollParallax = ScrollAnim.Parallax;
 const LoadSection = () => {
     const CONTENT = {
         h2: 'Design.',
-        items: [{
-            children: 'Sou natural de Fortaleza e vivo em São Paulo há três anos, após uma temporada de seis no Rio de Janeiro.',
-            key: 1
-        },
+        items: [
+            {
+                children: 'Natural de Fortaleza no Ceará vivendo em São Paulo há três anos.',
+                key: 1
+            },
             {
                 children: <span>Profissional <label style={{textDecoration: 'line-through', color: 'rgb(94, 94, 94)'}}>híbrido</label> multidisciplinar, sou Designer especialista em produtos digitais. Ajudo a conectar marcas e pessoas através de experiências únicas e memoráveis.</span>,
                 key: 2
@@ -44,9 +45,9 @@ const LoadSection = () => {
                 playScale: [
                     -2, -2
                 ],
-                opacity: 0.6,
+                opacity: 0.8 ,
                 blur:'1px',
-                scale: 0.93,
+                scale: 0.83,
                 color: '#FF053E',
                 translateY: '0%',
                 translateX: screen(-0.3)
@@ -57,12 +58,12 @@ const LoadSection = () => {
                 playScale:[
                     0.6, 0.7
                 ],
-                color: 'white'
+                color: '#000006'
             }, {
                 opacity: 1,
                 ease: 'easeInOutElastic',
                 playScale: [
-                    -2, 2.8
+                    -2, 3.2
                 ],
                 scale: 1,
                 translateY:  '-5%',

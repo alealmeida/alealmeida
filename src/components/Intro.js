@@ -11,13 +11,13 @@ const LoadIntro = () => {
             {
                 children: 'Sou Ale Almeida,',
                 key: 1,
-                classe: 'white'
+                classe: 'darker'
             }, {
-                children: 'Product Designer,',
+                children: 'UX Designer',
                 key: 2,
                 classe: 'red'
             }, {
-                children: 'em São Paulo',
+                children: 'em São Paulo.',
                 key: 3,
                 classe: 'red'
             }
