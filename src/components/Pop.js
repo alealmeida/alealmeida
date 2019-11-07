@@ -3,13 +3,14 @@ import ScrollAnim from 'rc-scroll-anim';
 import { withRouter } from 'react-router';
 import QueueAnim from 'rc-queue-anim';
 import TweenOne from 'rc-tween-one';
+import Footer from './Footer';
 //images
-import hero from '../assets/css/images/case_pop_hero.png';
-import img_001 from '../assets/css/images/case_pop_img_001.png';
-import img_002 from '../assets/css/images/case_pop_img_002.jpg';
-import img_003 from '../assets/css/images/case_pop_img_003.jpg';
-import img_full from '../assets/css/images/case_pop_img_full.jpg';
-import Callback from '../main/Callback';
+import hero from './../assets/css/images/case_pop_hero.png';
+import img_001 from './../assets/css/images/case_pop_img_001.png';
+import img_002 from './../assets/css/images/case_pop_img_002.jpg';
+import img_003 from './../assets/css/images/case_pop_img_003.jpg';
+import img_full from './../assets/css/images/case_pop_img_full.jpg';
+import Callback from './Callback';
 
 const ScrollParallax = ScrollAnim.Parallax;
 const ScrollOverPack = ScrollAnim.OverPack;
@@ -30,40 +31,42 @@ const CONTENT = {
     bg: '#6613F1',
     bg_sec: '#6613F1',
     categoria: "Página de produto",
-    url: "deumpop.com.br",
-    tags: <span>Pesquisa · AI · UI</span>,
-    h4: `Site de lançamento da Pop,
-    a nova maquininha da Credicard.`,
+    url: "www.deumpop.com.br",
+    tags: [<span>User Research<br /> Information Architeture <br /> User Interface </span>],
+    h4: `Site da Pop.`,
+    titulo_projeto: `Lançamento da nova maquininha da Credicard.`,
     objetivo: "Usando 'Dê um pop nas suas vendas' como frase de chamada, a Credicard acabou de lançar a Pop, a maquininha de mão com chip, wifi e sem aluguel.",
+    titulo_meupapel: `Meu papel no projeto`,
+    meupapel: ['Desenhei todo o fluxo de navegação do site, desde o momento de trazer o usuário para a Landing Page à partir das mídias sociais, passando pela captação de leads com o passo zero dentro da página de produtos, até o momento final da solicitação da Pop dentro do site e acompanhamento do pedido e entrega do produto.'],
     items: [
         {
-        bg: '#fff',
-        titulo: <h6>Meu papel</h6>,
-    texto: [<p>Desenhei todo o fluxo de navegação do site, desde o momento de trazer o usuário para a Landing Page à partir das mídias sociais, passando pela captação de leads com o passo zero dentro da página de produtos, até o momento final da solicitação da Pop dentro do site e acompanhamento do pedido e entrega do produto. <br />Crição do conceito visual de acordo com o <i>Look and Feel</i> estabelecido no <i>Guide</i> da Credicard e todo o User Interface Design.
-        
-    </p>,]
-    }, {
-        bg: '#fff',
-        titulo: <h5>Visual Concept</h5>,
-    },
-        {
-        bg: '#00FEF1',
-    texto: [
-    <img className='img_part pop_001' src={img_001} alt='' />]
+        bg: 'rgb(130,249,242,0.8)',
+        classe: 'image full margin padding',
+        conteudo:[<img className='img_part pop_001' src={img_001} alt='' />]
     },
     {
-    bg: '#f2f3f4',
-texto: [
-<img className='img_part pop_002' src={img_002} alt='' />]
+   bg: '#fff',
+   classe: 'content',
+    titulo: [<h5 className="bx_margin">Interface</h5>],
+    conteudo: [
+    <p>Crição do conceito visual de acordo com o <i>Look and Feel</i> estabelecido no <i>Branding Book</i> da Credicard e todo o User Interface Design.</p>,<div className="m_margin" />]
+},
+    {
+    bg: 'rgb(70,125,165,0.08)',
+    classe: 'image full margin nopadding',
+    conteudo:[<img className='img_part pop_002' src={img_002} alt='' />]
 },
 {
-bg: '#000005',
-texto: [
+    bg: 'rgb(130,249,242,1)',
+classe: 'image full margin nopadding',
+conteudo:[
 <img className='img_part pop_003' src={img_003} alt='' />]
 },{
-    bg: '#111114',
-    texto: [
-    <img className='img_part pop_004' src={img_full} alt='' />]
+    
+    bg: 'rgb(130,249,242,0.8)',
+    classe: 'image full margin padding',
+    conteudo: [
+    <img className='img_part pop_full' src={img_full} alt='' />]
     },
     ]
 };
@@ -216,7 +219,7 @@ class Pop extends React.Component {
     render() {
         return (
             <div style={{width: '100%', height: '100%', background: CONTENT.bg}}>
-            <TweenOne id={CONTENT.id} reverse={this.state.reverse} reverseDelay={1000}  component='div' key={CONTENT.id}  className='interna cases' animation={[{opacity:0, duration: 0, delay: 0, left:'0' },{opacity:1, ease: 'easeInOutExpo',duration: 2000, delay: 0, left:'0' }  ]} style={{opacity:0}}>
+            <TweenOne id={CONTENT.id} reverse={this.state.reverse} reverseDelay={600}  component='div' key={CONTENT.id}  className='interna cases' animation={[{opacity:0, duration: 0, delay: 0, left:'0' },{opacity:1, ease: 'easeInOutExpo',duration: 2000, delay: 0, left:'0' }  ]} style={{opacity:0}}>
                                 <Callback
                                     key={this.index}
                                     to={this.to}
@@ -286,15 +289,21 @@ class Pop extends React.Component {
                     <section
                         className='destaque'
                         style={{
-                        color: Cores.cor_ter,
-                        backgroundColor: CONTENT.bg_sec
+                        backgroundColor: CONTENT.bg_destaque
                     }}>
                         <ScrollParallax component='header' always={true} animation={PROP.timeline_2}>
-                            <label>{CONTENT.ano}</label>
-                            <label>{CONTENT.categoria}</label>
-                            <label>{CONTENT.tags}</label>
-                            <label className='url'>{CONTENT.url}</label>
-                            <h4>{CONTENT.h4}</h4>
+                            <div class="side-content">
+                                <label className='ano'>{CONTENT.ano}</label>
+                                <label className='tags'>{CONTENT.tags}</label>
+                                <label className='url'>{CONTENT.url}</label>
+                            </div>
+                            <div class="main-content">
+                                <h4 class="dark">{CONTENT.h4}</h4>
+                                <h5 class="dark">{CONTENT.titulo_projeto}</h5>
+                                <p>{CONTENT.objetivo}</p>
+                                <h6 class="dark">{CONTENT.titulo_meupapel}</h6>
+                                <p>{CONTENT.meupapel}</p>
+                            </div>
                         </ScrollParallax>
                         <ScrollParallax
                             always={true}
@@ -303,7 +312,6 @@ class Pop extends React.Component {
                             opacity: 1,
                             playScale: [-1, -0.2]
                         }}>
-                            <p>{CONTENT.objetivo}</p>
     
                         </ScrollParallax>
                     </section>
@@ -311,18 +319,20 @@ class Pop extends React.Component {
                     {CONTENT
                         .items
                         .map((i) => (
-                            <ScrollParallax always={true} component='section' style={{backgroundColor: i.bg}} className='content'>
+                            <ScrollParallax always={true} component='section' style={{backgroundColor: i.bg}} className={i.classe}>
                                 <header>
                                     {i.titulo}
                                 </header>
                                 <article>
-                                    {i.texto}
+                                    {i.conteudo}
                                 </article>
                             </ScrollParallax>
                         ))}
+
+                        <Footer/>
                         </TweenOne>
                         </div>
-        );
+            );
     };
 }
 

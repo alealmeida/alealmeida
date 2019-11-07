@@ -70,7 +70,7 @@ class SectionCases extends React.Component {
             reverseDelay={10}
             component='div'
             key={CONTENT.id}
-            className='main'
+            className={'main '+this.i.id}
             animation={[
             {
                 opacity: 1,
@@ -98,72 +98,67 @@ class SectionCases extends React.Component {
                         appear={true}
                         always={true}
                         component='header'
-                        playScale={[0, 1]}>
+                        playScale={[-.1, 2.2]}>
+                            {/* <QueueAnim
+                        interval={[120, 100]}
+                        delay={[0, 0]}
+                        duration={[100, 600]}
+                        ease={['easeOutQuint']}
+                        type={['bottom', 'top']}
+                        animConfig={[
+                        [
+                            {
+                                opacity: [
+                                    1, 0
+                                ],
+                                y: [0, 10]
+                            }, {
+                                opacity: [
+                                    1, 0
+                                ],
+                                y: [0, 10]
+                            }
+                        ]
+                    ]}>
+
+                        <Link
+                        key={0}
+                            to='/'
+                            className='logo'
+                            style={{
+                            color: this.i.cores.cor_chamada,
+                            opacity: 0,
+                            position: 'fixed'
+                        }}>
+
+                            Ale
+                            <br/>
+                            Almeida
+                            <span>
+                                Product Design, Creative Direction
+                            </span>
+
+                        </Link>
+                    </QueueAnim> */}
                         <QueueAnim
-                            interval={[120, 100]}
-                            delay={[0, 0]}
-                            duration={[100, 600]}
-                            ease={['easeOutQuint']}
-                            type={['bottom', 'top']}
-                            animConfig={[
-                            [
-                                {
-                                    opacity: [
-                                        1, 0
-                                    ],
-                                    y: [0, 10]
-                                }, {
-                                    opacity: [
-                                        1, 0
-                                    ],
-                                    y: [0, 10]
-                                }
-                            ]
-                        ]}>
-
-                            <Link
-                            key={0}
-                                to='/'
-                                className='logo'
-                                style={{
-                                color: this.i.cores.cor_chamada,
-                                opacity: 0,
-                                position: 'fixed'
-                            }}>
-
-                                Ale
-                                <br/>
-                                Almeida
-                                <span>
-                                    Product Design, Creative Direction
-                                </span>
-
-                            </Link>
-                        </QueueAnim>
-                        <QueueAnim
-                            interval={[120, 100]}
-                            delay={[0, 0]}
-                            duration={[1300, 300]}
-                            ease={['easeOutQuint']}
+                            interval={[220, 100]}
+                            delay={[1200, 0]}
+                            duration={[1200, 300]}
+                            ease={['easeInOutQuint']}
                             
                            leaveReverse={this.state.reverse}
                             type={['bottom', 'top']}
                             animConfig={[
-                            [
+                            
                                 {
-                                    opacity: [
-                                        1, 0
-                                    ],
-                                    y: [0, 160]
-                                }, {
                                     opacity: [
                                         1, 0
                                     ],
                                     y: [0, 60]
                                 }
-                            ]
+                            
                         ]}>
-                            <label
+                            {/* <label
                                 key={estado.map((i) => i.key = 1)} 
                                 style={{
                                 color: this.i.cores.cor_chamada, 
@@ -174,19 +169,19 @@ class SectionCases extends React.Component {
                                 key={estado.map((i) => i.key = 2)}
                                 style={{
                                 opacity: 0
-                            }}>{this.i.h3}</h3>
+                            }}>{this.i.h3}</h3> */}
                             <h4
-                                key={estado.map((i) => i.key = 3)}
+                                key={estado.map((i) => i.key = 1)}
                                 style={{
                                 opacity: 0
                             }}>{this.i.h4}</h4>
                             <p
-                                key={estado.map((i) => i.key = 4)}
+                                key={estado.map((i) => i.key = 2)}
                                 style={{
                                 opacity: 0
                             }}>{this.i.p}</p>
                             <figure
-                                key={estado.map((i) => i.key = 5)}
+                                key={estado.map((i) => i.key = 3)}
                                 style={{
                                 opacity: 0
                             }}><Arrow cor={this.i.cores.cor_chamada}/></figure>

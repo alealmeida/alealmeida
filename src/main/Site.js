@@ -7,7 +7,6 @@ import Mars from '../components/Mars';
 import Caixa from '../components/Caixa';
 import Dkids from '../components/Dkids';
 import SectionOne from '../components/SectionOne';
-import SectionTwo from '../components/SectionTwo';
 import CONTENT from '../components/CONTENT';
 import SectionCases from '../components/SectionCases';
 import Footer from '../components/Footer';
@@ -38,7 +37,7 @@ const routes = [
     }, {
         index: 3,
         path: "/caixa",
-        main: () => <Caixa to={routes[0].path + routes[3].hashs} component={routes[0].main}/>,
+    main: () => <Caixa to={routes[0].path + routes[3].hashs} component={routes[0].main}/>,
         hashs: '#caixa'
     }, {
         index: 4,
@@ -57,7 +56,7 @@ const LoadSite = () => {
             animation={[{opacity:0}, {duration: 20,opacity:1}]}
             style={{opacity:0}}
             >
-            <Intro/><SectionOne/><SectionTwo/> {CONTENT.map((i) => (<SectionCases
+            <Intro/><SectionOne/> {CONTENT.map((i) => (<SectionCases
                 data={{
                 params: {
                     id: i.id

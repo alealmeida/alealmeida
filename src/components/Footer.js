@@ -6,8 +6,8 @@ const ScrollParallax = ScrollAnim.Parallax;
 
 const LoadSection = () => {
     const CONTENT = {
-        h3: 'Obrigado!',
-        descricao: 'Fique a vontade para entrar em contato.'
+        h3: 'Obrigado pela visita!',
+        descricao: 'Você pode entrar em contato por'
     };
     const PROP = {
         timeline_1: [
@@ -19,7 +19,6 @@ const LoadSection = () => {
                 opacity: 0.8,
                 scale: 0.85,
                 translateY: screen(0),
-                translateX: screen(-2)
             }, {
                 opacity: 1,
                 ease: 'easeInOutElastic',
@@ -28,7 +27,6 @@ const LoadSection = () => {
                 ],
                 scale: 1,
                 translateY: screen(-3),
-                translateX: screen(0)
             }, {
                 ease: 'easeInQuint',
                 opacity: 1,
@@ -61,20 +59,15 @@ const LoadSection = () => {
 
     }
     return (
-        <ScrollElement component='section' id='footer'>
-            <ScrollParallax component='header' always={true} animation={PROP.timeline_1}>
+        <div id='footer'>
+            <ScrollParallax component='header' always={true} >
                 <h3>{CONTENT.h3}</h3>
-                <h5>{CONTENT.descricao}</h5>
             </ScrollParallax>
-            <ScrollParallax component='article' always={true} animation={PROP.timeline_2}>
-                <p> <a href='https://instagram.com/142.ale' target={'_blank'} className='white'> Instagram</a>, <a href='https://www.linkedin.com/in/almeidaale/' target={'_blank'} className='white'> Linkedin</a>,<a href='mailto:ale.142@icloud.com' target={'_blank'} className='white'> ale.142@icloud.com</a>. 
+            <ScrollParallax component='article' always={true}>
+                <p> Você pode entrar em contato comigo pelo email <a href='mailto:ale.142@icloud.com' target={'_blank'} className='white'> ale.142@icloud.com</a> ou acessar o <a href='https://www.linkedin.com/in/almeidaale/' target={'_blank'} className='white'>meu Linkedin</a> e <a href='https://instagram.com/142.ale' target={'_blank'} className='white'> Instagram</a>. 
                 </p>
-                <p className='right'>
-                    <b>©</b><br/>
-                    2019<br/>Ale Almeida</p>
-
             </ScrollParallax>
-        </ScrollElement>
+        </div>
     );
 };
 
