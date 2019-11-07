@@ -3,13 +3,14 @@ import ScrollAnim from 'rc-scroll-anim';
 import { withRouter } from 'react-router';
 import QueueAnim from 'rc-queue-anim';
 import TweenOne from 'rc-tween-one';
+import Footer from './Footer';
 //images
-import hero from '../assets/css/images/case_mms_hero.png';
-import img_001 from '../assets/css/images/case_mms_img_001.png';
-import img_002 from '../assets/css/images/case_mms_img_002.jpg';
-import img_003 from '../assets/css/images/case_mms_img_003.png';
-import img_004 from '../assets/css/images/case_mms_img_004.jpg';
-import Callback from '../main/Callback';
+import hero from './../assets/css/images/case_mms_hero.png';
+import img_001 from './../assets/css/images/case_mms_img_001.png';
+import img_002 from './../assets/css/images/case_mms_img_002.jpg';
+import img_003 from './../assets/css/images/case_mms_img_003.png';
+import img_004 from './../assets/css/images/case_mms_img_004.jpg';
+import Callback from './Callback';
 
 const ScrollParallax = ScrollAnim.Parallax;
 const ScrollOverPack = ScrollAnim.OverPack;
@@ -20,7 +21,7 @@ const Cores = {
     cor_ter: '#FFF977'
 }
 const CONTENT = {
-    id: 'case2',
+    id: 'mars',
     h3: <h3 style={{
         color: '#E20009'
     }}>m<sub>&</sub>m<sub>'</sub>s</h3>,
@@ -28,52 +29,50 @@ const CONTENT = {
     cor: '#E20007',
     cor_sec: '#FFF600',
     // cor_sec: '#542A14',
-    bg: '#FFF600',
+    bg: 'rgb(255,240,50,1)',
     bg_sec: '#E91432',
     // bg_sec: '#FFE900',
     categoria: "Hotsite promocional",
-    tags: <span>AI · UI</span>,
-    h4: `Desenho do hotsite do
-    Festival do Amendoim`,
-    objetivo: "O m&m’s de amendoim, o novo queridinho das festas juninas, apresenta seu 1º Festival de Prêmios. Foi com essa frase de chamada que lançamos a nova campanha da m&m's para as festas juninas, projeto do qual desenhei a interface do hotsite para cadastro e participação dos consumidores na promoção de m&m's",
-    items: [
-        {
-        bg: '#fff',
-        titulo: <h5>Desafio</h5>,
-    texto: [<p>O <i>Guide Line</i> de m&m's era baseado no formato minimalista e estimulava que explorássemos inserções das suas personagens ao longo da página.
-    Disponibilizamos, então, as personagens de forma que pudessem interagir com a <i>Single Page</i> nas várias resoluções de devices.
-    <br/>
-    A tipografia também esteve presente na arquitetura de informação, pois a família de fontes da marca tem escalas de peso na hierarquia de conteúdo.</p>,],
-    },
-        {
-        bg: '#fff',
-        titulo: <h6>Meu papel</h6>,
-    texto: [<p>Trabalhei o fluxo do hotsite, desde os requisitos funcionais até as regras na mecânica da promoção.
-      Criei o conceito visual e atuei no design de interfaces.
-        Realizei testes de usabilidade em dispositivos móveis e testes a/b.
-    </p>,]
-    }, {
-        bg: '#fff',
-        titulo: <h5>Visual Concept</h5>,
-    },
+    tags: [<span>User Research<br /> Information Architeture <br /> User Interface </span>],
+    h4: `Festival do Amendoim.`,
+    titulo_projeto: `Desenho fo hotsite promocional da MM's`,
+    objetivo: "O m&m’s de amendoim, o novo queridinho das festas juninas, apresenta seu 1º Festival de Prêmios. Essa foi a frase usada na nova campanha da m&m's para as festas juninas, projeto do qual desenhei a interface do hotsite para cadastro e participação dos consumidores na promoção de m&m's",
+    titulo_desafio: `Desafio`,
+    desafio: ["O ",<i>Guide Line</i>," de m&m's era baseado no formato minimalista e estimulava que explorássemos inserções das suas personagens ao longo da página. Disponibilizamos, então, as personagens de forma que pudessem interagir com a ",<i>Single Page</i>," nas várias resoluções de devices."],
+    titulo_meupapel: `Meu papel no projeto`,
+    meupapel: [<p>Trabalhei o fluxo do hotsite, desde os requisitos funcionais até as regras na mecânica da promoção.
+        Criei o conceito visual e atuei no design de interfaces.
+          Realizei testes de usabilidade em dispositivos móveis e testes a/b.
+      </p>,],items: [
         {
         bg: '#D80E2A',
-    texto: [
-    <img className='img_part mms_001' src={img_001} alt='' />]
+        classe: 'image full margin padding',
+        conteudo:[<img className='img_part mms_001' src={img_001} alt='' />]
     },
     {
+   bg: '#fff',
+   classe: 'content',
+    titulo: [<h5 className="bx_margin">Interface</h5>],
+    conteudo: [
+    <p>Crição do conceito visual de acordo com o <i>Look and Feel</i> estabelecido no <i>Branding Book</i> da Mars e todo o User Interface Design.</p>,<div className="m_margin" />]
+},
+    {
     bg: '#FFDE00',
-texto: [
-<img className='img_part mms_002' src={img_002} alt='' />]
+    classe: 'image full margin padding',
+    conteudo:[
+<img className='img_part mms_002' src={img_002} alt='' />,]
 },
 {
-bg: '#000004',
-texto: [
+bg: '#D80E2A',
+classe: 'image full margin padding',
+conteudo:[
 <img className='img_part mms_003' src={img_003} alt='' />]
 },
 {
-bg: '#181819',
-texto: [<br/>,<br/>,
+// bg: 'rgb(255,247,161,1)',
+bg: 'rgb(70,125,165,0.08)',
+classe: 'image full margin padding',
+conteudo:[
 <img className='img_part mms_004' src={img_004} alt='' />]
 },
     ]
@@ -227,7 +226,7 @@ class Mars extends React.Component {
     render() {
         return (
             <div style={{width: '100%', height: '100%', background: CONTENT.bg}}>
-            <TweenOne id={CONTENT.id} reverse={this.state.reverse} reverseDelay={2000}  component='div' key={CONTENT.id}  className='interna cases' animation={[{opacity:0, duration: 0, delay: 0,  left:'0' },{opacity:1, ease: 'easeInOutExpo',duration: 2000, delay: 0, left:'0' }  ]} style={{opacity:0}}>
+            <TweenOne id={CONTENT.id} reverse={this.state.reverse} reverseDelay={600}  component='div' key={CONTENT.id}  className='interna cases' animation={[{opacity:0, duration: 0, delay: 0, left:'0' },{opacity:1, ease: 'easeInOutExpo',duration: 2000, delay: 0, left:'0' }  ]} style={{opacity:0}}>
                                 <Callback
                                     key={this.index}
                                     to={this.to}
@@ -297,15 +296,23 @@ class Mars extends React.Component {
                     <section
                         className='destaque'
                         style={{
-                        color: Cores.cor_ter,
-                        backgroundColor: CONTENT.bg_sec
+                        backgroundColor: CONTENT.bg_destaque
                     }}>
                         <ScrollParallax component='header' always={true} animation={PROP.timeline_2}>
-                            <label>{CONTENT.ano}</label>
-                            <label>{CONTENT.categoria}</label>
-                            <label>{CONTENT.tags}</label>
-                            <label style={{fontSize: '1em',textTransform: 'lowercase', marginTop:'1em'}}>{CONTENT.url}</label>
-                            <h4>{CONTENT.h4}</h4>
+                            <div class="side-content">
+                                <label className='ano'>{CONTENT.ano}</label>
+                                <label className='tags'>{CONTENT.tags}</label>
+                                <label className='url'>{CONTENT.url}</label>
+                            </div>
+                            <div class="main-content">
+                                <h4 class="dark">{CONTENT.h4}</h4>
+                                <h5 class="dark">{CONTENT.titulo_projeto}</h5>
+                                <p>{CONTENT.objetivo}</p>
+                                <h6 class="dark">{CONTENT.titulo_desafio}</h6>
+                                <p>{CONTENT.desafio}</p>
+                                <h6 class="dark">{CONTENT.titulo_meupapel}</h6>
+                                <p>{CONTENT.meupapel}</p>
+                            </div>
                         </ScrollParallax>
                         <ScrollParallax
                             always={true}
@@ -314,7 +321,6 @@ class Mars extends React.Component {
                             opacity: 1,
                             playScale: [-1, -0.2]
                         }}>
-                            <p>{CONTENT.objetivo}</p>
     
                         </ScrollParallax>
                     </section>
@@ -322,18 +328,20 @@ class Mars extends React.Component {
                     {CONTENT
                         .items
                         .map((i) => (
-                            <ScrollParallax always={true} component='section' style={{backgroundColor: i.bg}} className='content'>
+                            <ScrollParallax always={true} component='section' style={{backgroundColor: i.bg}} className={i.classe}>
                                 <header>
                                     {i.titulo}
                                 </header>
                                 <article>
-                                    {i.texto}
+                                    {i.conteudo}
                                 </article>
                             </ScrollParallax>
                         ))}
+
+                        <Footer/>
                         </TweenOne>
                         </div>
-        );
+            );
     };
 }
 

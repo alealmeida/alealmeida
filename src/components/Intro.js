@@ -1,80 +1,109 @@
 import React from 'react';
 import ScrollAnim from 'rc-scroll-anim';
-import screen from './mixins';
 import QueueAnim from 'rc-queue-anim';
+import screen from './mixins';
 const ScrollElement = ScrollAnim.Element;
 const ScrollParallax = ScrollAnim.Parallax;
 
 const LoadIntro = () => {
     const QUEUEANIM = {
-        items: [ 
+        items: [
             {
+                tag: 'h3',
                 children: 'Sou Ale Almeida,',
+                key: 0,
+                classe: 'darker'
+            }, 
+            {
+                tag: 'h3',
+                children: 'UX & Service Designer em São Paulo.',
                 key: 1,
                 classe: 'darker'
             }, {
-                children: 'UX Designer',
+                tag: 'p',
+                children: ['Profissional',<label style={{textDecoration: 'line-through'}}> híbrido</label>, ' multidisciplinar.'],
                 key: 2,
-                classe: 'red'
+                classe: 'grey'
             }, {
-                children: 'em São Paulo.',
+                tag: 'p',
+                children:  'Sou designer de produtos digitais e ajudo a conectar marcas e pessoas através de experiências únicas e incríveis.',
                 key: 3,
-                classe: 'red'
+                classe: 'grey'
             }
-        ]
+        ],
+        
     };
     const PROP = {
         timeline:  [{
                 opacity: 1,
                 ease: 'linear',
                 playScale: [
-                    0, 1
+                    -2, -1.5
                 ],
-                translateY: '0'
+                translateY: 0
             }, {
-                opacity: 1,
-                ease: 'easeInOutSine',
+                opacity: 0,
+                ease: 'easeInOutCubic',
                 playScale: [
-                    1, 2.5
+                    0.8, 2
                 ],
-                translateY: screen(-4)
+                translateY: screen(40)
             }]
         ,
-        ease: [
-            'easeInOutElastic', 'easeInOutElastic'
+        ease: [ 'easeInOutElastic','easeInOutElastic'
         ],
         interval: 
-            220,
+        [70, 70],
         delay: [
-            800, 2400
+            500, 1400
         ],
-        duration: [3800, 2200]
+        anim: [         
+            {
+                 x: [0,335],
+                                opacity:[1,0]
+            }
+        
+    ],
+        duration: [2600, 2200],
+        type: ['right', 'left']
     }
     return (
             <ScrollElement component='section' id='intro'>
-                <ScrollParallax component="header" always={true} animation={PROP.timeline}>
-                    <label>
-                        Olá.
-                    </label>
+                <ScrollParallax component="header" always={true} animation={PROP.timeline}> 
+                    
                     <QueueAnim
-                        type={['right', 'left']}
-                        component='h3'
+                        type={['bottom', 'top']}
                         forcedReplay
-                        animConfig={[
-                        
-                             {
-                                x: ['-15vw','15vw'],
-                                opacity:[1,0]
+                        animConfig={[         
+                            {
+                                 y: [0,175],
+                                                opacity:[1,0]
                             }
                         
                     ]}
-                        ease={PROP.ease}
+                        interval={[170, 70]}
+                            delay={[0,10]}
+                            duration={[3000, 3000]}
+                            ease={[ 'easeInOutCubic'
+                        ]}
+                            component="label"
+                            > <label key='0'> Olá! </label>
+                    </QueueAnim>
+                    <QueueAnim
+                        type={PROP.type}
+                        forcedReplay
+                        animConfig={PROP.anim}
                         interval={PROP.interval}
-                        delay={PROP.delay}
-                        duration={PROP.duration}>{QUEUEANIM
+                            delay={PROP.delay}
+                            duration={PROP.duration}
+                            ease={PROP.ease}
+                        //    leaveReverse={this.state.reverse}
+                            // style={{opacity: 0}}
+                            >
+                        {QUEUEANIM
                             .items
                             .map((item) => (
-                                <span key={item.key} className={item.classe}>{item.children}</span>
+                                <item.tag key={item.key} className={item.classe}>{item.children}</item.tag>
                             ))}
                     </QueueAnim>
                 </ScrollParallax>

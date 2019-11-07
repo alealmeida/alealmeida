@@ -1,9 +1,9 @@
 import React from 'react';
-import img_pop from '../assets/css/images/case_pop.jpg';
-import img_mars from '../assets/css/images/case_mms.png';
-import imagetiny from '../assets/css/images/case_mms_tiny.png';
-import img_caixa from '../assets/css/images/case_caixa.png';
-import img_dkids from '../assets/css/images/case_dkids.png';
+import img_pop from './../assets/css/images/case_pop.jpg';
+import img_mars from './../assets/css/images/case_mms.png';
+import imagetiny from './../assets/css/images/case_mms_tiny.png';
+import img_caixa from './../assets/css/images/case_caixa.png';
+import img_dkids from './../assets/css/images/case_dkids.png';
 const CONTENT = [
     {
         index: 2,
@@ -11,7 +11,7 @@ const CONTENT = [
         to: '/mars/',
         cores: {
             cor_chamada: '#E20007',
-            bg_chamada: '#FEF100',
+            bg_chamada: 'rgb(255,240,50,1)',
             cor_primaria: '#fff',
             cor_secundaria: '#333344',
             bg_primario: '#2779B3',
@@ -31,26 +31,19 @@ Festival  do  Amendoin.`,
                 opacity: 1,
                 ease: 'linear',
                 playScale: [
-                    -5, -5
+                    -5, -1
                 ],
-                translateY: '0',
+                translateY: '-10vh',
                 // translateX: '15%',
-                scale: 1.8
-            }, {
-                opacity: 1,
-                ease: 'easeOutCubic',
-                playScale: [
-                    0.7, 1.5
-                ],
-                translateX: '-1%'
+                scale: 1.2
             }, {
                 ease: 'easeInOutBack',
                 playScale: [
-                    -1.7, 2.2
+                    -1.5, 2
                 ],
-                scale: 0.90,
-                translateY: '102vh',
-                translateX: '.4%'
+                scale: 1.8,
+                translateY: '6vh',
+                translateX: '4.4%'
             }
         ],
         tween: [
@@ -78,7 +71,7 @@ Festival  do  Amendoin.`,
         to: '/pop/',
         cores: {
             cor_chamada: '#732CD4',
-            bg_chamada: '#fff',
+            bg_chamada: 'rgb(118,247,203,1)',
             cor_primaria: '#fff',
             cor_secundaria: '#2779B3',
             bg_primario: '#333344',
@@ -96,21 +89,19 @@ maquininha da Credicard.`,
         timeline: [
             {
                 opacity: 1,
-                ease: 'linear',
+                ease: 'easeInOutSine',
                 playScale: [
-                    -1, -1
+                    -2, -1
                 ],
-                scale: .21,
-                translateX: '10vw',
-                translateY: '-56vh'
+                scale: 1,
+                translateY: '12vh'
             }, {
                 ease: 'easeInOutSine',
                 playScale: [
-                    0.1, 1
+                    -.5, 2.3
                 ],
-                scale: 0.9,
-                translateX: '-2vw',
-                translateY: '56vh'
+                scale: 1,
+                translateY: '44vh'
             }
         ],
         tween: [
@@ -138,8 +129,8 @@ maquininha da Credicard.`,
         target: '_self',
         exact: true,
         cores: {
-            cor_chamada: '#003CB9',
-            bg_chamada: '#BBFF09',
+            cor_chamada:  'rgb(10,139,185,1)',
+            bg_chamada: 'rgb(130,226,1,0.9)',
             cor_primaria: '#fff',
             cor_secundaria: '#2779B3',
             bg_primario: '#333344',
@@ -157,17 +148,17 @@ maquininha da Credicard.`,
                 playScale: [
                     -1, -1
                 ],
-                scale: .34,
-                translateX: '3vw',
-                translateY: '-16vh'
+                scale: .7,
+                translateX: '0vw',
+                translateY: '-3vh'
             }, {
                 ease: 'easeInOutSine',
                 playScale: [
                     0.2, 1.2
                 ],
-                scale: 0.68,
-                translateX: '-6vw',
-                translateY: '30vh'
+                scale: 0.8,
+                translateX: '2vw',
+                translateY: '0vh'
             }
         ],
         tween: [
@@ -196,7 +187,7 @@ maquininha da Credicard.`,
         exact: true,
         cores: {
             cor_chamada: '#1A76C0',
-            bg_chamada: '#fff',
+            bg_chamada: 'rgb(7,95,165,0.06)',
             cor_primaria: '#fff',
             cor_secundaria: '#2779B3',
             bg_primario: '#333344',
@@ -205,7 +196,7 @@ maquininha da Credicard.`,
         image: img_caixa,
         letra: 'C',
         h3: 'Caixa',
-        h4: 'Redesign',
+        h4: 'Caixa',
         p: `Nova interface.
 Bonita. Limpa. Direta.`,
         timeline: [
@@ -215,17 +206,17 @@ Bonita. Limpa. Direta.`,
                 playScale: [
                     -1, -1
                 ],
-                scale: .35,
-                translateX: '14vw',
-                translateY: '-116vh'
+                scale: .75,
+                translateX: '0vw',
+                translateY: '0vh'
             }, {
                 ease: 'easeInOutQuint',
                 playScale: [
                     -1.4, 2.4
                 ],
                 scale: 0.8,
-                translateX: '-5vw',
-                translateY: '56vh'
+                translateX: '-3vw',
+                translateY: '10vh'
             }
         ],
         tween: [

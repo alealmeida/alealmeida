@@ -7,35 +7,21 @@ const ScrollParallax = ScrollAnim.Parallax;
 
 const LoadSection = () => {
     const CONTENT = {
-        h2: 'Design.',
-        items: [
+        h2: 'Design',
+        items: [ 
             {
-                children: 'Natural de Fortaleza no Ceará vivendo em São Paulo há três anos.',
-                key: 1
-            },
-            {
-                children: <span>Profissional <label style={{textDecoration: 'line-through', color: 'rgb(94, 94, 94)'}}>híbrido</label> multidisciplinar, sou Designer especialista em produtos digitais. Ajudo a conectar marcas e pessoas através de experiências únicas e memoráveis.</span>,
-                key: 2
-            },  
-            {
-                children: <span>Como Product Designer, atuei em todas as etapas do processo de construção de produtos, na interseção entre estratégia, concepção e implementação, transformando sistemas à partir de modelos complexos em interfaces bonitas e fáceis de usar.</span>,
+                children: <span>Atuo como UX & Service Designer na <i>Triggo Labs</i> alocado na <a href='https://brazil.integer.com' className='magenta'> Natura</a>, líder de mercado em venda direta de cosméticos, onde trabalho melhorando a experiência das consultoras no uso das plataformas digitais da empresa.</span>,
                 key: 3
-            }
-            , 
+            }, 
             {
-                children: <span>Atualmente, sou <i>Design Lead </i> na <a href='https://brazil.integer.com' className='magenta'> Integer\Outpromo</a>, com passagens anteriores pelas agências <b>Ogilvy&Mather</b>, <b>Wunderman</b>, <b>Red Ventures</b> e <b>HUGE</b>.</span>,
-                key: 4
-            }
-            , 
-            {
-                children: <span>Apaixonado por inovação e tecnologia, nas horas vagas atuo no front-end, desenvolvendo interações e prototipando interfaces responsivas com HTML 5, CSS e ReactJS.</span>,
+                children: <span>Apaixonado por inovação e tecnologia, sou Desenvolvedor Web nas horas vagas, construindo interfaces responsivas em HTML 5, CSS e ReactJS. Tenho passagens pela <i>Ogilvy&Mather, Wunderman, Integer\Outpromo e HUGE</i>. </span>,
                 key: 5
             }
-            , 
-            {
-                children: [<span>▷ <a href='https://instagram.com/142.ale' target={'_blank'} className='white'> Instagram</a></span>,<span>▷ <a href='https://www.linkedin.com/in/almeidaale/' target={'_blank'} className='white'> Linkedin</a></span>,<span>▷ <a href='mailto:ale.142@icloud.com' target={'_blank'} className='white'> ale.142@icloud.com</a></span>,],
-                                key: 6
-                            },
+            // , 
+            // {
+            //     children: [<span>▷ <a href='https://instagram.com/142.ale' target={'_blank'} className='white'> Instagram</a></span>,<span>▷ <a href='https://www.linkedin.com/in/almeidaale/' target={'_blank'} className='white'> Linkedin</a></span>,<span>▷ <a href='mailto:ale.142@icloud.com' target={'_blank'} className='white'> ale.142@icloud.com</a></span>,],
+            //                     key: 6
+            //                 },
         ]
     };
     const PROP = {
@@ -45,10 +31,9 @@ const LoadSection = () => {
                 playScale: [
                     -2, -2
                 ],
-                opacity: 0.8 ,
+                opacity: 0.9 ,
                 blur:'1px',
                 scale: 0.83,
-                color: '#FF053E',
                 translateY: '0%',
                 translateX: screen(-0.3)
             },{
@@ -56,16 +41,17 @@ const LoadSection = () => {
                 opacity: 1,
                 blur:'0px', 
                 playScale:[
-                    0.6, 0.7
+                    0.5, 0.8
                 ],
-                color: '#000006'
+                color: '#000006',
+                class: 'dark'
             }, {
                 opacity: 1,
                 ease: 'easeInOutElastic',
                 playScale: [
-                    -2, 3.2
+                    -2, 2.6
                 ],
-                scale: 1,
+                scale: 1.1,
                 translateY:  '-5%',
                 translateX: screen(0)
             }
@@ -73,24 +59,25 @@ const LoadSection = () => {
         timeline_2: 
             [
                 {
-                    opacity: 0.03,
+                    opacity: 0,
                     ease: 'linear',
                     playScale: [
-                        -1, -1
+                        -2, -2
                     ],
-                    translateY: screen(-4)
+                    translateY: screen(-10)
                 },{
                     opacity: 1,
-                    ease: 'linear',
+                    ease: 'easeInOutCubic',
                     playScale: [
-                        0.1, 0.3
-                    ]
+                        0.2, 0.6
+                    ],
+                    translateY: screen(-14)
                 }, {
                     ease: 'linear',
                     playScale: [
-                        -0.6, 1.2
+                        0.8, 1.9
                     ],
-                    translateY: screen(-10)
+                    translateY: screen(5)
                 }
             ]
         
@@ -101,7 +88,7 @@ const LoadSection = () => {
                 component='header'
                 always={true}
                 animation={PROP.timeline_1}>
-                <h2>{CONTENT.h2}
+                <h2 className="grape">{CONTENT.h2}
                 </h2>
             </ScrollParallax>
             <ScrollParallax
