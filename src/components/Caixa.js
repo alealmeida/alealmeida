@@ -83,7 +83,7 @@ const ScrollOverPack = ScrollAnim.OverPack;
             }
             ,
             {   
-                bg: 'rgb(7,95,165,0.22)',
+                bg: 'rgb(26,38,49,0.05)',
                 classe: 'image full margin padding',
                 conteudo: [
                     <p className="m_margin">Visão macro dos acessos:
@@ -123,7 +123,7 @@ const ScrollOverPack = ScrollAnim.OverPack;
     <p>Aplicamos sessões de Card Sorting para chegarmos ao modelo mental do usuário.</p>,<div className="m_margin" /> ]
         },
     {   
-        bg: 'rgb(7,95,165,0.12)',
+        bg: 'rgb(26,38,49,0.2)',
         classe: 'image full margin padding',
     conteudo: [<img className='caixa_005' src={img_005} alt='' /> ]
         },

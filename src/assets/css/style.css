@@ -998,7 +998,8 @@ body .logo span {
   width: 105vw;
 }
 .interna section.content,
-.interna section.image {
+.interna section,
+.interna section .image {
   margin: 0;
   position: relative;
   z-index: 3;
@@ -1006,31 +1007,38 @@ body .logo span {
   display: flex;
 }
 .interna section.content .bxx_margin,
-.interna section.image .bxx_margin {
+.interna section .bxx_margin,
+.interna section .image .bxx_margin {
   margin: calc(1em + (0 + 80) * (80vw + 20vh) / 1000) 0 calc(1em + (0 + 10) * (80vw + 20vh) / 1000);
 }
 .interna section.content .bx_margin,
-.interna section.image .bx_margin {
+.interna section .bx_margin,
+.interna section .image .bx_margin {
   margin: calc(1em + (0 + 60) * (80vw + 20vh) / 1000) 0 calc(1em + (0 + 10) * (80vw + 20vh) / 1000);
 }
 .interna section.content .b_margin,
-.interna section.image .b_margin {
+.interna section .b_margin,
+.interna section .image .b_margin {
   margin: calc(1em + (0 + 40) * (80vw + 20vh) / 1000) 0 calc(1em + (0 + 5) * (80vw + 20vh) / 1000);
 }
 .interna section.content .mx_margin,
-.interna section.image .mx_margin {
+.interna section .mx_margin,
+.interna section .image .mx_margin {
   margin: calc(1em + (0 + 30) * (80vw + 20vh) / 1000) 0 calc(1em + (0 + 5) * (80vw + 20vh) / 1000);
 }
 .interna section.content .m_margin,
-.interna section.image .m_margin {
+.interna section .m_margin,
+.interna section .image .m_margin {
   margin: calc(1em + (0 + 15) * (80vw + 20vh) / 1000) 0 calc(1em + (0 + 2) * (80vw + 20vh) / 1000);
 }
 .interna section.content .s_margin,
-.interna section.image .s_margin {
+.interna section .s_margin,
+.interna section .image .s_margin {
   margin: calc(1em + (0 + 5) * (80vw + 20vh) / 1000) 0 calc(1em + (0 + 5) * (80vw + 20vh) / 1000);
 }
 .interna section.content .sx_margin,
-.interna section.image .sx_margin {
+.interna section .sx_margin,
+.interna section .image .sx_margin {
   margin: calc(1em + (0 + 2) * (80vw + 20vh) / 1000) 0 calc(1em + (0 + 2) * (80vw + 20vh) / 1000);
 }
 .interna section.image {
@@ -1229,7 +1237,22 @@ body .logo span {
   box-shadow: 1px 0px 10vmin -12px rgba(0,0,0,0.2);
 }
 .interna section.image img.dkids_001 {
-  width: calc(1em + (400 + 420) * (80vw + 20vh) / 1000);
+  left: calc(260 * ((80vw + 20vh)  / 1000));
+  top: calc(-200 * ((34vw + 66vh) / 1000));
+  width: calc(1em + (400 + 540) * (80vw + 20vh) / 1000);
+  margin-bottom: calc(1em + (400 + -555) * (80vw + 20vh) / 1000);
+}
+.interna section.image img.dkids_003 {
+  width: calc(1em + (400 + 240) * (80vw + 20vh) / 1000);
+}
+.interna section.image img.dkids_004 {
+  width: calc(1em + (400 + 360) * (80vw + 20vh) / 1000);
+  margin: calc(1em + (0 + 10) * (80vw + 20vh) / 1000) 0;
+}
+.interna section.image img.dkids_005 {
+  width: calc(1em + (400 + 360) * (80vw + 20vh) / 1000);
+  box-shadow: 1px 0px 5vmin -12px rgba(0,0,0,0.2);
+  margin: calc(1em + (0 + 20) * (80vw + 20vh) / 1000) 0;
 }
 .interna section.image img.dkids_full {
   width: calc(1em + (180 + 300) * (80vw + 20vh) / 1000);

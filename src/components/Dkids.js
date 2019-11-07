@@ -7,6 +7,9 @@ import Footer from './Footer';
 //images
 import hero from './../assets/css/images/case_dkids_hero.jpg';
 import img_001 from './../assets/css/images/case_dkids_img_001.png';
+import img_003 from './../assets/css/images/case_dkids_img_003.png';
+import img_004 from './../assets/css/images/case_dkids_img_004.png';
+import img_005 from './../assets/css/images/case_dkids_img_005.png';
 import img_full from './../assets/css/images/case_dkids_img_full.png';
 import Callback from './Callback';
 
@@ -14,8 +17,8 @@ const ScrollParallax = ScrollAnim.Parallax;
 const ScrollOverPack = ScrollAnim.OverPack;
 const Cores = {
     cor: '#00009C',
-    cor_sec_1: '#6DC900',
-    cor_sec_2: '#6DC900',
+    cor_sec_1: 'rgb(1,102,195,0.85)',
+    cor_sec_2: 'rgb(1,102,195,0.85)',
     cor_ter: '#00009F'
 }
 const CONTENT = {
@@ -27,7 +30,7 @@ const CONTENT = {
     cor: '#E20007',
     cor_sec: '#FFF600',
     // cor_sec: '#542A14',
-    bg: '#BBFF09',
+    bg:'rgb(1,102,195,0.85)',
     bg_sec: '#7BDF00',
     // bg_sec: '#FFE900',
     categoria: "Portal",
@@ -47,7 +50,7 @@ const CONTENT = {
     {
         // bg: 'rgb(255,202,67,1)',
 
-        bg: 'rgb(126,221,255,0.4)',
+        bg: 'rgb(31,156,236,1)',
         classe: 'image full margin nopadding',
     conteudo: [
     <img className='img_part dkids_001' src={img_001} alt='' />]
@@ -55,37 +58,110 @@ const CONTENT = {
         {
             bg: '#fff',
             classe: 'content',
-    titulo: [<h5 className="bx_margin">Descoberta</h5>,<h6 className="s_margin">Benchmark</h6>],
-    conteudo: [<p>As pesquisas de Benchmark nos mostraram que o Portal da Discovery Kids demandaria duas etapas distintas:
-    </p>,
-    <p>Uma Landing Page, que consistirá em um Web App com um Conteúdo voltado para os pais e a sua navegação será composta de Chamadas para o conteúdo interno;
-    </p>,
-    <p>As páginas internas terão a Arquitetura de Informação toda pensada para o target do canal: as crianças. Esse conteúdo principal exibirá vídeos, fotos, jogos online, infos da programação televisiva e dos personagens em destaque.
-    </p>,
+    titulo: [<h5 className="bx_margin">Imersão</h5>,<h6 className="s_margin">Entendendo o Negócio</h6>],
+    conteudo: [
+        <p>Conversamos com stakeholders e descobrimos que em Canais de TV como a Discovery Channel, o aumento de receita está 100% ligado ao aumento do engajamento. É assim para usuário que assina a TV e para quem usa as plataformas digitais.
+        </p>
     ]
-    }, 
+}, 
+{   
+    bg: '#fff',
+    classe: 'content',
+    titulo: [<h6 className="mx_margin">Estudos de mercado</h6>],
+    conteudo: [
+        <p>Iniciamos uma pesquisa de mercado, buscando players do mesmo segmento para usarmos como base das nossas pesquisas de Benchmarking.
+        </p>,<p className="s_margin">Percebemos que, além do apelo visual voltado para o público infantil, havia outro elemento de extrema importância: <i>as personagens</i>. 
+    </p>,<div className="s_margin" />,
+        ]
+},{
+        
+    bg: 'rgb(251,144,66,1)',
+    classe: 'image full margin padding',
+conteudo: [<img className='img_part dkids_004' src={img_004} alt='' />]
+}, 
+{   
+    bg: '#fff',
+    classe: 'content',
+    titulo: [],
+    conteudo: [
+        <p className="mx_margin">Ainda lá no início dos estudos, decidimos que não iríamos nos restringir a usar outros sites de canais de TV como referência e que consideraríamos, também, players que estão fazendo o conteúdo editorial e de vídeo corretamente.
+    </p>
+         
+        ]
+},
+{
+    bg: '#fff',
+    classe: 'content',
+titulo: [<h5 className="mx_margin">Descoberta</h5>,<h6 className="s_margin">Benchmark</h6>],
+conteudo: [<p>
+    Nos profundarmos nas pesquisas e encontramos padrões na distribuição do conteúdo, dividido por perfil de usuário.
+   <br />1. Conteúdo para as crianças.
+   <br />2. Áreas de acesso para os pais.
+</p>,<div className="m_margin" />,
+]
+},
+// {
+//     bg: '#fff',
+//     classe: 'content',
+// titulo: [<h5 className="b_margin">Descoberta</h5>,<h6 className="s_margin">Benchmark</h6>],
+// conteudo: [<p>As pesquisas de Benchmark nos mostraram que o Portal da Discovery Kids demandaria duas etapas distintas:
+// </p>,
+// <p>As páginas internas terão a Arquitetura de Informação toda pensada para o target do canal: as crianças. Esse conteúdo principal exibirá vídeos, fotos, jogos online, infos da programação televisiva e dos personagens em destaque.
+// </p>,<div className="m_margin" />,
+// ]
+// },
+    {
+        
+        bg: 'rgb(50,39,124,1)',
+        classe: 'image full margin padding',
+    conteudo: [<img className='img_part dkids_003' src={img_003} alt='' />]
+    },
+    {
+        bg: '#fff',
+        classe: 'content',
+    titulo: [<h6 className="bx_margin">Pesquisas com Usuários</h6>],
+    conteudo: [<p >Conversamos com os pais e percebemos que eles se preocupavam em como os seus filhos consomem conteúdo online.
+    </p>,
+                    <blockquote cite="executivo da caixa" className="sx_margin">
+                        Tenho um filho de 3 anos e todo o conteúdo que ele vê no meu tablet, passa por mim antes. Preciso garantir que meu filho esteja acessando conteúdo 100% confiável.
+                    </blockquote>,
+    ]
+    },
         {
         bg: '#fff',
         classe: 'content',
-        titulo: [<h5 className="bx_margin">Validação</h5>,<h6 className="s_margin">Testes de usabilidade</h6>],
-        conteudo: [<p>Realizamos Testes de Usabilidade com crianças de 2 a 8 anos que, por sua vez se mostraram, além de familiarizadas com o Device ( iPad ), curiosas para acessar todo o conteúdo interativo, navegando para os próximos vídeos e jogos.
-    </p>,<p>Fizemos, então, uma nova rodada de testes, desta vez dando acesso, para as crianças, ao conteúdo que antes era para os pais e, em quase todos os casos, a navegação foi fluida e consistente em direção à conclusão da jornada sugerida.
+        titulo: [<h5 className="mx_margin">Ideação</h5>,<h6 className="s_margin">Abordagem</h6>],
+        conteudo: [<p>A nossa premissa foi encontrar o ponto ideal entre dar o controle à criança, mas deixar os pais confiantes de que essa é uma área segura.
+            </p>,<p className="s_margin">Também levamos em consideração que as crianças acessam o site por conta própria, mas não esperamos que elas possam navegar em uma interface complicada.
+    </p>,<p>Desenharíamos, então, o site principal direcionado para crianças e uma forma fácil e confiável de acessar esse conteúdo para os pais.
     </p>,
     ]
     }, 
     {
         bg: '#fff',
         classe: 'content',
-    titulo: [<h5 className="bx_margin">Interface</h5>],
-        conteudo: '',
+    titulo: [<h5 className="mx_margin">Interface</h5>],
+        conteudo: [<p>Realizamos Testes de Usabilidade com crianças de 2 a 8 anos que, por sua vez se mostraram, além de familiarizadas com o Device ( iPad ), curiosas para acessar todo o conteúdo interativo, navegando para os próximos vídeos e jogos.
+            </p>,<p>Fizemos, então, uma nova rodada de testes, desta vez dando acesso, para as crianças, ao conteúdo que antes era para os pais e, em quase todos os casos, a navegação foi fluida e consistente em direção à conclusão da jornada sugerida.
+            </p>,<div className="m_margin" />
+            ]
+    },
+    {
+        
+        bg: 'rgb(1,102,195,0.85)',
+        classe: 'image full margin padding',
+    conteudo: [<img className='img_part dkids_005' src={img_005} alt='' />]
+    },
+        {
+        bg: '#fff',
+        classe: 'content',
+        titulo: [<h5 className="bx_margin">Validação</h5>,<h6 className="s_margin">Testes de usabilidade</h6>],
+        conteudo: [<p>Realizamos Testes de Usabilidade com crianças de 2 a 6 anos que, por sua vez se mostraram, além de familiarizadas com o Device ( iPad ), curiosas para acessar todo o conteúdo interativo, navegando para os próximos vídeos e jogos.
+    </p>,<p>Fizemos, então, uma nova rodada de testes, desta vez dando acesso, para as crianças, ao conteúdo que antes era para os pais e, em quase todos os casos, a navegação foi fluida e consistente em direção à conclusão da jornada sugerida.
+    </p>,<div className="m_margin" />
+    ]
     },
     
-{
-    
-    bg: 'rgb(7,95,165,0.12)',
-    classe: 'image full margin padding',
-conteudo: [<img className='img_part dkids_full' src={img_full} alt='' />]
-},
     ]
 };
 const PROP = {

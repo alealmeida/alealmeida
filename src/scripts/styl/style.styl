@@ -822,7 +822,9 @@ body
 	section
 		a = 30
 		&.content,
-		&.image
+		&
+		
+		.image
 			margin: 0
 			position relative
 			z-index: 3
@@ -975,7 +977,18 @@ body
 					width: calculo(1em,180, 10*a)
 					box-shadow: 1px 0px 10vmin -12px rgba(0,0,0,0.2)
 				&.dkids_001
-					width: calculo(1em,400, 14*a)
+					dist(260,-200)
+					width: calculo(1em,400, 18*a)
+					margin-bottom: calculo(1em,400, -18.5*a)
+				&.dkids_003
+					width: calculo(1em,400, 8*a)
+				&.dkids_004
+					width: calculo(1em,400, 12*a)
+					margin: calculo(1em,0, 10) 0
+				&.dkids_005
+					width: calculo(1em,400, 12*a)
+					box-shadow: 1px 0px 5vmin -12px rgba(0,0,0,0.2)
+					margin: calculo(1em,0, 20) 0
 				&.dkids_full
 					width: calculo(1em,180, 10*a)
 				&.caixa_001
