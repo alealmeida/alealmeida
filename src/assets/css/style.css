@@ -438,6 +438,7 @@ body .logo span {
 .main section.cases#pop {
   width: 100%;
   height: 60vh;
+  background-image: radial-gradient(at 90% 10%, rgba(255,255,255,0.2) 5%, rgba(255,255,255,0) 60%);
 }
 .main section.cases#pop header {
   position: absolute;
@@ -473,6 +474,7 @@ body .logo span {
   box-shadow: 1px 0px 9vmin -12px rgba(0,0,0,0.3);
 }
 .main section.cases#dkids {
+  background-image: radial-gradient(at -10% 10%, rgba(255,255,255,0.25) 5%, rgba(255,255,255,0) 40%);
   width: 100%;
 }
 .main section.cases#dkids header {
