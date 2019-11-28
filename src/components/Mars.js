@@ -223,9 +223,9 @@ class Mars extends React.Component {
             }
       
         };
-    render() {
-        return (
-            <div style={{width: '100%', height: '100%', background: CONTENT.bg}}>
+        render() {
+            return (
+                <div style={{width: '100%', height: '100%', background: CONTENT.bg}}>
             <TweenOne id={CONTENT.id} reverse={this.state.reverse} reverseDelay={600}  component='div' key={CONTENT.id}  className='interna cases' animation={[{opacity:0, duration: 0, delay: 0, left:'0' },{opacity:1, ease: 'easeInOutExpo',duration: 2000, delay: 0, left:'0' }  ]} style={{opacity:0}}>
                                 <Callback
                                     key={this.index}
@@ -233,6 +233,7 @@ class Mars extends React.Component {
                                     component={this.component}
                                     hash={'#'+CONTENT.id}
                                     cor1={Cores.cor}
+                                    project={CONTENT.h4}
                                     cor2={Cores.cor_sec_2} style={{opacity:1}} onClick={this.onClick} />
                     <ScrollOverPack appear={true} always={true} component='section' id='hero'
                             style={{
@@ -244,7 +245,7 @@ class Mars extends React.Component {
                             location={CONTENT.id}
                             component='header'
                             interval={PROP.interval}
-                            delay={PROP.delay}
+                            delay={[1000, 1000]}
                             duration={PROP.duration}
                             forcedReplay
                             leaveReverse
@@ -299,18 +300,18 @@ class Mars extends React.Component {
                         backgroundColor: CONTENT.bg_destaque
                     }}>
                         <ScrollParallax component='header' always={true} animation={PROP.timeline_2}>
-                            <div class="side-content">
+                            <div className="side-content">
                                 <label className='ano'>{CONTENT.ano}</label>
                                 <label className='tags'>{CONTENT.tags}</label>
                                 <label className='url'>{CONTENT.url}</label>
                             </div>
-                            <div class="main-content">
-                                <h4 class="dark">{CONTENT.h4}</h4>
-                                <h5 class="dark">{CONTENT.titulo_projeto}</h5>
+                            <div className="main-content">
+                                <h4 className="dark">{CONTENT.h4}</h4>
+                                <h5 className="dark">{CONTENT.titulo_projeto}</h5>
                                 <p>{CONTENT.objetivo}</p>
-                                <h6 class="dark">{CONTENT.titulo_desafio}</h6>
+                                <h6 className="dark">{CONTENT.titulo_desafio}</h6>
                                 <p>{CONTENT.desafio}</p>
-                                <h6 class="dark">{CONTENT.titulo_meupapel}</h6>
+                                <h6 className="dark">{CONTENT.titulo_meupapel}</h6>
                                 <p>{CONTENT.meupapel}</p>
                             </div>
                         </ScrollParallax>
@@ -324,7 +325,6 @@ class Mars extends React.Component {
     
                         </ScrollParallax>
                     </section>
-                
                     {CONTENT
                         .items
                         .map((i) => (
@@ -342,7 +342,7 @@ class Mars extends React.Component {
                         </TweenOne>
                         </div>
             );
-    };
-}
+        };
+    }
 
 export default withRouter(Mars);

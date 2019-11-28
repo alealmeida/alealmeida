@@ -1,9 +1,12 @@
 import React from 'react';
+import TweenOne from 'rc-tween-one';
 import ScrollAnim from 'rc-scroll-anim';
 import Nav from './Nav';
 import { Link} from 'react-router-dom';
+import QueueAnim from 'rc-queue-anim';
 import ArrowBack from './../components/Icons/ArrowBack';
 const ScrollElement = ScrollAnim.Element;
+const ScrollOverPack = ScrollAnim.OverPack;
 
 const ScrollParallax = ScrollAnim.Parallax;
 
@@ -17,6 +20,7 @@ class Callback extends React.Component {
         cor1,
         cor2,
         hash,
+        project,
         onClick
     }) {
         super(props)
@@ -24,11 +28,29 @@ class Callback extends React.Component {
         const position2 = 'absolute'
         this.state = {
             css:  {
-                height: '100'
+                height: '100',
+                position: position1,
+                
             },
-            css2: {
-                color: cor1,
+            bg: {
+                opacity:0
             },
+            reverse: false,
+            items: [
+                {
+                    key: 1
+                }, {
+                    key: 2
+                }, {
+                    key: 3
+                }, {
+                    key: 4
+                }, {
+                    key: 5
+                }, {
+                    key: 6
+                }
+            ],
             fill: cor1,
             cssNoPosition: true,
             theposition: window.pageYOffset
@@ -39,8 +61,7 @@ class Callback extends React.Component {
         this.component = component
         this.cor1 = cor1
         this.cor2 = cor2
-        this.position1 = position1
-        this.position2 = position2
+        this.project = project
         this.hash = hash
         this.onClick = onClick
         this.theposition= window.pageYOffset
@@ -49,21 +70,39 @@ class Callback extends React.Component {
         window.addEventListener('load', this.setState({
             fill: this.cor1
         }));
+        this.prev = window.scrollY;
+        window.addEventListener('scroll', e => this.handleNavigation(e));
       }
     
     
+    handleNavigation = (e) => {
+        const window = e.currentTarget;
+    
+        if (this.prev > window.scrollY) {
+            console.log("scrolling up");
+        } else if (this.prev < window.scrollY) {
+            console.log("scrolling down");
+        }
+        this.prev = window.scrollY;
+    };
     setCss = (e) => {
         const css = this.state.css;
+        const bg = this.state.bg;
         const theposition= window.pageYOffset
+        
         if (theposition >= 110) {
-            css.position = 'fixed';
+            css.position = "fixed";
             css.top = '';
+            css.color = this.cor2
+            bg.opacity = 0
         } else {
-            css.position = 'absolute';
+            css.position = "absolute"
             css.top = '';
+            css.color = this.cor2
+            bg.opacity = 1
         }
         this.setState({
-                css,
+                css,bg,
                 theposition
             });
     };
@@ -71,15 +110,18 @@ class Callback extends React.Component {
         const theposition= window.pageYOffset
         if (theposition >= 200) {
             this.setState({
-                fill: this.cor2
+                fill: this.cor2,
+                color: this.cor2
             });
         } else {
             this.setState({
-                fill: this.cor1
+                fill: this.cor1,
+                color: this.cor2
             });
         }
     };
     render() {
+        const estado = this.state.items
         return (
             <ScrollElement id="Scroll-Pack">
                 <ScrollParallax
@@ -94,7 +136,6 @@ class Callback extends React.Component {
                                     ],
                                     opacity: 1 ,
                                     top: '47vh',
-                                    onComplete: () => { this.setCss('start'); },
                                 },{
                                     ease: 'easeInOutQuint',
                                     playScale:[
@@ -102,13 +143,36 @@ class Callback extends React.Component {
                                     ],
                                     top: '0vh',
                                     opacity: 1 ,
-                                    onStart: () => { this.setCss('start'); },
-                                    onComplete: () => { this.setCss('start'); },
+                                    // onStart: () => { this.setCss('start'); },
+                                    // onComplete: () => { this.setCss('start'); },
                                 }
                             
                       ]}
-                    style={this.state.css}
-                   >
+                   > <ScrollParallax
+                   key='3' 
+                   location="Scroll-Pack"
+       appear={true} always={true} 
+       animation={[{          
+        ease: 'easeInOutCubic',
+        playScale: [
+            -1,-1
+        ],
+        scale: 1.6,
+        width: '118%'
+    },{          
+           ease: 'easeInOutCubic',
+           playScale: [
+               2.1,2.38
+           ],
+           opacity: 1,
+           scale: 1,
+           top:0,
+           width: '100%'
+       }
+   
+]}
+className='barra_topo'> <h4>{this.project}</h4>
+       </ScrollParallax>
                         <Link
                             key={this.index}
                             to={this.to}
@@ -117,7 +181,44 @@ class Callback extends React.Component {
                             onClick={this.onClick}
                             className='callback'
                             
-                            >
+                            ><ScrollParallax id="comp"
+                            component='label'
+                            location="Scroll-Pack"
+                            style={{color: this.cor1}}
+                            key='1' 
+                            className='logo'
+                appear={true} always={true} 
+                animation={[{       
+                    ease: 'easeInOutCubic',
+                    playScale: [
+                        -1, -.5
+                    ],
+                    opacity: 1,
+                    scale: 1,
+                },{
+
+                    ease: 'easeInOutCubic',
+                    playScale: [
+                        1.6, 1.8
+                    ],
+                    translateX: '-6%',
+                    top: 0,
+                    scale: 0.8,
+                },{       
+                    ease: 'easeInOutCubic',
+                    playScale: [
+                        .05, .13
+                    ],
+                    opacity: 1,
+                },{       
+                ease: 'easeInOutCubic',
+                playScale: [
+                    -.1, .0
+                ],
+                opacity: 1,color: this.cor2
+            }
+      ]}
+                        >Ale Almeida</ScrollParallax>
                             <ScrollParallax
                                 component={ArrowBack}
                                 cor={this.state.fill}
@@ -127,23 +228,21 @@ class Callback extends React.Component {
                     animation={[{          
                         ease: 'easeInOutCubic',
                         playScale: [
-                            1, 1.48
+                            1.2,1.95
                         ],
                         opacity: 1,
-                        translateX: -30,
-                        scale: 0.7,
-                        onStart: () => {  this.setState({
-                            fill: this.cor1,
-                        }); },
-                        onComplete: () => {  this.setState({
-                            fill: this.cor2,
-                        }); },
-                    },{
+                        scale: 0.3,
+                        top: 0,
+                        translateX: -20,
+                        onComplete: () => { this.setState({fill: this.cor2})},
+                        onStart: () => { this.setState({fill: this.cor1})},
+                    },{          
                         ease: 'easeInOutCubic',
-                        playScale:[
-                            2, 3
+                        playScale: [
+                            2,2.1
                         ],
-                        opacity: 1 ,
+                        onComplete: () => { this.setState({fill: this.cor2})},
+                        onStart: () => { this.setState({fill: this.cor1})},
                     }
                 
           ]}

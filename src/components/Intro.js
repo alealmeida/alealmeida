@@ -43,11 +43,11 @@ const LoadIntro = () => {
                 translateY: 0
             }, {
                 opacity: 0,
-                ease: 'easeInOutCubic',
+                ease: 'easeInCubic',
                 playScale: [
                     0.8, 2
                 ],
-                translateY: screen(40)
+                translateY: screen(5)
             }]
         ,
         ease: [ 'easeInOutElastic','easeInOutElastic'

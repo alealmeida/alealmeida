@@ -11,8 +11,11 @@ import img_002 from './../assets/css/images/case_caixa_img_002.png';
 import img_003 from './../assets/css/images/case_caixa_img_003.png';
 import img_005 from './../assets/css/images/case_caixa_img_005.jpg';
 import img_006 from './../assets/css/images/case_caixa_img_006.png';
-import img_full from './../assets/css/images/case_caixa_img_full.jpg';
-import img_full_mob from './../assets/css/images/case_caixa_img_full_mob.png';
+import img_016 from './../assets/css/images/case_caixa_img_016.png';
+import img_full from './../assets/css/images/case_caixa_img_full.png';
+import img_parts_mob_01 from './../assets/css/images/case_caixa_img_parts_mob_01.png';
+import img_parts_mob_02 from './../assets/css/images/case_caixa_img_parts_mob_02.png';
+import img_parts_mob_03 from './../assets/css/images/case_caixa_img_parts_mob_03.png';
 import Callback from './Callback';
 
 const ScrollParallax = ScrollAnim.Parallax;
@@ -28,12 +31,12 @@ const ScrollOverPack = ScrollAnim.OverPack;
         id: 'caixa',
         h3: <h3 class="white">Caixa</h3>,
         ano: '2015',
-        bg: '#1D8CE8',
+        bg: 'rgb(13,123,203,1)',
         bg_destaque: '#fff',
         categoria: "Redesign",
         tags: [<span>User Research<br /> Information Architeture <br /> User Interface </span>],
         url:'wwww.caixa.org.br',
-        h4: `Portal Caixa.`,
+        h4: `Portal Caixa`,
         titulo_projeto: `Prático. Simples. Bonito.`,
         objetivo: `A Caixa não é só o maior banco do país. É, também, o principal agente das políticas públicas do governo federal brasileiro. O portal da Caixa vem a ser, portanto, o mais acessado entre todos do segmento no Brasil, com impacto para todo cidadão brasileiro adulto.`,
         titulo_desafio: `Desafio`,
@@ -43,7 +46,7 @@ const ScrollOverPack = ScrollAnim.OverPack;
         items: 
         [
             {
-            bg: '#1D8CE8',
+            bg: 'rgb(13,123,203,1)',
             classe: 'image full margin padding',
             conteudo:[<img className='img_part caixa_001' src={img_001} alt='' />]},
             
@@ -136,34 +139,30 @@ const ScrollOverPack = ScrollAnim.OverPack;
                 ]
             },
             {   
-                bg: 'rgb(7,95,165,0.12)',
+                bg: 'rgb(26,30,50,1)',
                 classe: 'image full margin padding',
                 conteudo: [
-                        <img className='img_part caixa_006' src={img_006} alt='' />]
+                    <div className="m_margin" />,<img className='img_part caixa_016' src={img_016} alt='' />,<div className="b_margin" />,<img className='img_part caixa_006' src={img_006} alt='' />,<div className="m_margin" />]
                 },
             {   
-                bg: '#fff',
+                bg: '',
                 classe: 'content',
-            titulo: [<h5 className="bx_margin">Interface</h5>],
+            titulo: [<h5 className="bx_margin">Interface</h5>, <h6 className="s_margin">Páginas de produto</h6>],
             conteudo: [
-                <p>Layout das páginas de produto dos cartões da Caixa.</p>,<div className="m_margin" />
+                <p>Layout da página dos Cartões Caixa para desktop, tablet e smartphone.</p>,<div className="m_margin" />
                 
             ],
                 },
                 {   
-                    bg: 'rgb(7,95,165,0.12)',
+                    bg: 'rgb(36,50,90,1)',
                     classe: 'image full margin padding',
                     conteudo: [
-                        <h6 className="b_margin"> Desktop </h6>,
-                            <img className='img_part caixa_full' src={img_full} alt='' />,<div className="bx_margin" />]
-                    },
-                    {   
-                        bg: 'rgb(7,95,165,0.12)',
-                        classe: 'image full margin padding',
-                        titulo:
-                        <h6 className="s_margin"> Mobile </h6>,
-                        conteudo: [
-                                <img className='img_part caixa_full' src={img_full_mob} alt='' />,<div className="m_margin" />]
+                        <div className="b_margin" />,<img className='img_part caixa_full' src={img_full} alt='' />,<div className="b_margin" />]
+                        },
+                {   
+                    bg: 'rgb(36,50,90,1)',
+                    classe: 'image full margin padding',
+                    conteudo: [<div className="b_margin" />,<img className='img_part caixa_parts_mob' src={img_parts_mob_01} alt='' />,<div className="mx_margin" />, <img className='img_part caixa_parts_mob' src={img_parts_mob_02} alt='' />,<div className="b_margin" />]
                         },
 ]
 }
@@ -310,6 +309,7 @@ const ScrollOverPack = ScrollAnim.OverPack;
                                     component={this.component}
                                     hash={'#'+CONTENT.id}
                                     cor1={Cores.cor}
+                                    project={CONTENT.h4}
                                     cor2={Cores.cor_sec_2} style={{opacity:1}} onClick={this.onClick} />
                     <ScrollOverPack appear={true} always={true} component='section' id='hero'
                             style={{
@@ -321,7 +321,7 @@ const ScrollOverPack = ScrollAnim.OverPack;
                             location={CONTENT.id}
                             component='header'
                             interval={PROP.interval}
-                            delay={PROP.delay}
+                            delay={[1000, 1000]}
                             duration={PROP.duration}
                             forcedReplay
                             leaveReverse
@@ -376,18 +376,18 @@ const ScrollOverPack = ScrollAnim.OverPack;
                         backgroundColor: CONTENT.bg_destaque
                     }}>
                         <ScrollParallax component='header' always={true} animation={PROP.timeline_2}>
-                            <div class="side-content">
+                            <div className="side-content">
                                 <label className='ano'>{CONTENT.ano}</label>
                                 <label className='tags'>{CONTENT.tags}</label>
                                 <label className='url'>{CONTENT.url}</label>
                             </div>
-                            <div class="main-content">
-                                <h4 class="dark">{CONTENT.h4}</h4>
-                                <h5 class="dark">{CONTENT.titulo_projeto}</h5>
+                            <div className="main-content">
+                                <h4 className="dark">{CONTENT.h4}</h4>
+                                <h5 className="dark">{CONTENT.titulo_projeto}</h5>
                                 <p>{CONTENT.objetivo}</p>
-                                <h6 class="dark">{CONTENT.titulo_desafio}</h6>
+                                <h6 className="dark">{CONTENT.titulo_desafio}</h6>
                                 <p>{CONTENT.desafio}</p>
-                                <h6 class="dark">{CONTENT.titulo_meupapel}</h6>
+                                <h6 className="dark">{CONTENT.titulo_meupapel}</h6>
                                 <p>{CONTENT.meupapel}</p>
                             </div>
                         </ScrollParallax>
