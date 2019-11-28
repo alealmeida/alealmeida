@@ -851,9 +851,7 @@ body
 	section
 		a = 30
 		&.content,
-		&
-		
-		.image
+		&.image
 			margin: 0
 			position relative
 			z-index: 3
@@ -1224,109 +1222,213 @@ body
 	.interna
 		#Scroll-Pack
 			>div
-				nav
-					dist(0,0)
-					.nav-wap
-						top 0	
-						.logo
-							top 4vh
-							left 0
-							position: fixed
-							z-index 9999
-					.callback
-						.back
-							width: 15vmin
-							z-index 9999
+				dist(0,0)
+				.barra_topo
+					min-height: 3.8em
+					h4
+						font(600, 16, neue-h, 50)
+						dist(188,0)
+				.nav-wap
+					top 0	
+					.logo
+						position: fixed
+						z-index 9999
+				.callback
+					.logo
+						dist(54,0)
+						font(600, 18, neue-h, 45)
+						min-height: 3.1em
+					.back
+						left 2vmin
+						margin-top 0.1vmin
+						min-width: 14vmin
+						z-index 9999
+						min-height: 2.6em;
 		&.cases
-			&#case2
-			&#case3
+			a = 30
+			h = 90vh
+			#hero
+				height 90vh !important
+				clip: rect(0, 100vw, h, 0)
+				.titulo
+					text-align: center;
+					text-indent: 4vmin;
+					h3
+						font(900, 95, neue-h, 45)
+						margin: calculo(1em,0, 70) 0 0
+						line_letter(20,20)
+			&#caixa
 				#hero
-					.titulo
-						h3
-							font-size: 4em
-				&#case2
-					#hero
-						img
-							height calculo(65vmin,10, 150)
-							right calculo(-27vmin,0, 0)
-							bottom calculo(0vmin,5, 0)
-				&#case3
-					#hero
-						img
-							height calculo(65vmin,10, 500)
-							right calculo(-18vmin,0, 0)
-							bottom calculo(0vmin,1, 0)
-						.titulo
-							h3
-								margin-top -0.3em
+					img
+						dist(-810,-100)
+						width calculo(1em,400, 68*a)
+				article
+					.caixa_001
+						width: calculo(1em,400, 6*a)
+						dist(0,50)
+					.caixa_003
+						width: calculo(1em,180, 8*a)
+					.caixa_005
+						width: calculo(1em,180, 8*a)
+					.caixa_016
+						width: calculo(1em,180, 5*a)
+					.caixa_006
+						width: calculo(1em,180, 8*a)
+					.caixa_full
+						width: calculo(1em,180, 11*a)
+					.caixa_parts_mob
+						width: calculo(1em,180,11*a)
+						box-shadow: 1px 0px 5vmin -12px rgba(0,0,0,0.1)
+			&#mars
+				#hero
+					img
+						dist(-1210,100)
+						height calculo(1em,400, 25*a)
+				article
+					.mms_001
+						width: calculo(1em,400, 5*a)
+						dist(105,48)
+					.mms_002
+						width: calculo(1em,400, 4*a)
+						dist(0,58)
+						box-shadow: 1px 0px 8vmin -12px rgba(0,0,0,0.1)
+					.mms_003
+						width: calculo(1em,400, 4*a)
+						dist(0,-50)
+						box-shadow: 1px 0px 10vmin -12px rgba(0,0,0,0.4)
+					.mms_004
+						width: calculo(1em,180, 5*a)
+						box-shadow: 1px 0px 10vmin -12px rgba(0,0,0,0.2)
+			&#pop
+				#hero
+					img
+						dist(-1210,100)
+						height calculo(1em,400, 25*a)
+				article
+					.pop_001
+						width: calculo(1em,400, 15*a)
+						dist(175,48)
+					.pop_002
+						width: calculo(1em,350, 14*a)
+						dist(-165,0)
+						
+					.pop_003
+						width: calculo(1em,320, 15*a)
+						dist(146,-40)
+						box-shadow: 1px 0px 10vmin -12px rgba(0,0,0,0.1)
+					.pop_full
+						width: calculo(1em,180, 10*a)
+						box-shadow: 1px 0px 10vmin -12px rgba(0,0,0,0.1)
+			&#dkids
+				#hero
+					img
+						dist(-30,130)
+						width calculo(1em,400, 18*a)
+				article
+					.dkids_001
+						dist(-20,10)
+						width: calculo(1em,400, 17*a)
+						margin-bottom: calculo(1em,400, -21*a)
+					.dkids_003
+						width: calculo(1em,400, 2*a)
+					.dkids_004
+						width: calculo(1em,400, 2*a)
+						margin: calculo(1em,0, 5) 0
+					.dkids_005
+						width: calculo(1em,400, 3*a)
+						box-shadow: 1px 0px 5vmin -12px rgba(0,0,0,0.2)
+						margin: calculo(1em,0, 10) 0
+					.dkids_full
+						width: calculo(1em,180, 3*a)
 			.destaque
 				header
-					width: 90%
+					width: 94%
 					margin:calculo(3vmin,0, 0) 0 calculo(3vmin,0, 0)
 					h4
-						width calculo(70vmin,10, 50) 
+						font(600, 30, neue-h, 40)
+						line_letter(16,1)
+					h5
+						font(500, 28, neue-h, 40)
+						line_letter(16,1)
 					label
-						font-size: .6em
-
-				.main-content
-					p
-						width: 75%
-						font-size: 0.84em
-						line_letter(14, 1)
-		.content,
-		.image
-			width 23vw
+						font-size: .66em
+						line_letter(16,-0.1)
+						word-spacing: 0.1em
+					.side-content
+						width: calculo(1em, 0, 40)
+					.main-content
+						width: calculo(1em, 0, 470)
+						dist(190,0)
+						p
+							width: 60%
+							font-size: 0.78em
+							line_letter(14, 1)
+		
 		.image
 			&.margin
-				margin 0 calculo(0.2em, 0, 10) 
-				width 90%
+				margin 0 calculo(1em, 0, 25) 
+				width 88vw
 		.content
+			w = 90vw
+			width w
+			dist(10,0)
 			a = 30
-			header
-				h5
-				h6
-					width calculo(54vmin,10, 50) 
-					line_letter(12, 2)
-				h6
-					font-size: 0.88em
+			header,
 			article
-				width calculo(26vmin,10, 150) 
+				width w
+			header
+				h5,
+				h6
+					width w - 3
+					line_letter(12, 1)
+					dist(0,0)
+				h5
+					font-size: 1.8em
+
+				h6
+					font-size: 1.2em
+					line_letter(28, 0.1)
+					margin: 10vmin 0
+					span
+						line_letter(28, 0.1)
+			article
 				p	
-					font-size: 0.8em
-					line_letter(13, 1)
+					width w - 3
+					font-size: 0.9em
+					line_letter(28, 0.1)
+					dist(0,0)
+					smoo()
 				blockquote
 					font-size: 1em
 					line_letter(14, 2)
-					width calculo(44vmin,10, 50)
+					width calculo(44vmin,10, 45)
+					padding-left: 1em
+					dist(20,0)
 				img
 					width calculo(75vmin,10, 150)
 					position relative
-					&.img_part
-						height auto
-						position:relative
-						&.img_g
-							width calculo(75vmin,10, 150)
-						&#sketchs
-							width calculo(85vmin,10, 150)
-						&.mms_001
-							width: calculo(1em,380, 19*a)
-							left 13vmin
-							margin: calculo(4vmin,10, 3*a) 0 calculo(1vmin,0, -.1*a)
-						&.mms_002
-							width: calculo(1em,240, 17*a)
-							left -16vmin
-							box-shadow: 1px 0px 8vmin -12px rgba(0,0,0,0.1)
-							// top: 10vmin
-							margin: calculo(4vmin,0, -3*a) 0 calculo(2vmin,0, -2*a)
-						&.mms_003
-							width: calculo(1em,500, 19*a)
-							left 30vmin
-							margin: calculo(4vmin,10, 4*a) 0
-							box-shadow: 1px 0px 10vmin -12px rgba(0,0,0,0.4)
-						&.mms_004
-							// box-shadow: 1px 0px 18vmin -12px rgba(0,0,0,0.3)
-							margin: calculo(4vmin,0, 1.2*a) 0
-							width: calculo(4vmin,280, 8*a)
+		&.content,
+		&.image
+			margin: 0
+			position relative
+			z-index: 3
+			height auto
+			display: flex
+			w =  64vmin
+			.bxx_margin
+				margin: calculo(1em,0, 80) 0 calculo(1em, 0,10)
+			.bx_margin
+				margin: calculo(1em,0, 60) 0 calculo(1em, 0,10)
+			.b_margin
+				margin: calculo(1em,0, 40) 0 calculo(1em, 0,5)
+			.mx_margin
+				margin: calculo(1em,0, 30) 0 calculo(1em, 0,5)
+			.m_margin
+				margin: calculo(1em,0, 15) 0 calculo(1em, 0,2)
+			.s_margin
+				margin: calculo(1em,0, 5) 0 calculo(1em, 0,5)
+			.sx_margin
+				margin: calculo(1em,0, 2) 0 calculo(1em, 0,2)
 				
 		&#footer
 			header

@@ -40,10 +40,8 @@ const CONTENT = {
     titulo_desafio: `Desafio`,
     desafio: ["O ",<i>Guide Line</i>," de m&m's era baseado no formato minimalista e estimulava que explorássemos inserções das suas personagens ao longo da página. Disponibilizamos, então, as personagens de forma que pudessem interagir com a ",<i>Single Page</i>," nas várias resoluções de devices."],
     titulo_meupapel: `Meu papel no projeto`,
-    meupapel: [<p>Trabalhei o fluxo do hotsite, desde os requisitos funcionais até as regras na mecânica da promoção.
-        Criei o conceito visual e atuei no design de interfaces.
-          Realizei testes de usabilidade em dispositivos móveis e testes a/b.
-      </p>,],items: [
+    meupapel: ["Trabalhei o fluxo do hotsite, desde os requisitos funcionais até as regras na mecânica da promoção. Criei o conceito visual e atuei no design de interfaces.Realizei testes de usabilidade em dispositivos móveis e testes a/b.",],
+    items: [
         {
         bg: '#D80E2A',
         classe: 'image full margin padding',
