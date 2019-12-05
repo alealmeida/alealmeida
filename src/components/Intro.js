@@ -10,13 +10,13 @@ const LoadIntro = () => {
         items: [
             {
                 tag: 'h3',
-                children: 'Sou Ale Almeida,',
+                children: 'Sou Alexandre Almeida,',
                 key: 0,
                 classe: 'darker'
             }, 
             {
                 tag: 'h3',
-                children: 'UX & Service Designer em São Paulo.',
+                children: ['UX & Service Designer na Natura, em São Paulo.'],
                 key: 1,
                 classe: 'darker'
             }, {

@@ -7,10 +7,10 @@ const ScrollParallax = ScrollAnim.Parallax;
 
 const LoadSection = () => {
     const CONTENT = {
-        h2: 'Design',
+        h2: 'Design.',
         items: [ 
             {
-                children: <span>Trabalho como UX & Service Designer na <a href='http://natura.com.br' target='_blank' className='magenta'> Natura</a>, empresa líder de mercado na América Latina em venda direta de cosméticos, onde trabalho melhorando a experiência das consultoras no uso das plataformas digitais da empresa.</span>,
+                children: <span>Como UX & Service Designer na <a href='http://natura.com.br' target='_blank' className='magenta'> Natura</a>, trabalho ajudando a melhorar a experiência da consultora com as plataformas digitais que usam no dia-a-dia, tornando-as simples e fáceis de usar, trazendo agilidade para as vendas.</span>,
                 key: 3
             }, 
             {
@@ -22,33 +22,37 @@ const LoadSection = () => {
     const PROP = {
         timeline_1: [
             {
+                scale: 0.5,
                 ease: 'linear',
                 playScale: [
-                    -2, -2
+                    -2, -1.5
                 ],
-                opacity: 0.9 ,
-                blur:'1px',
-                scale: 0.83,
-                translateY: '0%',
-                translateX: screen(-0.3)
+                opacity: 0,
+                // blur:'20px',
+                translateY: '10vh',
+                translateX: '-10.3vw',
+                // color: '#FF2B6A'
+                color: '#222226',
             },{
-                ease: 'linear',
-                opacity: 1,
-                blur:'0px', 
+                ease: 'easeInOutQuart',
+                opacity: 1, 
                 playScale:[
-                    0.5, 0.8
+                    -0.3, 0.4
                 ],
-                color: '#000006',
-                class: 'dark'
+                scale: 0.43,
+                translateX: '-13.3vw',
+                // color: '#FF2B6A'
             }, {
                 opacity: 1,
-                ease: 'easeInOutElastic',
+                ease: 'easeOutCubic',
                 playScale: [
-                    -2, 2.6
+                    0.1, 2.5
                 ],
-                scale: 1.1,
-                translateY:  '-5%',
-                translateX: screen(0)
+                scale: 1.2,
+                color: '#222226',
+                translateY: '-10vh',
+                translateX: '-2.3vw',
+                // translateX: screen(-5.3),
             }
         ],
         timeline_2: 
@@ -57,22 +61,23 @@ const LoadSection = () => {
                     opacity: 0,
                     ease: 'linear',
                     playScale: [
-                        -2, -2
+                        -2, -1
                     ],
-                    translateY: screen(-10)
+                    translateY: '0',
                 },{
                     opacity: 1,
-                    ease: 'easeInOutCubic',
+                    ease: 'easeOutQuart',
                     playScale: [
-                        0.2, 0.6
+                        0.3, 0.8
                     ],
-                    translateY: screen(-14)
+                    translateY: '-2vh',
                 }, {
                     ease: 'linear',
+                    opacity: 1,
                     playScale: [
                         0.8, 1.9
                     ],
-                    translateY: screen(5)
+                    translateY: '-4vh',
                 }
             ]
         
@@ -82,8 +87,8 @@ const LoadSection = () => {
             <ScrollParallax
                 component='header'
                 always={true}
-                animation={PROP.timeline_1}>
-                <h2 className="grape">{CONTENT.h2}
+                animation={PROP.timeline_1} style={{opacity: 0}}>
+                <h2>{CONTENT.h2}
                 </h2>
             </ScrollParallax>
             <ScrollParallax

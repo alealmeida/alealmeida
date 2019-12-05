@@ -1,0 +1,471 @@
+.vertical section#intro {
+  height: 100vh;
+}
+.vertical section#intro header {
+  width: 100vw;
+  height: 100%;
+}
+.vertical section#intro header >label {
+  text-align: center;
+  font-size: 1.5em;
+  position: relative;
+}
+.vertical section#intro header h3,
+.vertical section#intro header p {
+  text-align: center;
+  align-items: center;
+}
+.vertical section#intro header h3 span,
+.vertical section#intro header p span {
+  position: relative;
+  left: 15vw;
+  text-align: center;
+}
+.vertical section#intro header h3 i,
+.vertical section#intro header p i {
+  float: none;
+}
+.vertical section#intro header >label,
+.vertical section#intro header h3,
+.vertical section#intro header p {
+  width: calculo(1em, 410, 170);
+}
+.vertical section#page1 {
+  width: 100%;
+}
+.vertical section#page1 header h2 {
+  width: 100%;
+}
+.vertical section#page1 article {
+  width: 100vw;
+  height: calculo(0.4em, 400, 160);
+  left: 0;
+}
+.vertical section#page1 article p {
+  text-align: center;
+  position: relative;
+}
+.vertical .main {
+  margin: 0;
+  position: relative;
+  display: flex;
+  width: auto;
+}
+.vertical .main .cases#pop,
+.vertical .main .cases#natura,
+.vertical .main .cases#mars,
+.vertical .main .cases#caixa,
+.vertical .main .cases#dkids {
+  width: calc(100vw - calc(1.2em + 4vw) * 2);
+  margin: 0 calc(1.2em + 4vw) calc(1.2em + 4vw);
+}
+.vertical .main .cases#pop header,
+.vertical .main .cases#natura header,
+.vertical .main .cases#mars header,
+.vertical .main .cases#caixa header,
+.vertical .main .cases#dkids header {
+  width: 100%;
+  height: 100%;
+  overflow: none;
+}
+.vertical .main .cases#pop header > div,
+.vertical .main .cases#natura header > div,
+.vertical .main .cases#mars header > div,
+.vertical .main .cases#caixa header > div,
+.vertical .main .cases#dkids header > div {
+  width: 70%;
+  height: 100%;
+  position: relative;
+}
+.vertical .main .cases#pop header label,
+.vertical .main .cases#natura header label,
+.vertical .main .cases#mars header label,
+.vertical .main .cases#caixa header label,
+.vertical .main .cases#dkids header label {
+  font-size: 76vmin;
+  top: 10vmin;
+}
+.vertical .main .cases#pop header h4,
+.vertical .main .cases#natura header h4,
+.vertical .main .cases#mars header h4,
+.vertical .main .cases#caixa header h4,
+.vertical .main .cases#dkids header h4 {
+  font-weight: 700;
+  left: auto;
+  top: auto;
+  position: relative;
+  text-indent: calculo(0.01em, 2, 2);
+}
+.vertical .main .cases#pop header p,
+.vertical .main .cases#natura header p,
+.vertical .main .cases#mars header p,
+.vertical .main .cases#caixa header p,
+.vertical .main .cases#dkids header p {
+  width: auto;
+  left: auto;
+  top: auto;
+  position: relative;
+}
+.vertical .main .cases#pop header h4,
+.vertical .main .cases#natura header h4,
+.vertical .main .cases#mars header h4,
+.vertical .main .cases#caixa header h4,
+.vertical .main .cases#dkids header h4,
+.vertical .main .cases#pop header p,
+.vertical .main .cases#natura header p,
+.vertical .main .cases#mars header p,
+.vertical .main .cases#caixa header p,
+.vertical .main .cases#dkids header p {
+  width: 60%;
+  text-align: center;
+}
+.vertical .main .cases#pop article,
+.vertical .main .cases#natura article,
+.vertical .main .cases#mars article,
+.vertical .main .cases#caixa article,
+.vertical .main .cases#dkids article {
+  display: none;
+}
+.vertical .main .cases #natura {
+  height: 60vh;
+}
+.vertical .main .cases #natura header {
+  clip: rect(0, 100vw, 60vh, 0);
+}
+.vertical .main .cases #natura header figure {
+  bottom: calculo(17vmin, 2, 40);
+}
+.vertical .main .cases #natura article img {
+  width: 45vw;
+  height: auto;
+  top: 140vh;
+  left: auto;
+  filter: blur(1px);
+  opacity: 1;
+}
+.vertical .main .cases #pop {
+  height: 60vh;
+}
+.vertical .main .cases #pop header {
+  clip: rect(0, 100vw, 60vh, 0);
+}
+.vertical .main .cases #pop header figure {
+  bottom: calculo(17vmin, 2, 40);
+}
+.vertical .main .cases #pop article img {
+  width: 45vw;
+  height: auto;
+  top: 140vh;
+  left: auto;
+  filter: blur(1px);
+  opacity: 1;
+}
+.vertical .main .cases #pop {
+  height: 60vh;
+}
+.vertical .main .cases #pop header {
+  clip: rect(0, 100vw, 60vh, 0);
+}
+.vertical .main .cases #pop header figure {
+  bottom: calculo(17vmin, 2, 40);
+}
+.vertical .main .cases #pop article img {
+  width: 45vw;
+  height: auto;
+  top: 140vh;
+  left: auto;
+  filter: blur(1px);
+  opacity: 1;
+}
+.vertical .main .cases #mars {
+  height: 60vh;
+}
+.vertical .main .cases #mars header {
+  clip: rect(0, 100vw, 60vh, 0);
+}
+.vertical .main .cases #mars header figure {
+  bottom: calculo(17vmin, 2, 40);
+}
+.vertical .main .cases #mars article img {
+  height: 160vh;
+  left: -10vmin;
+  top: -110vmin;
+  filter: blur(1.5px);
+  opacity: 0.8;
+}
+.vertical .main .cases #caixa {
+  height: 60vh;
+}
+.vertical .main .cases #caixa header {
+  clip: rect(0, 100vw, 60vh, 0);
+}
+.vertical .main .cases #caixa header figure {
+  bottom: calculo(17vmin, 2, 40);
+}
+.vertical .main .cases #caixa article {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+}
+.vertical .main .cases #caixa article img {
+  width: 95vw;
+  height: auto;
+  top: 110vh;
+  left: auto;
+  filter: blur(1px);
+  opacity: 1;
+}
+.vertical .main .cases #dkids {
+  height: 60vh;
+}
+.vertical .main .cases #dkids header {
+  clip: rect(0, 100vw, 60vh, 0);
+}
+.vertical .main .cases #dkids header figure {
+  bottom: calculo(17vmin, 2, 40);
+}
+.vertical .main .cases #dkids article {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+}
+.vertical .main .cases #dkids article img {
+  width: 95vw;
+  height: auto;
+  top: 110vh;
+  left: auto;
+  filter: blur(1px);
+  opacity: 1;
+}
+.vertical .interna #Scroll-Pack >div .barra_topo {
+  min-height: 3.8em;
+}
+.vertical .interna #Scroll-Pack >div .nav-wap {
+  top: 0;
+}
+.vertical .interna #Scroll-Pack >div .nav-wap .logo {
+  position: fixed;
+  z-index: 9999;
+}
+.vertical .interna #Scroll-Pack >div .callback .logo {
+  min-height: 3.1em;
+}
+.vertical .interna #Scroll-Pack >div .callback .back {
+  left: 2vmin;
+  margin-top: 0.1vmin;
+  min-width: 14vmin;
+  z-index: 9999;
+  min-height: 2.6em;
+}
+.vertical .interna.cases #hero {
+  height: 90vh !important;
+  clip: rect(0, 100vw, 90vh, 0);
+}
+.vertical .interna.cases #hero .titulo {
+  text-align: center;
+  text-indent: 4vmin;
+}
+.vertical .interna.cases #hero .titulo h3 {
+  margin: calculo(1em, 0, 70) 0 0;
+}
+.vertical .interna.cases#caixa #hero img {
+  width: calculo(1em, 400, 2040);
+}
+.vertical .interna.cases#caixa article .caixa_001 {
+  width: calculo(1em, 400, 180);
+}
+.vertical .interna.cases#caixa article .caixa_003 {
+  width: calculo(1em, 180, 240);
+}
+.vertical .interna.cases#caixa article .caixa_005 {
+  width: calculo(1em, 180, 240);
+}
+.vertical .interna.cases#caixa article .caixa_016 {
+  width: calculo(1em, 180, 150);
+}
+.vertical .interna.cases#caixa article .caixa_006 {
+  width: calculo(1em, 180, 240);
+}
+.vertical .interna.cases#caixa article .caixa_full {
+  width: calculo(1em, 180, 330);
+}
+.vertical .interna.cases#caixa article .caixa_parts_mob {
+  width: calculo(1em, 180, 330);
+  box-shadow: 1px 0px 5vmin -12px rgba(0,0,0,0.1);
+}
+.vertical .interna.cases#natura #hero img {
+  width: calculo(1em, 400, 180);
+}
+.vertical .interna.cases#natura article .natura_001 {
+  width: calculo(1em, 400, 90);
+}
+.vertical .interna.cases#natura article .natura_002 {
+  width: calculo(1em, 200, 60);
+}
+.vertical .interna.cases#natura article .natura_003 {
+  width: calculo(1em, 200, 210);
+}
+.vertical .interna.cases#natura article .natura_003_2 {
+  width: calculo(1em, 200, 210);
+}
+.vertical .interna.cases#natura article .natura_004 {
+  width: calculo(1em, 200, 270);
+}
+.vertical .interna.cases#natura article .natura_005 {
+  width: calculo(1em, 200, 450);
+}
+.vertical .interna.cases#natura article .natura_006 {
+  width: calculo(1em, 200, 210);
+}
+.vertical .interna.cases#mars #hero img {
+  height: calculo(1em, 400, 750);
+}
+.vertical .interna.cases#mars article .mms_001 {
+  width: calculo(1em, 400, 150);
+}
+.vertical .interna.cases#mars article .mms_002 {
+  width: calculo(1em, 400, 120);
+  box-shadow: 1px 0px 8vmin -12px rgba(0,0,0,0.1);
+}
+.vertical .interna.cases#mars article .mms_003 {
+  width: calculo(1em, 400, 120);
+  box-shadow: 1px 0px 10vmin -12px rgba(0,0,0,0.4);
+}
+.vertical .interna.cases#mars article .mms_004 {
+  width: calculo(1em, 180, 150);
+  box-shadow: 1px 0px 10vmin -12px rgba(0,0,0,0.2);
+}
+.vertical .interna.cases#pop #hero img {
+  width: calculo(1em, 400, 840);
+}
+.vertical .interna.cases#pop article .pop_001 {
+  width: calculo(1em, 400, 450);
+}
+.vertical .interna.cases#pop article .pop_002 {
+  width: calculo(1em, 350, 420);
+}
+.vertical .interna.cases#pop article .pop_003 {
+  width: calculo(1em, 320, 450);
+  box-shadow: 1px 0px 10vmin -12px rgba(0,0,0,0.1);
+}
+.vertical .interna.cases#pop article .pop_full {
+  width: calculo(1em, 180, 300);
+  box-shadow: 1px 0px 10vmin -12px rgba(0,0,0,0.1);
+}
+.vertical .interna.cases#dkids #hero img {
+  width: calculo(1em, 400, 540);
+}
+.vertical .interna.cases#dkids article .dkids_001 {
+  width: calculo(1em, 400, 510);
+  margin-bottom: calculo(1em, 400, -630);
+}
+.vertical .interna.cases#dkids article .dkids_003 {
+  width: calculo(1em, 400, 60);
+}
+.vertical .interna.cases#dkids article .dkids_004 {
+  width: calculo(1em, 400, 60);
+  margin: calculo(1em, 0, 5) 0;
+}
+.vertical .interna.cases#dkids article .dkids_005 {
+  width: calculo(1em, 400, 90);
+  box-shadow: 1px 0px 5vmin -12px rgba(0,0,0,0.2);
+  margin: calculo(1em, 0, 10) 0;
+}
+.vertical .interna.cases#dkids article .dkids_full {
+  width: calculo(1em, 180, 90);
+}
+.vertical .interna.cases .destaque header {
+  width: 94%;
+  margin: calculo(3vmin, 0, 0) 0 calculo(3vmin, 0, 0);
+}
+.vertical .interna.cases .destaque header label {
+  word-spacing: 0.1em;
+}
+.vertical .interna.cases .destaque header .side-content {
+  width: calculo(1em, 0, 40);
+}
+.vertical .interna.cases .destaque header .main-content {
+  width: calculo(1em, 0, 470);
+}
+.vertical .interna.cases .destaque header .main-content p {
+  width: 60%;
+  font-size: 0.78em;
+}
+.vertical .interna .image.margin {
+  margin: 0 calculo(1em, 0, 25);
+  width: 88vw;
+}
+.vertical .interna .content {
+  width: 90vw;
+}
+.vertical .interna .content header,
+.vertical .interna .content article {
+  width: 90vw;
+}
+.vertical .interna .content header h5,
+.vertical .interna .content header h6 {
+  width: 87vw;
+}
+.vertical .interna .content header h5 {
+  font-size: 1.8em;
+}
+.vertical .interna .content header h6 {
+  font-size: 1.2em;
+  margin: 10vmin 0;
+}
+.vertical .interna .content article p {
+  width: 87vw;
+  font-size: 0.9em;
+}
+.vertical .interna .content article blockquote {
+  font-size: 1em;
+  width: calculo(44vmin, 10, 45);
+  padding-left: 1em;
+}
+.vertical .interna .content article img {
+  width: calculo(75vmin, 10, 150);
+  position: relative;
+}
+.vertical .interna.content,
+.vertical .interna.image {
+  margin: 0;
+  position: relative;
+  z-index: 3;
+  height: auto;
+  display: flex;
+}
+.vertical .interna.content .bxx_margin,
+.vertical .interna.image .bxx_margin {
+  margin: calculo(1em, 0, 80) 0 calculo(1em, 0, 10);
+}
+.vertical .interna.content .bx_margin,
+.vertical .interna.image .bx_margin {
+  margin: calculo(1em, 0, 60) 0 calculo(1em, 0, 10);
+}
+.vertical .interna.content .b_margin,
+.vertical .interna.image .b_margin {
+  margin: calculo(1em, 0, 40) 0 calculo(1em, 0, 5);
+}
+.vertical .interna.content .mx_margin,
+.vertical .interna.image .mx_margin {
+  margin: calculo(1em, 0, 30) 0 calculo(1em, 0, 5);
+}
+.vertical .interna.content .m_margin,
+.vertical .interna.image .m_margin {
+  margin: calculo(1em, 0, 15) 0 calculo(1em, 0, 2);
+}
+.vertical .interna.content .s_margin,
+.vertical .interna.image .s_margin {
+  margin: calculo(1em, 0, 5) 0 calculo(1em, 0, 5);
+}
+.vertical .interna.content .sx_margin,
+.vertical .interna.image .sx_margin {
+  margin: calculo(1em, 0, 2) 0 calculo(1em, 0, 2);
+}
+.vertical .interna#footer article {
+  flex-direction: column;
+  padding-bottom: 13vh;
+}
+.vertical .interna#footer article p {
+  width: 100%;
+}

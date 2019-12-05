@@ -5,63 +5,61 @@ import TweenOne from 'rc-tween-one';
 import Pop from '../components/Pop';
 import Mars from '../components/Mars';
 import Caixa from '../components/Caixa';
+import Natura from '../components/Natura';
 import Dkids from '../components/Dkids';
 import SectionOne from '../components/SectionOne';
-import CONTENT from '../components/CONTENT';
+import params from '../components/CONTENT';
 import SectionCases from '../components/SectionCases';
 import Footer from '../components/Footer';
 import { createBrowserHistory } from 'history';
 
-const rotasWeb = [
+const p = id => params.find(n => n.id === id)
+const routes = [
     {
         index: 0,
         path: "/",
         exact: true,
-        target: '_self',
-        main: () => <LoadSite to={rotasWeb[0].path} component={rotasWeb[0].main} />,
-        hashs: '#intro'
-    }, {
+        main: props => <LoadSite to='/' component={props.main} />,
+    },{
         index: 1,
-        exact: true,
-        path: "/pop",
-        target: '_blank',
-        main: () => <Pop to={rotasWeb[0].path + rotasWeb[1].hashs} component={rotasWeb[0].main} />,
-        hashs: '#pop'
+        path: '/'+params[0].id,
+        main: props => <Natura to={'/#/natura'} component={props.main} />,
+        id: 'natura'
     }, {
         index: 2,
-        path: "/mars",
-        target: '_self',
-        main: () => <Mars to={rotasWeb[0].path + rotasWeb[2].hashs} component={rotasWeb[0].main} />,
-        hashs: '#mars'
-    }, {
+        path: '/'+params[1].id,
+        main: props => <Caixa to={'/#/caixa'} component={props.main} />,
+        id: 'caixa'
+    },  {
         index: 3,
-        path: "/caixa",
-        main: () => <Caixa to={rotasWeb[0].path + rotasWeb[3].hashs} component={rotasWeb[0].main} />,
-        hashs: '#caixa'
-    }, {
+        path: '/'+params[2].id,
+        main: props => <Dkids to={'/#/dkids'} component={props.main} />,
+        id: 'dkids'
+    },{
         index: 4,
-        path: "/dkids",
-        main: () => <Dkids to={rotasWeb[0].path + rotasWeb[4].hashs} component={rotasWeb[0].main} />,
-        hashs: '#dkids'
+        path: '/'+params[3].id,
+        main: props => <Mars to={'/#/mars'} component={props.main} />,
+        id: 'mars'
+    }, {
+        index: 5,
+        path: '/'+params[4].id,
+        main: props => <Pop to={'/#/pop'} component={props.main} />,
+        id: 'pop'
     }
 ];
 const LoadSite = () => {
     return (
         <TweenOne
-            id={CONTENT.id}
-            component='div'
-            key={CONTENT.id}
+            id={params.id}
+            key={params.id}
             className='main'
             animation={[{ opacity: 0 }, { duration: 20, opacity: 1 }]}
             style={{ opacity: 0 }}
         >
-            <Intro /><SectionOne /> {CONTENT.map((i) => (<SectionCases
-                data={{
-                    params: {
-                        id: i.id
-                    }
-                }}
-                to={rotasWeb[i.index].path} />))}
+            <Intro /><SectionOne /> {routes.map((i) => i.index ? (
+                <SectionCases
+                    data={{ param: { id: i.id } }}
+                    to={routes[i.index].path} />) : '')}
             <Footer />
         </TweenOne>
     );
@@ -80,8 +78,10 @@ class Site extends React.Component {
 
 
     handleWindowSizeChange = () => {
-        this.setState({ w: window.innerWidth,
-            h: window.innerHeight });
+        this.setState({
+            w: window.innerWidth,
+            h: window.innerHeight
+        });
     };
 
     componentWillMount = () => {
@@ -109,7 +109,7 @@ class Site extends React.Component {
                 return !hash
                     ? window.scrollTo(0, 0)
                     : (this.removeHash(), id.scrollIntoView({ behavior: "instant" }));
-            }, 0.1);
+            }, 0);
         });
     }
     removeHash = () => {
@@ -119,10 +119,8 @@ class Site extends React.Component {
             hist.replaceState('/#', document.title, loc.pathname + loc.search)
         } else {
             const scrollV = document.body.scrollTop
-            const scrollH = document.body.scrollLeft
             loc.hash = '';
             document.body.scrollTop = scrollV
-            document.body.scrollLeft = scrollH
         }
     }
     render() {
@@ -130,29 +128,15 @@ class Site extends React.Component {
         const portrait = (w <= h);
         // the rest is the same...
         return (
-                
-                    portrait ? [
-                        <HashRouter history={this.history}>
-                        <div className={"vertical container"}>
-                            {rotasWeb.map((route, index) => (<Route
-                                key={index}
-                                path={route.path}
-                                exact={route.exact}
-                                component={route.main}
-                                target={route.target} />))}</div>
-                                </HashRouter>
-                    ] : [
-                        <HashRouter history={this.history}>
-                            <div className={"horizontal container"}>
-                                {rotasWeb.map((route, index) => (<Route
-                                    key={index}
-                                    path={route.path}
-                                    exact={route.exact}
-                                    component={route.main}
-                                    target={route.target} />))}</div>
-                                    </HashRouter>
-                        ]
-                
+            <HashRouter history={this.history}>
+                <React.Fragment><div className={portrait ? "vertical container" : 'horizontal container'}>
+                    {routes.map((route, index) => (<Route
+                        key={index}
+                        path={route.path}
+                        exact={route.exact}
+                        component={route.main}
+                        target='_self' />))}</div></React.Fragment>
+            </HashRouter>
         )
     }
 }

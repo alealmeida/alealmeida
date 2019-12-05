@@ -26,11 +26,11 @@ const CONTENT = {
     h3: <h3 style={{
         color: '#fff'
     }}>dkids</h3>,
-    ano: <span className='ano'>2015</span>,
+    ano: <span className='ano'>2017</span>,
     cor: '#E20007',
     cor_sec: '#FFF600',
     // cor_sec: '#542A14',
-    bg:'rgb(3,133,221,1)',
+            bg: 'rgb(53,170,231,1)',
     // bg_sec: '#FFE900',
     categoria: "Portal",
     tags: [<span>Information Architeture<br /> User Interface <br /> Web Development</span>],
@@ -48,8 +48,7 @@ const CONTENT = {
         
     {
         // bg: 'rgb(255,202,67,1)',
-
-        bg: 'rgb(31,156,236,1)',
+        bg: 'rgb(43,164,231,1)',
         classe: 'image full margin nopadding',
     conteudo: [
     <img className='img_part dkids_001' src={img_001} alt='' />]
@@ -113,7 +112,7 @@ conteudo: [<p>
         
         bg: 'rgb(50,39,124,1)',
         classe: 'image full margin padding',
-    conteudo: [<img className='img_part dkids_003' src={img_003} alt='' />]
+    conteudo: [<div className="m_margin" />,<img className='img_part dkids_003' src={img_003} alt='' />,<div className="m_margin" />]
     },
     {
         bg: '#fff',
@@ -140,8 +139,7 @@ conteudo: [<p>
         bg: '#fff',
         classe: 'content',
     titulo: [<h5 className="mx_margin">Interface</h5>],
-        conteudo: [<p>Realizamos Testes de Usabilidade com crianças de 2 a 8 anos que, por sua vez se mostraram, além de familiarizadas com o Device ( iPad ), curiosas para acessar todo o conteúdo interativo, navegando para os próximos vídeos e jogos.
-            </p>,<p>Fizemos, então, uma nova rodada de testes, desta vez dando acesso, para as crianças, ao conteúdo que antes era para os pais e, em quase todos os casos, a navegação foi fluida e consistente em direção à conclusão da jornada sugerida.
+        conteudo: [<p>Atuei na construção dos templates das Páginas de Produtos que fazem parte programação do canal. Projetei as micro interações (animações) e comportamentos dos elementos da interface.
             </p>,<div className="m_margin" />
             ]
     },

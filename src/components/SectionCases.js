@@ -3,13 +3,12 @@ import ScrollAnim from 'rc-scroll-anim';
 import { withRouter } from 'react-router';
 import TweenOne from 'rc-tween-one';
 import QueueAnim from 'rc-queue-anim';
-import CONTENT from './CONTENT';
-import Qanim from './CONTENT';
+import params from './CONTENT';
 import { Link } from 'react-router-dom';
 const ScrollParallax = ScrollAnim.Parallax;
 const ScrollOverPack = ScrollAnim.OverPack;
 
-const find = id => CONTENT.find(p => p.id === id);
+// const found = array1.find(element => element > 10);
 
 const PROP = {
     timeline_1: [
@@ -38,14 +37,8 @@ const PROP = {
     duration: [1200, 2000]
 }
 class SectionCases extends React.Component {
-    constructor({ props, to, target, data, ref }) {
-        super({ props, data })
-        this.target = target
-        this.to = to
-        
-        this.class = 'cases';
-        this.classAtivo = 'cases_clicado';
-        this.i = find(data.params.id);
+    constructor({ props, to, target, data, i, p }) {
+        super({ props, data,i, p})
         this.state = {
             reverse: false,
             items: [
@@ -53,15 +46,21 @@ class SectionCases extends React.Component {
                     key: '11'
                 },
             ],
-            class:  this.class
+            class: 'cases',
+            classAtivo: 'cases_clicado'
         }
+        this.target = target
+        this.to = to
+        this.class = this.state.class
+        this.classAtivo = this.state.classAtivo
+        this.data = data
     }
     onClick = (e) => {
         e.preventDefault()
         this.setState({
             reverse: true,
             items: [],
-            class: (this.class +" "+ this.classAtivo)
+            class: (this.class + " " + this.classAtivo)
 
         });
         setTimeout(() => {
@@ -69,57 +68,67 @@ class SectionCases extends React.Component {
         }, 2500)
     }
     render() {
+        const find = id => params.find(n => n.id == id)
+        this.i = find(this.data.param.id)
+        const to = this.to,
+        target = this.target,
+        ident = this.i.id,
+        index = this.i.index,
+        estilo = this.i.estilo,
+        content = this.i.content,
+        animation = this.i.animation,
+        tween = this.i.tween,
+        image = this.i.content.image
         return (
-
-
-            <ScrollOverPack
+            <ScrollOverPack 
                 ref={this.myRef}
                 style={{
-                    backgroundColor: this.i.cores.bg_chamada
+                    backgroundColor: estilo.bg
                 }}
-                id={this.i.id}
+                id={ident}
                 component='section'
                 className={this.state.class}
                 appear={true} always={true}
                 playScale={[0, 3.2]}>
                 <div className='bg' style={{
-                    backgroundColor: this.i.cores.bg_chamada
+                    backgroundColor: estilo.bg
                 }}></div>
                 <Link
-                            to={this.to}
-                            onClick={this.onClick}
-                            className='callcase' />
-                    <QueueAnim
-                        component='header'
-                        type={['bottom', 'top']} interval={[150, 100]} delay={[600, 100]}
-                        duration={[600, 800]}
-                        ease={['easeOutCirc', 'easeInOutCirc']} leaveReverse reverse={this.state.reverse} animConfig={[{ opacity: [1, 0], y: [0, 80] }, { opacity: [1, 0], y: [0, 80] }]}>
-                        {
-                            this.state.items.map((item) =>
-                                [
-                                    <h4 key={(item.key + this.i.index)} style={{ opacity: 0, color: this.i.cores.cor_chamada }} >{this.i.h4}</h4>,
-                                    <p key={(item.key + this.i.index + '1')} style={{ opacity: 0, color: this.i.cores.cor_chamada }} >{this.i.p}</p>
-                                ]
-                            )
-                        }
+                    to={to}
+                    target={target}
+                    onClick={this.onClick}
+                    className='callcase' />
+                <QueueAnim
+                    component='header'
+                    type={['bottom', 'top']} interval={[150, 100]} delay={[600, 100]}
+                    duration={[600, 800]}
+                    ease={['easeOutCirc', 'easeInOutCirc']} leaveReverse reverse={this.state.reverse} animConfig={[{ opacity: [1, 0], y: [0, 80] }, { opacity: [1, 0], y: [0, 80] }]}>
+                    {
+                        this.state.items.map(() =>
+                            [
+                                <h4 key={(index + '0')} style={{ opacity: 0, color: estilo.cor }} >{content.h4}</h4>,
+                    <p key={(index + '1')} style={{ opacity: 0, color: estilo.cor}} >{content.p}</p>
+                            ]
+                        )
+                    }
 
-                    </QueueAnim>
+                </QueueAnim>
                 <ScrollParallax
-                    location={this.i.id}
+                    location={ident}
                     component='article'
                     always={true}
-                    animation={this.i.timeline}>
+                    animation={animation}>
                     <TweenOne
                         reverse={this.state.reverse}
-                        id={CONTENT.id}
+                        id={ident}
                         component='div'
-                        key={CONTENT.id}
-                        className='interna cases'
+                        key={ident}
+                        className='cases'
                         reverseDelay={0}
-                        animation={this.i.tween}
+                        animation={tween}
                         style={{
                             opacity: 0
-                        }}><img className='img_part caixa_016' src={this.i.image} alt='' />
+                        }}>{content.media}
                     </TweenOne>
                 </ScrollParallax>
             </ScrollOverPack>

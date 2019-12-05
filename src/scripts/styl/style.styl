@@ -32,12 +32,12 @@ max(n)
 
 font(weight, size, family, wid)
 	font-weight weight
-	font-size 'calc(0.6em + %s * ((60vw + 40vh) / 1000))' % (size)
+	font-size 'calc(0.5em + 0.2vmin + %s * ((60vw + 40vh) / 1000))' % (size)
 	font-family family
 	width 'calc(%s * ((60vw + 40vh) / 100))' % (wid)
 
 line_letter(lines, letter)
-	line-height 'calc(1em + %s * ((76vw + 24vh) / 1000))' % (lines)
+	line-height 'calc(0.7em + 0.8vmin + %s * ((76vw + 24vh) / 1000))' % (lines)
 	letter-spacing 'calc(.01em + %s * ((76vw + 24vh) / 1000))' % (letter)
 
 flex_column(justify, align)
@@ -108,25 +108,6 @@ body
 	font-size: 16px
 	height 100%
 	smoo()
-	.logo,
-	.barra_topo,
-	.back
-		height: calc(50 * ((50vw + 50vh) / 1000)) !important
-	.logo
-		position:fixed
-		reset()
-		dist(39, 40)
-		font(600,8, neue-h, 50)
-		smoo()
-		line_letter(8,0.2)
-		text-decoration: none
-		opacity 1
-		cursor: pointer
-		// z-index 999
-		word-spacing: 0.1em
-		white-space pre-line
-		display flex
-		flex_column(center, flex-start)
 		span
 			white-space pre-line
 			font-weight:300
@@ -152,12 +133,13 @@ body
 		display: flex;
 		flex-direction: column;
 		position relative
+		fsize = 9
 		header
 			reset()
 		p
 			line_letter(14, .1)
 			position relative
-			margin: 0 0 calculo(1em, 0, 30)
+			margin: 0 0 calculo(1em, 0, 28)
 			word-spacing: 0.08em
 			smoo()
 			-webkit-font-smoothing: antialiased;
@@ -183,13 +165,13 @@ body
 			position relative
 			flex_column(flex-start, center)
 			header
-				dist(180, 360)
+				dist(180, 390)
 				width 100vw
 				flex_column(center, flex-start)
 				position relative
 				> label
 					position absolute
-					font(500,5, neue-t, 60)
+					font(600,fsize / 1.6, neue-h, 60)
 					dist(0, 0)
 					line_letter(6, 0)
 					opacity 1
@@ -197,59 +179,79 @@ body
 				p
 					dist(180, 0)
 					-webkit-font-smoothing: antialiased;
+					nosmoo()
+					a
+						color: magenta
+						text-decoration: none
+						font-weight: 600
+						font-size: 1.02em
+						word-spacing 0.5em
+						smoo()
 				h3
 					position: relative
-					font(500,6, neue-t, 70)
-					line_letter(8.2, -.1)
-					flex_column(flex-start, flex-start)
+					font(500,fsize, neue-h, 70)
+					line_letter(8, .3)
+					// flex_column(flex-start, flex-start)
 					reset()
 					cubic(800ms)
 					opacity 0
-					word-spacing 0.06em
+					word-spacing 0.07em
 				p
-					font(500, 6, neue-h, 40 )
-					line_letter(8, 0.1)
+					font(400, fsize, neue-h, 30 )
+					line_letter(7, 0.4)
 					cubic(600ms)
 					reset()
 					word-spacing 0.16em
 					opacity 0
 		&#page1
-			background-color white
+			width: 100vw
+			dist(0, 80)
+			flex_column(flex-start, center)
 			header
+				width: 100vw
+				cubic(2900ms)
 				h2
-					cubic(500ms)
-					font(900, 300, neue-h, 106)
-					line_letter(-30, -12)
+					font(900, 400, neue-h, 106)
+					line_letter(200, -18)
+					text-indent: -1.5vmin
 					position relative
 					display flex
 					flex-direction column
 					text-align left
 					justify-content flex-start
 					align-items flex-start
-					margin calculo(0.1em,0, 0) 0 calculo(1em,0, 0)
-					padding 0
-					dist(60, 140)
+					reset()
 					white-space: pre-wrap;
 				& .grape
 					color: red
-					cubic(600ms)
 					color: #303031
 					i
 						font-weight: 600
 						font-style: normal									
 						color darker
 			article
+				position relative
+				flex_column(flex-start, center)
+				padding: calculo(1em, 0, 100) 0 calculo(1em, 0, 180) 
 				p
-					font(500, 6, neue-h, 30)
-					dist(580, 0)
-					line_letter(10, 0.1)
+					reset()
+					font(400, fsize/2, neue-h, 26 )
+					nosmoo()
+					dist(240, 0)
+					line_letter(6, 0.5)
+					padding:  0 0 calculo(1em, 0, 20)
+					nosmoo()
+					word-spacing 0.1em
 		&.cases
 			// flex_column(flex-start, flex-start)
 			// position unset
 			transition: all 1s
-			wpop = 40vw
-			mw = calc(1.2em + 2vw)
-			sub = calc(100vw - ( calc(1.2em + 2vw) * 3 + 40vw))
+			wcaixa = 50vw
+			subcaixa = calc(100vw - ( calc(1.2em + 6vw)*2 + 50vw))
+			wmars = 41vw
+			submars = calc(100vw - ( calc(1.2em + 6vw)*2 + 41vw))
+			nw = 6vw
+			mw = calc(1.2em + 6vw)
 			a.callcase
 				position: absolute
 				opacity:0
@@ -258,22 +260,31 @@ body
 				z-index 99999
 				width: 100%
 				height: 100%
+			&#natura
+				height 74vh
+				margin 0 mw
 			&#caixa
-				height 70vh
-				margin 0 mw mw
+				height 55vh
+				margin 0 0 0 mw
+				// display inline-grid
+				width: wcaixa
+				float left
+			&#dkids
+				height 55vh
+				margin 0
+				display flex
+				width: subcaixa
+			&#mars
+				height 60vh
+				margin 0 0 0 mw
+				display inline-grid
+				width: wmars
+				float left
 			&#pop
 				height 60vh
-				margin 0 mw mw
-				display inline-flex
-				width: wpop
-			&#dkids
-				height 60vh
-				margin 0 0 mw
-				display inline-flex
-				width: sub
-			&#mars
-				height 80vh
-				margin 0 mw
+				margin 0
+				display flex
+				width: submars
 			header
 			article
 				position absolute
@@ -284,21 +295,22 @@ body
 				position: absolute
 				z-index 2
 				h4
-					font(700, 20, neue-h, 30)
+					font(700, 14, neue-h, 30)
 					text-align: center
-					line_letter(20, 0.8)
+					line_letter(16, 2)
 					position: relative
 					text-align: left
 					text-transform: lowercase
 				p
-					font(400, 4, neue-h, 90)
+					font(300, 6, neue-h, 90)
 					text-align: center
-					line_letter(10, 0.14)
+					line_letter(5, 0.8)
 					position: relative
 					text-align: left
-					white-space: pre-wrap
+					word-spacing 0.04em
+					nosmoo()
 			article
-				width 100vw
+				width 100%
 				reset()
 				transition: all 500ms  ease-in -0.3s
 				img
@@ -323,34 +335,66 @@ body
 						transform: translateX(3.2vmin) translateY(-.1vmin) scale(0.8) !important
 						transition: transform 300ms ease-in-out 0.15s
 						opacity: 0.8 !important
-			&#caixa
+			&#natura
 				a = 272
 				b = 118
 				vm = 7vmin
 				c = a + 56
-				background-image: radial-gradient(at 0% 10%, rgba(255,255,255,.2) 5%, rgba(255,255,255,0) 40%);
+				background-image: radial-gradient(50vw 80vh at 50% 45%, rgba(255,197,24,0.5) 55%, rgba(0,0,0,0.01) 110%);
 				header
 					position: absolute
 					overflow hidden
-					dist(90,180)
+					dist(110,120)
 					h4
 						reset()
 						small
 							font-size: 0.6em
 							font-weight: 600
 					p
-						width calculo(1em, 0,340);
+						width calculo(1em, 0,150);
+					figure
+						dist(70,360)
+				article
+					height 100%
+					> div
+						flex_column(center, center)
+						position relative
+						width: 100%
+						height 100%
+					img
+						height 85%
+						box-shadow: 0 0 10vmin -3vmin rgba(188,83,16,0.6)
+
+			&#caixa
+				a = 272
+				b = 118
+				vm = 7vmin
+				c = a + 56
+				background-image: radial-gradient(60vw 40vh at 20% 55%, rgba(105,197,255,0.2) 25%, rgba(0,0,0,0) 120%)
+				header
+					position: absolute
+					overflow hidden
+					dist(35,120)
+					h4
+						reset()
+						small
+							font-size: 0.6em
+							font-weight: 600
+					p
+						width calculo(1em, 0,110);
 					figure
 						dist(70,360)
 				article	
-					height 100vh
+					height 100%
+					width 100%
+					> div 
+						flex_column(center, center)
+						position relative
 					img
-						dist(190,80)
-						height 80vh
+						dist(190,0)
+						height calculo(1vmin, 250,15)
 						position:absolute;
 			&#pop
-				g = 60vh
-				height g
 				a = 22vmin
 				b = 2
 				vm = 2vmin
@@ -358,7 +402,7 @@ body
 				background-image: radial-gradient(at 90% 10%, rgba(255,255,255,0.2) 5%, rgba(255,255,255,0) 60%);
 				header
 					position: absolute
-					dist(290,190)
+					dist(80,100)
 					h4
 						reset()
 						small
@@ -370,19 +414,18 @@ body
 					position: absolute
 					height 82vh
 					img
-						dist(0,-260)
+						dist(255,-110)
+						height calculo(1vmin, 460,55)
 						position:absolute;
-						height 88vh
-						box-shadow: 1px 0px 9vmin -12px rgba(0,0,0,0.3)
 			&#dkids
-				background-image: radial-gradient(at -10% 10%, rgba(255,255,255,.25) 5%, rgba(255,255,255,0) 40%);
+				background-image: radial-gradient(at 100% 10%, rgba(255,255,255,.25) 5%, rgba(255,255,255,0) 20%);
 				a = 272
 				b = 2
 				vm = 7vmin
 				c = vm + 3
 				header
 					position: absolute
-					dist(50,50)
+					dist(35,55)
 					animate_clip(2s)
 					h4
 						reset()
@@ -390,20 +433,20 @@ body
 							font-size: 0.6em
 							font-weight: 600
 					p
-						width calculo(1em, 0,150)
+						width calculo(1em, 0,125)
 				article	
 					height 90vh
 					img
-						height 80vh
-						dist(-70,206)
+						height calculo(1em, 400,95)
+						dist(20,156)
 						position:absolute;		
 			&#mars
 				header
 					position: absolute
 					// clip: rect(0, 100vw, h, 0)
 					// animate_clip(2.4s)
-					dist(120,190)
-					animate_clip(2s)
+					dist(100,45)
+					animate_clip(1s)
 					h3
 						color darker
 					h4
@@ -412,15 +455,16 @@ body
 							font-size: 0.6em
 							font-weight: 600
 					p
-						width calculo(1em, 0,120);
+						width calculo(1em, 0,140);
 					figure
 						dist(92,400)
 				article
 					// height 310vh
+					position relative
 					img
-						dist(280,-520)
+						dist(-85,-790)
 						position:absolute;
-						height 152vh
+						height calculo(1em, 400,925)
 		&.cases_clicado
 			transform scale(5, 5)
 			z-index: 99999
@@ -495,17 +539,66 @@ body
 					color darker
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 .interna
 	height 100vh
 	width: 100vw
 	flex_column(center, center)
+	.logo,
+	.barra_topo,
 	.back
-		z-index 9999
-		position: fixed
-		width: calc(62 * ((80vw + 20vh) / 1000));
-		left: 1em
-		height: calc(85 * ((60vw + 40vh) / 1000));
+		height calculo(2vmin, 0, 16) 
+	.logo
+		min-height: 2em + 1vmin 
+		position:fixed
 		reset()
+		dist(39, 0)
+		left 3em + 2vmin
+		font(500,4, neue-t, 20)
+		smoo()
+		line_letter(5,0.2)
+		text-decoration: none
+		opacity 1
+		cursor: pointer
+		// z-index 999
+		word-spacing: 0.1em
+		white-space pre-line
+		display flex
+		flex_column(center, flex-start)
+	.back
+		z-index 999999
+		position: fixed
+		left 1em - .52vmin
+		reset()
+	& .barra_topo
+		min-height: 2em + 1vmin
+		width: 100vw
+		background-color:#fff
+		position: fixed
+		display: flex
+		dist(0,8)
+		opacity: 0
+		align-items: center
+		justify-content: center
+		h4
+			dist(-1,0)
+			position relative
+			font(500,4, neue-t, 0)
+			width: 30vw
+			word-spacing 0.1em
+			white-space pre-line
+			line_letter(5, -0.1)
 	a
 		left 0
 		position relative
@@ -568,23 +661,6 @@ body
 		flex_column(center, center)
 		width: 100vw
 		position relative
-		& .barra_topo
-			width: 100vw
-			background-color:#fff
-			position: fixed
-			display: flex
-			dist(0,8)
-			opacity: 0
-			align-items: center
-			justify-content: center
-			h4
-				dist(-1,0)
-				position relative
-				font(500,5, neue-t, 0)
-				width: 30vw
-				word-spacing 0.1em
-				white-space pre-line
-				line_letter(5, -0.1)
 		#hero
 		&.navigation
 			nav
@@ -628,14 +704,15 @@ body
 				height: auto;
 				min-height: 4em;
 				h3
-					font(700, 220, neue-h, 100)
+					font(700, 200, neue-h, 100)
 					dist(400,0)
 					width: auto
-					line_letter(20, 43)
+					line_letter(40, 28)
 					reset()
 					top auto
 					left auto
 					text-transform: lowercase
+					text-indent: 6vmin
 					sub
 						font-size: 0.4em
 						position relative
@@ -663,16 +740,17 @@ body
 					width: 40%
 					display flex
 					flex-direction: column
-					font(500,10, neue-t, 40)
+					font(500,5, neue-t, 40)
 					label
 						&.ano
-							font-size: 0.95em
+							font-size: 1em
 							line_letter(20, 1)
+							margin-top -1.5%
 							font-weight: 400
 							opacity 1
 						-webkit-font-smoothing: antialiased;
-						font(500, -2, neue-h, 100)
-						line_letter(5, 0.1)
+						font(500,1, neue-h, 100)
+						line_letter(1, 0.1)
 						word-spacing: 0.35em
 						// nosmoo()
 						&.tags
@@ -685,7 +763,7 @@ body
 								width:  100%
 								height 100%
 								display: block
-								padding: calculo(0.1vmin,10, 0) 0 calculo(0.1vmin,20, 0)
+								line_letter(10, 0.1)
 
 
 				.main-content
@@ -693,7 +771,8 @@ body
 					display flex
 					flex-direction: column
 					position relative
-					dist(-165, 0)
+					dist(-215, 0)
+					width calculo(22vmin,100, 5)
 					h4,
 					h5,
 					h6
@@ -702,24 +781,25 @@ body
 						cubic(600ms)
 						reset()
 					h4
-						font(500,18, neue-t, 40)
+						font(500,15, neue-t, 40)
 						word-spacing 0.1em
 						white-space pre-line
-						line_letter(5, -0.1)
+						line_letter(12, -0.1)
 					h5
 						color: grey
-						font(500,18, neue-h, 40)
+						font(500,15, neue-h, 40)
 						padding: 0 0 calculo(0.1vmin,30, 0)
-						line_letter(5, -0.1)
+						line_letter(10, -0.1)
 					h6
 						color: darker
-						font(500,3.5, neue-t, 40)
+						font(500,2.8, neue-t, 40)
 						padding: calculo(0.1vmin,45, 0) 0 calculo(0.1vmin,0, 0)
-						line_letter(5, 0.2)
+						line_letter(10, 0.2)
 					p
-						dist(0, 0)
-						font(200, 3, neue-t, 28)
-						line_letter(11, -0.1)
+						font(500, 2.1, neue-h, 0)
+						// nosmoo()
+						width: auto
+						line_letter(2.5, 0.2)
 						word-spacing: 0.1em
 						white-space: pre-line
 						color graffiti
@@ -733,6 +813,37 @@ body
 			position absolute
 			clip rect(100vh, 100vw, auto, 0)
 			height 100%
+		&#natura
+			#hero
+				background-attachment fixed
+				// background-image: radial-gradient(at 20% 20%, rgba(7,59,163,0.00) 70%, rgba(31,111,179,0.00) 58%, #1A76C0 99%);
+				// background-image: radial-gradient(at -80% -90%,red,yellow,green);
+			section
+				header
+					img
+						position: fixed
+						left auto
+						dist(325,60)
+						width: calculo(1em,400, 2*a)
+						height auto
+						box-shadow: 1px 0px 5vmin -12px rgba(0,0,0,0.3)
+				article
+					.natura_001
+						width: calculo(1em,400, 20*a)
+						dist(0,-120)
+						margin-bottom: calculo(1em,400, -21*a)
+					.natura_002
+						width: calculo(1em,200, 8*a)
+					.natura_003
+						width: calculo(1em,200, 14*a)
+					.natura_003_2
+						width: calculo(1em,200, 14*a)
+					.natura_004
+						width: calculo(1em,200, 14*a)
+					.natura_005
+						width: calculo(1em,200, 20*a)
+					.natura_006
+						width: calculo(1em,200, 14*a)
 		&#pop
 			#hero
 				background-attachment fixed
@@ -833,20 +944,20 @@ body
 						// background-size: contain
 				article
 					.dkids_001
-						dist(-20,10)
-						width: calculo(1em,400, 26*a)
-						margin-bottom: calculo(1em,400, -21*a)
+						dist(-20,-60)
+						width: calculo(1em,400, 17*a)
+						margin-bottom: calculo(1em,400, -17.5*a)
 					.dkids_003
-						width: calculo(1em,400, 4*a)
-					.dkids_004
 						width: calculo(1em,400, 8*a)
+					.dkids_004
+						width: calculo(1em,400, 12*a)
 						margin: calculo(1em,0, 10) 0
 					.dkids_005
-						width: calculo(1em,400, 15*a)
+						width: calculo(1em,400, 17*a)
 						box-shadow: 1px 0px 5vmin -12px rgba(0,0,0,0.2)
 						margin: calculo(1em,0, 20) 0
 					.dkids_full
-						width: calculo(1em,180, 10*a)
+						width: calculo(1em,180, 14*a)
 					
 	section
 		a = 30
@@ -859,22 +970,26 @@ body
 			display: flex
 			w =  64vmin
 			.bxx_margin
-				margin: calculo(1em,0, 80) 0 calculo(1em, 0,10)
+				margin: calculo(1em,0, 80) 0 calculo(1.2vmin, 0,2)
 			.bx_margin
-				margin: calculo(1em,0, 60) 0 calculo(1em, 0,10)
+				margin: calculo(5vmin,0, 40) 0 calculo(1.2vmin, 0,2)
 			.b_margin
 				margin: calculo(1em,0, 40) 0 calculo(1em, 0,5)
 			.mx_margin
-				margin: calculo(1em,0, 30) 0 calculo(1em, 0,5)
+				margin: calculo(2vmin,0, 15) 0 calculo(1.2vmin, 0,2)
 			.m_margin
-				margin: calculo(1em,0, 15) 0 calculo(1em, 0,2)
+				margin: calculo(1vmin,0, 15) 0 calculo(1.2vmin, 0,2)
 			.s_margin
-				margin: calculo(1em,0, 5) 0 calculo(1em, 0,5)
+				margin: calculo(1em,0, 5) 0 calculo(1.2vmin, 0,2)
 			.sx_margin
-				margin: calculo(1em,0, 2) 0 calculo(1em, 0,2)
+				margin: calculo(1vmin,0, 0) 0 0
 		&.image
 			overflow hidden
 			flex_column(center, center)	
+			p
+				font(200, 3, neue-t, 68)
+				flex_column(center,center)
+				text-align: left
 		&.content
 			flex_column(flex-start, flex-start)
 			& header,
@@ -883,7 +998,7 @@ body
 				flex-direction: column
 				flex_column(flex-start, flex-start)
 				reset()
-				width 24vw
+				width calculo(22vmin,100, 5)
 			
 			h5,
 			h6,
@@ -894,15 +1009,15 @@ body
 				width 100%
 				dist(-34,0)
 			h5
-				font(600,18, neue-h,0)
+				font(600,16, neue-h,0)
 				word-spacing 0.1em
 				width: auto
 				color:darker
 				line_letter(6, -0.1)
 				smoo()
 			h6
-				font(500, 3.4, neue-t, 0)
-				line_letter(10, 0.1)
+				font(500, 2.5, neue-t, 0)
+				line_letter(2, 0.1)
 				word-spacing 0.1em
 				color:darker
 				width: auto
@@ -911,27 +1026,28 @@ body
 					font-weight: 400
 					color gray
 					opacity 0.8
-					line_letter(5, -0.2)
+					reset()
 					display: block
 			article
 				position relative
 				z-index 999
 				p
-					font(200, 3, neue-t, 0)
-					line_letter(8, .01)
+					font(500, 2, neue-h, 0)
+					// nosmoo()
+					line_letter(3, 0.1)
 					word-spacing 0.05em
 					color graffiti
-					width: auto
+					width auto
 					i
 						font-weight 500
 						// nosmoo()
 						color #darker
 						font-style: normal
 				blockquote
-					font(300, 5, neue-h, 22.3)
+					font(300, 4, neue-h, 22.3)
 					height: auto
 					position relative
-					line_letter(8, .5)
+					line_letter(4, .5)
 					word-spacing 0.1em
 					color graffiti
 					reset()
@@ -1005,7 +1121,6 @@ body
 
 
 
-
 // 
 // 
 // 
@@ -1031,416 +1146,4 @@ body
 // 
 // 
 // 
-.vertical
-	section
-		&#intro
-			height 100vh
-			header
-				width: 100vw
-				flex_column(center, center)
-				dist(0,130)
-				height 100%
-				>label
-					text-align: center
-					font-size: 1.5em
-					position relative
-					dist(0,-100)
-				h3,p
-					font(400, 26, neue-h, 0)
-					dist(0, 0)
-					text-align: center
-					align-items: center
-					span
-						line_letter(18, 4)
-						font(300, 32, neue-h, 0)
-						position relative
-						left 15vw
-						text-align: center
-					i
-						float none
-				>label, h3, p
-					width: calculo(1em,410, 170)
-						
-		&#page1
-			width: 100%
-			reset()
-			header
-				reset()
-				h2
-					font(900, 230, neue-h, 0)
-					width: 100%
-					line_letter(-20, -9)
-					dist(30, 80)
-			article
-				width: 100vw
-				flex_column(center, center)
-				height calculo(0.4em, 400, 160)
-				left 0
-				p
-					font(400, 10, neue-h, 46)
-					dist(0, 20)
-					line_letter(15, 1)
-					text-align: center
-					position relative
-					flex_column(center, center)
-		
-	.main
-		margin 0
-		position relative
-		display: flex
-		width: auto
-		flex_column(center, center)
-		.cases
-			mw = calc(1.2em + 4vw)
-			sub = calc(100vw - calc(1.2em + 4vw)*2)
-			&#pop
-			&#mars
-			&#caixa
-			&#dkids
-				width: sub
-				margin 0 mw mw
-				flex_column(center, center)
-				header
-					width: 100%
-					height: 100%
-					overflow none
-					dist(0,0)
-					flex_column(center, center)
-					> div
-						width: 70%
-						height: 100%
-						flex_column(center, center)
-						position relative
-					label
-						font-size: 76vmin
-						top: 10vmin
-					h4
-						font(900, 65, neue-h, 0)
-						font-weight: 700
-						line_letter(40, 7)
-						left auto
-						top auto 
-						position relative
-						reset()
-						text-indent: calculo(0.01em,2, 2)
-					p
-						font(400, 23, neue-h, 0)
-						width auto
-						line_letter(12, 2)
-						left auto
-						top auto 
-						position relative
-						reset()
-					h4,p
-						width 60%
-						text-align: center
-				article
-					display: none
-			#pop
-				h = 60vh
-				height h
-				a = 272
-				b = 2
-				vm = 17vmin
-				c = a + 56
-				header
-					clip: rect(0, 100vw, h, 0)
-					figure
-						bottom: calculo(vm,b, 40)
-				article
-					img
-						width: 45vw
-						height auto
-						top 140vh
-						left auto
-						filter: blur(1px)
-						opacity 1
-			#mars
-				h = 60vh
-				height h
-				a = 272
-				b = 2
-				vm = 17vmin
-				c = a + 56
-				header
-					clip: rect(0, 100vw, h, 0)
-					figure
-						bottom: calculo(vm,b, 40)
-				article
-					img
-						height 160vh
-						left -10vmin
-						top -110vmin
-						filter: blur(1.5px)
-						opacity 0.8
-			#caixa
-				h = 60vh
-				height h
-				a = 272
-				b = 2
-				vm = 17vmin
-				c = a + 56
-				header
-					clip: rect(0, 100vw, h, 0)
-					figure
-						bottom: calculo(vm,b, 40)
-				article
-					flex_column(flex-start,center)
-					padding 0
-					margin: 0
-					width: 100vw
-					img
-						width: 95vw
-						height auto
-						top 110vh
-						left auto
-						filter: blur(1px)
-						opacity 1
-			#dkids
-				h = 60vh
-				height h
-				a = 272
-				b = 2
-				vm = 17vmin
-				c = a + 56
-				header
-					clip: rect(0, 100vw, h, 0)
-					figure
-						bottom: calculo(vm,b, 40)
-				article
-					flex_column(flex-start,center)
-					padding 0
-					margin: 0
-					width: 100vw
-					img
-						width: 95vw
-						height auto
-						top 110vh
-						left auto
-						filter: blur(1px)
-						opacity 1
-	.interna
-		#Scroll-Pack
-			>div
-				dist(0,0)
-				.barra_topo
-					min-height: 3.8em
-					h4
-						font(600, 16, neue-h, 50)
-						dist(188,0)
-				.nav-wap
-					top 0	
-					.logo
-						position: fixed
-						z-index 9999
-				.callback
-					.logo
-						dist(54,0)
-						font(600, 18, neue-h, 45)
-						min-height: 3.1em
-					.back
-						left 2vmin
-						margin-top 0.1vmin
-						min-width: 14vmin
-						z-index 9999
-						min-height: 2.6em;
-		&.cases
-			a = 30
-			h = 90vh
-			#hero
-				height 90vh !important
-				clip: rect(0, 100vw, h, 0)
-				.titulo
-					text-align: center;
-					text-indent: 4vmin;
-					h3
-						font(900, 95, neue-h, 45)
-						margin: calculo(1em,0, 70) 0 0
-						line_letter(20,20)
-			&#caixa
-				#hero
-					img
-						dist(-810,-100)
-						width calculo(1em,400, 68*a)
-				article
-					.caixa_001
-						width: calculo(1em,400, 6*a)
-						dist(0,50)
-					.caixa_003
-						width: calculo(1em,180, 8*a)
-					.caixa_005
-						width: calculo(1em,180, 8*a)
-					.caixa_016
-						width: calculo(1em,180, 5*a)
-					.caixa_006
-						width: calculo(1em,180, 8*a)
-					.caixa_full
-						width: calculo(1em,180, 11*a)
-					.caixa_parts_mob
-						width: calculo(1em,180,11*a)
-						box-shadow: 1px 0px 5vmin -12px rgba(0,0,0,0.1)
-			&#mars
-				#hero
-					img
-						dist(-1210,100)
-						height calculo(1em,400, 25*a)
-				article
-					.mms_001
-						width: calculo(1em,400, 5*a)
-						dist(105,48)
-					.mms_002
-						width: calculo(1em,400, 4*a)
-						dist(0,58)
-						box-shadow: 1px 0px 8vmin -12px rgba(0,0,0,0.1)
-					.mms_003
-						width: calculo(1em,400, 4*a)
-						dist(0,-50)
-						box-shadow: 1px 0px 10vmin -12px rgba(0,0,0,0.4)
-					.mms_004
-						width: calculo(1em,180, 5*a)
-						box-shadow: 1px 0px 10vmin -12px rgba(0,0,0,0.2)
-			&#pop
-				#hero
-					img
-						dist(-1210,100)
-						height calculo(1em,400, 25*a)
-				article
-					.pop_001
-						width: calculo(1em,400, 15*a)
-						dist(175,48)
-					.pop_002
-						width: calculo(1em,350, 14*a)
-						dist(-165,0)
-						
-					.pop_003
-						width: calculo(1em,320, 15*a)
-						dist(146,-40)
-						box-shadow: 1px 0px 10vmin -12px rgba(0,0,0,0.1)
-					.pop_full
-						width: calculo(1em,180, 10*a)
-						box-shadow: 1px 0px 10vmin -12px rgba(0,0,0,0.1)
-			&#dkids
-				#hero
-					img
-						dist(-30,130)
-						width calculo(1em,400, 18*a)
-				article
-					.dkids_001
-						dist(-20,10)
-						width: calculo(1em,400, 17*a)
-						margin-bottom: calculo(1em,400, -21*a)
-					.dkids_003
-						width: calculo(1em,400, 2*a)
-					.dkids_004
-						width: calculo(1em,400, 2*a)
-						margin: calculo(1em,0, 5) 0
-					.dkids_005
-						width: calculo(1em,400, 3*a)
-						box-shadow: 1px 0px 5vmin -12px rgba(0,0,0,0.2)
-						margin: calculo(1em,0, 10) 0
-					.dkids_full
-						width: calculo(1em,180, 3*a)
-			.destaque
-				header
-					width: 94%
-					margin:calculo(3vmin,0, 0) 0 calculo(3vmin,0, 0)
-					h4
-						font(600, 30, neue-h, 40)
-						line_letter(16,1)
-					h5
-						font(500, 28, neue-h, 40)
-						line_letter(16,1)
-					label
-						font-size: .66em
-						line_letter(16,-0.1)
-						word-spacing: 0.1em
-					.side-content
-						width: calculo(1em, 0, 40)
-					.main-content
-						width: calculo(1em, 0, 470)
-						dist(190,0)
-						p
-							width: 60%
-							font-size: 0.78em
-							line_letter(14, 1)
-		
-		.image
-			&.margin
-				margin 0 calculo(1em, 0, 25) 
-				width 88vw
-		.content
-			w = 90vw
-			width w
-			dist(10,0)
-			a = 30
-			header,
-			article
-				width w
-			header
-				h5,
-				h6
-					width w - 3
-					line_letter(12, 1)
-					dist(0,0)
-				h5
-					font-size: 1.8em
-
-				h6
-					font-size: 1.2em
-					line_letter(28, 0.1)
-					margin: 10vmin 0
-					span
-						line_letter(28, 0.1)
-			article
-				p	
-					width w - 3
-					font-size: 0.9em
-					line_letter(28, 0.1)
-					dist(0,0)
-					smoo()
-				blockquote
-					font-size: 1em
-					line_letter(14, 2)
-					width calculo(44vmin,10, 45)
-					padding-left: 1em
-					dist(20,0)
-				img
-					width calculo(75vmin,10, 150)
-					position relative
-		&.content,
-		&.image
-			margin: 0
-			position relative
-			z-index: 3
-			height auto
-			display: flex
-			w =  64vmin
-			.bxx_margin
-				margin: calculo(1em,0, 80) 0 calculo(1em, 0,10)
-			.bx_margin
-				margin: calculo(1em,0, 60) 0 calculo(1em, 0,10)
-			.b_margin
-				margin: calculo(1em,0, 40) 0 calculo(1em, 0,5)
-			.mx_margin
-				margin: calculo(1em,0, 30) 0 calculo(1em, 0,5)
-			.m_margin
-				margin: calculo(1em,0, 15) 0 calculo(1em, 0,2)
-			.s_margin
-				margin: calculo(1em,0, 5) 0 calculo(1em, 0,5)
-			.sx_margin
-				margin: calculo(1em,0, 2) 0 calculo(1em, 0,2)
-				
-		&#footer
-			header
-				h3
-					font(300, 50, neue-h, 70)
-					line_letter(3, 3)
-			article
-				flex-direction: column
-				padding-bottom: 13vh
-				p
-					width: 100%
-					&.right
-						dist(0,40)
-						font(300,-7.5, neue-t, 70)
-						line_letter(23, 3)
+@import 'mobile.styl'

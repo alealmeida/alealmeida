@@ -30,7 +30,7 @@ const ScrollOverPack = ScrollAnim.OverPack;
     const CONTENT = {
         id: 'caixa',
         h3: <h3 class="white">Caixa</h3>,
-        ano: '2015',
+        ano: '2016',
         bg: 'rgb(13,123,203,1)',
         bg_destaque: '#fff',
         categoria: "Redesign",
@@ -60,7 +60,10 @@ const ScrollOverPack = ScrollAnim.OverPack;
                     <blockquote cite="executivo da caixa" className="sx_margin">
                         É preciso manter os patrimônios já estabelecidos e conquistar novos territórios.
                     </blockquote>,
-                    <p >Para atender a esta demanda, foi criado um plano de ação em 3 frentes:</p>,
+                    <blockquote cite="executivo da caixa" className="s_margin">
+                    Além de Crédito e Poupança, a Caixa não oferece muitos outros benefícios
+                    </blockquote>,
+                    <p className="sx_margin">Para atender a esta demanda, foi criado um plano de ação em 3 frentes:</p>,<div className="sx_margin"></div>,
                     <p>
                     ·&nbsp; Evoluir a tecnologia do Auto-atendimento;
                     </p> ,
@@ -70,9 +73,6 @@ const ScrollOverPack = ScrollAnim.OverPack;
                 <p>
                     ·&nbsp; Expandir o relacionamento com quem já é cliente.
                     </p>,
-                    <blockquote cite="executivo da caixa" className="s_margin">
-                    Além de Crédito e Poupança, a Caixa não oferece muitos outros benefícios
-                    </blockquote>
                     ]
             }
             ,

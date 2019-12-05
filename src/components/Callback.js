@@ -29,7 +29,7 @@ class Callback extends React.Component {
         this.state = {
             css:  {
                 height: '100',
-                position: position1,
+                position: 'fixed',
                 
             },
             bg: {
@@ -53,7 +53,8 @@ class Callback extends React.Component {
             ],
             fill: cor1,
             cssNoPosition: true,
-            theposition: window.pageYOffset
+            theposition: window.pageYOffset,
+            width: "calc(1em + 12vmin)"
         };
         this.index = index
         this.to = to
@@ -71,20 +72,20 @@ class Callback extends React.Component {
             fill: this.cor1
         }));
         this.prev = window.scrollY;
-        window.addEventListener('scroll', e => this.handleNavigation(e));
+        // window.addEventListener('scroll', e => this.handleNavigation(e));
       }
     
     
-    handleNavigation = (e) => {
-        const window = e.currentTarget;
+    // handleNavigation = (e) => {
+    //     const window = e.currentTarget;
     
-        if (this.prev > window.scrollY) {
-            console.log("scrolling up");
-        } else if (this.prev < window.scrollY) {
-            console.log("scrolling down");
-        }
-        this.prev = window.scrollY;
-    };
+    //     if (this.prev > window.scrollY) {
+    //         console.log("scrolling up");
+    //     } else if (this.prev < window.scrollY) {
+    //         console.log("scrolling down");
+    //     }
+    //     this.prev = window.scrollY;
+    // };
     setCss = (e) => {
         const css = this.state.css;
         const bg = this.state.bg;
@@ -108,15 +109,21 @@ class Callback extends React.Component {
     };
     setFill = (e) => {
         const theposition= window.pageYOffset
-        if (theposition >= 200) {
+        const css = this.state.css;
+        const altura= window.innerHeight
+        if (theposition >= altura - 130) {
             this.setState({
+                css,
                 fill: this.cor2,
-                color: this.cor2
+                color: this.cor2,
+                width: "calc(1em + 12vmin)"
             });
         } else {
             this.setState({
+                css,
                 fill: this.cor1,
-                color: this.cor2
+                color: this.cor1,
+                width: "100%"
             });
         }
     };
@@ -194,22 +201,22 @@ className='barra_topo'> <h4>{this.project}</h4>
                         -1, -.5
                     ],
                     opacity: 1,
-                    scale: 1,
+                    fontSize: 'calc(0.4em + 1.3vmin)',
                 },{
 
-                    ease: 'easeInOutCubic',
+                    ease: 'easeOutCubic',
                     playScale: [
-                        1.6, 1.8
+                        1.6, 1.95
                     ],
-                    translateX: '-6%',
+                    translateX: '-2%',
                     top: 0,
-                    scale: 0.8,
                 },{       
                     ease: 'easeInOutCubic',
                     playScale: [
                         .05, .13
                     ],
                     opacity: 1,
+                    fontSize: 'calc(0.4em + 0.9vmin)',
                 },{       
                 ease: 'easeInOutCubic',
                 playScale: [
@@ -224,25 +231,26 @@ className='barra_topo'> <h4>{this.project}</h4>
                                 cor={this.state.fill}
                                 key='2' 
                                 location="Scroll-Pack"
-                    appear={true} always={true} 
+                    appear={true} always={true} css={this.state.css}
                     animation={[{          
                         ease: 'easeInOutCubic',
                         playScale: [
-                            1.2,1.95
+                            -1,0
                         ],
                         opacity: 1,
-                        scale: 0.3,
-                        top: 0,
-                        translateX: -20,
-                        onComplete: () => { this.setState({fill: this.cor2})},
-                        onStart: () => { this.setState({fill: this.cor1})},
+                        translateX: '0vw',
+                        width: 'calc(1em + 10vmin)',
+                        onComplete: () => { this.setFill()},
                     },{          
-                        ease: 'easeInOutCubic',
+                        ease: 'easeOutQuart',
                         playScale: [
-                            2,2.1
+                            1.25,2.2
                         ],
-                        onComplete: () => { this.setState({fill: this.cor2})},
-                        onStart: () => { this.setState({fill: this.cor1})},
+                        top: 0,
+                        translateX: '4vmin',
+                        width: 'calc(1em + 1vmin)',
+                        onStart: () => { this.setFill()},
+                        onComplete: () => { this.setFill()},
                     }
                 
           ]}
