@@ -20,13 +20,13 @@ const ScrollOverPack = ScrollAnim.OverPack;
 
     const Cores = {
         cor: '#fff',
-        cor_sec_1: 'rgb(244,171,52,1)',
-        cor_sec_2: 'rgb(244,171,52,1)',
+        cor_sec_1: 'rgb(20,20,22,1)',
+        cor_sec_2: 'rgb(20,20,22,1)',
         cor_destaque: '#ddd'
     }
     const CONTENT = {
         id: 'natura',
-        h3: <h3 class="white">Natura</h3>,
+        h3: <h3>Natura</h3>,
         ano: '2019',
         cor: '#fff',
         bg: 'rgb(244,171,52,1)',
@@ -182,7 +182,7 @@ titulo: [<h5 className="bx_margin">Análise de Métricas</h5>,<div className="mx
         ],
         duration: [1200, 1000]
     }
-    class Caixa extends React.Component {
+    class Natura extends React.Component {
         constructor({props, to, component, index}) {
             super(props)
             this.index = index
@@ -208,12 +208,12 @@ titulo: [<h5 className="bx_margin">Análise de Métricas</h5>,<div className="mx
                 this.props.history.push(this.to)
             },3500)
             
-            this.smoothScroll.scrollTo()
+            this.smoothScroll.scrollTo('#root')
         }
         smoothScroll = {
             scrollTo: (id, callback) => {
                 var settings = {
-                    duration: 2000,
+                    duration:700,
                     easing: {
                         inoutQuint: function (x, t, b, c, d) {
                             return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
@@ -282,7 +282,9 @@ titulo: [<h5 className="bx_margin">Análise de Métricas</h5>,<div className="mx
                                     hash={'#'+CONTENT.id}
                                     cor1={Cores.cor}
                                     project={CONTENT.h4}
+                                    client={CONTENT.h3}
                                     cor2={Cores.cor_sec_2} style={{opacity:1}} onClick={this.onClick} />
+                    
                     <ScrollOverPack appear={true} always={true} component='section' id='hero'
                             style={{
                             backgroundColor: CONTENT.bg,
@@ -332,10 +334,6 @@ titulo: [<h5 className="bx_margin">Análise de Métricas</h5>,<div className="mx
                                 }
                             ]
                         ]}ease={PROP.ease} >
-                            <div  key={this
-                                    .state
-                                    .items
-                                    .map((i) => i.key = 1)} className='titulo'>{CONTENT.h3}</div>
                             <img  key={this
                                     .state
                                     .items
@@ -392,4 +390,4 @@ titulo: [<h5 className="bx_margin">Análise de Métricas</h5>,<div className="mx
             );
         };
     }
-    export default withRouter(Caixa);
+    export default withRouter(Natura);

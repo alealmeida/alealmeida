@@ -25,27 +25,27 @@ const routes = [
         path: '/'+params[0].id,
         main: props => <Natura to={'/#/natura'} component={props.main} />,
         id: 'natura'
-    }, {
+    },{
         index: 2,
         path: '/'+params[1].id,
+        main: props => <Pop to={'/#/pop'} component={props.main} />,
+        id: 'pop'
+    }, {
+        index: 3,
+        path: '/'+params[2].id,
         main: props => <Caixa to={'/#/caixa'} component={props.main} />,
         id: 'caixa'
     },  {
-        index: 3,
-        path: '/'+params[2].id,
+        index: 4,
+        path: '/'+params[3].id,
         main: props => <Dkids to={'/#/dkids'} component={props.main} />,
         id: 'dkids'
     },{
-        index: 4,
-        path: '/'+params[3].id,
-        main: props => <Mars to={'/#/mars'} component={props.main} />,
-        id: 'mars'
-    }, {
         index: 5,
         path: '/'+params[4].id,
-        main: props => <Pop to={'/#/pop'} component={props.main} />,
-        id: 'pop'
-    }
+        main: props => <Mars to={'/#/mars'} component={props.main} />,
+        id: 'mars'
+    }, 
 ];
 const LoadSite = () => {
     return (
@@ -56,7 +56,9 @@ const LoadSite = () => {
             animation={[{ opacity: 0 }, { duration: 20, opacity: 1 }]}
             style={{ opacity: 0 }}
         >
-            <Intro /><SectionOne /> {routes.map((i) => i.index ? (
+            <Intro />
+            {/* <SectionOne /> */}
+            {routes.map((i) => i.index ? (
                 <SectionCases
                     data={{ param: { id: i.id } }}
                     to={routes[i.index].path} />) : '')}

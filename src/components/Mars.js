@@ -157,12 +157,12 @@ class Mars extends React.Component {
                 this.props.history.push(this.to)
             },3500)
             
-            this.smoothScroll.scrollTo()
+            this.smoothScroll.scrollTo('#root')
         }
         smoothScroll = {
             scrollTo: (id, callback) => {
                 var settings = {
-                    duration: 2000,
+                    duration: 700,
                     easing: {
                         inoutQuint: function (x, t, b, c, d) {
                             return c * ((t = t / d - 1) * t * t * t * t + 1) + b;

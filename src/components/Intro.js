@@ -9,26 +9,16 @@ const LoadIntro = () => {
     const QUEUEANIM = {
         items: [
             {
-                tag: 'h3',
-                children: 'Sou Alexandre Almeida,',
+                tag: 'h2',
+                children: 'Alexandre Almeida,',
                 key: 0,
                 classe: 'darker'
             }, 
             {
                 tag: 'h3',
-                children: ['UX & Service Designer na Natura, em São Paulo.'],
+                children: ['Product Designer @ São Paulo.'],
                 key: 1,
                 classe: 'darker'
-            }, {
-                tag: 'p',
-                children: ['Profissional',<label style={{textDecoration: 'line-through'}}> híbrido</label>, ' multidisciplinar.'],
-                key: 2,
-                classe: 'grey'
-            }, {
-                tag: 'p',
-                children:  'Sou designer de produtos digitais e ajudo a conectar marcas e pessoas através de experiências únicas e incríveis.',
-                key: 3,
-                classe: 'grey'
             }
         ],
         
@@ -69,27 +59,9 @@ const LoadIntro = () => {
     }
     return (
             <ScrollElement component='section' id='intro'>
-                <ScrollParallax component="header" always={true} animation={PROP.timeline}> 
                     
                     <QueueAnim
-                        type={['bottom', 'top']}
-                        forcedReplay
-                        animConfig={[         
-                            {
-                                 y: [0,175],
-                                                opacity:[1,0]
-                            }
-                        
-                    ]}
-                        interval={[170, 70]}
-                            delay={[0,10]}
-                            duration={[3000, 3000]}
-                            ease={[ 'easeInOutCubic'
-                        ]}
-                            component="label"
-                            > <label key='0'> Olá! </label>
-                    </QueueAnim>
-                    <QueueAnim
+                        component="header" 
                         type={PROP.type}
                         forcedReplay
                         animConfig={PROP.anim}
@@ -106,7 +78,6 @@ const LoadIntro = () => {
                                 <item.tag key={item.key} className={item.classe}>{item.children}</item.tag>
                             ))}
                     </QueueAnim>
-                </ScrollParallax>
             </ScrollElement>
     );
 };

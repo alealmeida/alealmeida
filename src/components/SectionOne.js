@@ -10,12 +10,16 @@ const LoadSection = () => {
         h2: 'Design.',
         items: [ 
             {
-                children: <span>Como UX & Service Designer na <a href='http://natura.com.br' target='_blank' className='magenta'> Natura</a>, trabalho ajudando a melhorar a experiência da consultora com as plataformas digitais que usam no dia-a-dia, tornando-as simples e fáceis de usar, trazendo agilidade para as vendas.</span>,
-                key: 3
+                children: <span>Product Designer trabalhando atualmente na <a href='http://veloe.com.br' target='_blank' className='magenta'>Veloe</a>, integro um time de sete designers entre UX e UI e sou responsável por executar, definir processos de design e organizar demandas, a fim de garantir excelência nas entregas do time para todas as squads atuantes na empresa.</span>,
+                key: 1
             }, 
             {
-                children: <span>Apaixonado por inovação e tecnologia, sou Desenvolvedor Web nas horas vagas, construindo interfaces responsivas em HTML 5, CSS e ReactJS. Tenho passagens pela <i>Ogilvy&Mather, Integer\Outpromo e HUGE Brazil</i>. </span>,
-                key: 5
+                children: <span>Co-criamos e redesenhamos o Portal da Veloe, alimentando o Design System recém-lançado. Atuamos nas atualizações de versões iOS e Android do APP, criando e melhorando features.</span>,
+                key: 2
+            }, 
+            {
+                children: <span>Passagens anteriores pela <a href='http://veloe.com.br' target='_blank' className='magenta'>Integer\Outpromo</a> e <a href='http://veloe.com.br' target='_blank' className='magenta'>HUGE Rio</a>. </span>,
+                key: 3
             }
         ]
     };
@@ -58,17 +62,10 @@ const LoadSection = () => {
         timeline_2: 
             [
                 {
-                    opacity: 0,
-                    ease: 'linear',
-                    playScale: [
-                        -2, -1
-                    ],
-                    translateY: '0',
-                },{
                     opacity: 1,
                     ease: 'easeOutQuart',
                     playScale: [
-                        0.3, 0.8
+                        -0.3, 0.8
                     ],
                     translateY: '-2vh',
                 }, {
@@ -83,14 +80,7 @@ const LoadSection = () => {
         
     }
     return (
-        <ScrollElement component='section' id='page1'>
-            <ScrollParallax
-                component='header'
-                always={true}
-                animation={PROP.timeline_1} style={{opacity: 0}}>
-                <h2>{CONTENT.h2}
-                </h2>
-            </ScrollParallax>
+        <section id='page1'>
             <ScrollParallax
                 component='article'
                 
@@ -101,7 +91,7 @@ const LoadSection = () => {
                         <p key={item.key}>{item.children}</p>
                     ))}
             </ScrollParallax>
-        </ScrollElement>
+        </section>
     );
 };
 
