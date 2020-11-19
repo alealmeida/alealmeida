@@ -32,38 +32,48 @@ const params = [{
         },
         tween: [{
             opacity: 1,
-            duration: 200,
-            ease: 'easeOutExpo',
+            duration: 80,
+            ease: 'easeInOutCirc',
             delay: 0,
-            scale: 0.7,
+            scaleX: 0.7,
+            scaleY: 0.91,
             x: '-1vw',
-            y: '125vh',
+            y: '15vh',
         },
         {
-            ease: 'easeOutExpo',
-            duration: 2400,
-            delay: 0,
+            ease: 'easeInOutExpo',
+            duration: 1000,
+            delay: 200,
             x: '0vw',
             y: '0vh',
             scale: 1,
             opacity: 1,
         }],
-        tween2: [
-        {
-            ease: 'easeInExpo',
-            duration: 1110,
+        tween2: [{
+            ease: 'linear',
+            duration:5,
             delay: 0,
-            scale: 1,
-            opacity: 1,
-        }, {
-            ease: 'easeInExpo',
-            duration: 1400,
+            scaleX: 1.3,
+            scaleY: 0.8,
+            opacity:0.6,
+            y: -50,
+            from: 'from'
+        },{
+            ease: 'easeInOutQuad',
+            duration:800,
             delay: 0,
-            x: '0vw',
-            y: '0vh',
-            height: '300vh',
-            // scale: 5,
-            opacity: 1,
+            opacity:1,
+            y: -100,
+            scaleX: 1.3,
+            scaleY: 3,
+            from: 'from'
+        },{
+            ease: 'easeInOutQuad',
+            duration:700,
+            delay: 700,
+            opacity:0,
+            y: 0,
+            from: 'to'
         }]
     },
     {

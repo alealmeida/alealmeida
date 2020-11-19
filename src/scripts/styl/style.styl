@@ -33,7 +33,7 @@ max(n)
 font(weight, size, family, wid)
 	width 'calc(%s * ((60vw + 40vh) / 100))' % (wid)
 	font-family family
-	font-size 'calc(0.5em + 0.2vmin + %s * ((60vw + 40vh) / 1000))' % (size)
+	font-size 'clamp( 0.9em, calc(0.5em + 0.2vmin + %s * ((60vw + 40vh) / 1000)), 10em)' % (size)
 	font-weight weight
 
 line_letter(lines, letter)
@@ -385,7 +385,8 @@ body
 						position absolute
 						height calculo(1vmin, 350,55)
 				.bg
-					background-image radial-gradient(60vw 120vh at 70% 85%, rgba(255,197,24,0.5) 55%, rgba(0,0,0,0.2) 170%)
+					background-color rgba(255,197,24,1) 
+					background-image radial-gradient(60vw 120vh at 70% 85%, rgba(255,197,24,0.2) 55%, rgba(0,0,0,0.2) 170%)
 
 			&#caixa
 				a = 272
@@ -406,6 +407,7 @@ body
 						position absolute
 						height calculo(1vmin, 350,15)
 				.bg
+					background-color rgba(105,197,255,0.2)
 					background-image radial-gradient(60vw 120vh at 70% 85%, rgba(105,197,255,0.2) 55%, rgba(0,0,0,0.2) 170%)
 			&#dkids
 				a = 272
@@ -456,6 +458,7 @@ body
 				vm = 2vmin
 				c = a + 56
 				header
+					opacity 1
 					h4
 						reset()
 						small
@@ -473,31 +476,35 @@ body
 		&.cases_clicado
 			position relative
 			z-index 99999
-			transition all 0.8s ease-in 0.4s 
-			transform scale(2, 2.5)
+			opacity 1
+			transition all 0s linear 0s
+			header
+				position relative
+				opacity 0
 			article
-				position absolute
+				position relative
 				z-index 99999
 				top 0
 				left 0
 
-				opacity 1
 				margin 0
 
-				transition all 0.7s ease-in-out 0.5s
-				transform scale(2, 2.5) 
+				// transform scale(2, 2.5) 
 				// clip auto
 				img
 					transform scale(0, 0)
-					transition all 0.5s ease-in 0s
+					// transition all 0.5s ease-in 0s
 					opacity 0
 				.bg
 					top 0
 					left 0
-					position fixed
-					transition all 0.5s ease-in 0s
+					// transition all 1.5s linear 0s
 					margin 0
 					z-index 99999
+					opacity 1
+					background-blend-mode overlay
+			& > div
+				clip auto	
 				
 #footer
 	position relative
@@ -580,18 +587,12 @@ body
 	flex_column(center, center)
 	width 100vw
 	height 100vh
-	.logo,
-	.barra_topo,
-	.back
-		height calculo(3vmin, 0, 16) 
 	.logo
-		dist(39, 0)
+		dist(90, 0)
 		flex_column(center, flex-start)
 		position fixed
-		left 3em + 2vmin
 
 		display flex
-		min-height 2em + 1vmin
 
 		font(500,3, neue-h, 40)
 		line_letter(18, 0.8)
@@ -608,33 +609,41 @@ body
 		position fixed
 		reset()
 		z-index 999999
-		left 1em - 0.52vmin
+		dist(36, null)
 	& .barra_topo
 		position fixed
 
-		display flex
-		justify-content center
-		align-items center
-		height 10vmin
+		flex_column(center, flex-start)
+		// height clamp(3em,2em+10vmin, 20em)
 
-		background-color#fff
+		background transparent
 		dist(0,8)
-
+		
 		width 100vw
-		min-height 3em + 1vmin
-		h4
-			dist(-1,0)
-			line_letter(5, -0.1)
-			position relative
+		// height 3em + 10vmin
+		// min-height 3em
+		.titulo
+			width min-content
+			flex_column(center, flex-start)
+			dist(350,0)
 			white-space nowrap
-
-			width 30vw
-
-			font(500,4, neue-t, 0)
-			word-spacing 0.1em
-	a
+		h3
+		h4
+			// transition all 600ms linear -0.4s
+			dist(0,0)
+			width 100%
+			position relative
+			// transition all 0.5s ease-in -0.3s
+		h3
+			reset()
+			font(500, 90, garam, null)
+			line_letter(23, -2.8)
+		h4
+			reset()
+			font(400, 30, garam, null)
+			line_letter(10, -0.8)
+	a.callback
 		position relative
-		left 0
 
 		width auto
 		height calculo(1em,0, 10)
@@ -650,12 +659,10 @@ body
 		flex-direction column
 		justify-content center
 		width 100vw
-		height 100vh
+		height 50vh
 		>div
 			
-			/* position fixed */
 			top 0
-			width 8em
 			left 0
 			nav
 				position relative
@@ -685,6 +692,8 @@ body
 					.back
 						position fixed
 						z-index 9999
+						top 0
+						height auto
 						margin 0
 						padding 0
 						transition transform 400ms ease-in-out 0.1s
@@ -718,23 +727,11 @@ body
 						resolucao(200,100)
 						z-index 9999
 		.titulo
-			dist(0,100)
 			flex_column(flex-start, flex-start)
 			position relative
 			z-index 9999
 
 			height auto
-			min-height 4em
-			h3
-				dist(0,0)
-				line_letter(10, 2.8)
-				reset()
-				top auto
-				left auto
-
-				width auto
-
-				font(500, 50, garam, 100)
 				// text-indent 6vmin
 				// color darkerin
 				// color darker
@@ -743,13 +740,6 @@ body
 					font-size 0.4em
 					position relative
 					bottom 0.6em
-
-			h4
-				dist(0,0)
-				font(500, 50, garam, 100)
-				// font-size 5em
-				line_letter(10, 2.8)
-				reset()
 		#hero
 			h= 70vh
 			height h
@@ -778,7 +768,7 @@ body
 			position relative
 			width 100vw
 			padding calculo(1em, 0,70) 0 calculo(1em,0, 40)
-			margin 100vh 0 calculo(1em,0, 70)
+			margin 140vh 0 calculo(1em,0, 70)
 			flex_column(center, center)
 			header
 			article
@@ -788,21 +778,20 @@ body
 				flex-direction row
 				display flex
 				.side-content
-					width 40%
 					display flex
 					flex-direction column
-					font(500,5, neue-t, 40)
+					font(900,2, garam, 86)
 					label
+						dist(-10,0)
 						&.ano
 							font-size 1em
 							line_letter(20, 1)
 							margin-top -1.5%
-							font-weight 400
 							opacity 1
 						-webkit-font-smoothing antialiased
-						font(500,1, neue-h, 100)
-						line_letter(1, 0.1)
-						word-spacing 0.35em
+						font(600,4, garam, 100)
+						line_letter(1, -0.02)
+						word-spacing 0.15em
 						// nosmoo()
 						&.tags
 							opacity 1
@@ -818,12 +807,11 @@ body
 
 
 				.main-content
-					width 60%
 					display flex
 					flex-direction column
 					position relative
-					dist(-215, 0)
-					width calculo(22vmin,100, 5)
+					dist(-325, 0)
+					width calculo(20vmin,100, 5)
 					h4,
 					h5,
 					h6
@@ -837,15 +825,16 @@ body
 						white-space pre-line
 						line_letter(12, -0.1)
 					h5
-						color grey
-						font(500,15, neue-h, 40)
+						color darker
+						font(600,12, garam, 40)
 						padding 0 0 calculo(0.1vmin,30, 0)
 						line_letter(10, -0.1)
 					h6
 						color darker
-						font(500,2.8, neue-t, 40)
+						font(500,3.8, neue-t, 40)
 						padding calculo(0.1vmin,45, 0) 0 calculo(0.1vmin,0, 0)
-						line_letter(10, 0.2)
+						line_letter(10, 0.1)
+						nosmoo()
 					p
 						font(500, 2.1, neue-h, 0)
 						// nosmoo()
@@ -872,7 +861,7 @@ body
 			section
 				header
 					img
-						position fixed
+						position absolute
 						left auto
 						dist(325,60)
 						width calculo(1em,400, 2*a)
@@ -1049,27 +1038,27 @@ body
 				flex-direction column
 				flex_column(flex-start, flex-start)
 				reset()
-				width calculo(22vmin,100, 5)
+				width calculo(25vmin,100, 5)
 			
 			h5,
 			h6,
 			p,
 			blockquote
-				dist(-34,0)
+				dist(94,0)
 				position relative
 				reset()
 				width 100%
 			h5
 				width auto
 
-				font(600,16, neue-h,0)
+				font(500,12, neue-h,100)
 				line_letter(6, -0.1)
 				word-spacing 0.1em
 
 				color darker
 				smoo()
 			h6
-				font(500, 2.5, neue-t, 0)
+				font(500, 3, neue-t, 0)
 				line_letter(2, 0.1)
 				width auto
 				word-spacing 0.1em

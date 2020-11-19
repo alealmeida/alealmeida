@@ -26,7 +26,7 @@ const ScrollOverPack = ScrollAnim.OverPack;
     }
     const CONTENT = {
         id: 'natura',
-        h3: <h3>Natura</h3>,
+        h3: 'Natura',
         ano: '2019',
         cor: '#fff',
         bg: 'rgb(244,171,52,1)',
@@ -178,7 +178,7 @@ titulo: [<h5 className="bx_margin">Análise de Métricas</h5>,<div className="mx
         ],
         interval: 200,
         delay: [
-            1500, 1500
+            500, 500
         ],
         duration: [1200, 1000]
     }
@@ -206,14 +206,14 @@ titulo: [<h5 className="bx_margin">Análise de Métricas</h5>,<div className="mx
                   });
                 setTimeout(() => {
                 this.props.history.push(this.to)
-            },3500)
+            },1800)
             
             this.smoothScroll.scrollTo('#root')
         }
         smoothScroll = {
             scrollTo: (id, callback) => {
                 var settings = {
-                    duration:700,
+                    duration:800,
                     easing: {
                         inoutQuint: function (x, t, b, c, d) {
                             return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
@@ -273,8 +273,8 @@ titulo: [<h5 className="bx_margin">Análise de Métricas</h5>,<div className="mx
         }
         render() {
             return (
-                <div style={{width: '100%', height: '100%', background: CONTENT.bg}}>
-            <TweenOne id={CONTENT.id} reverse={this.state.reverse} reverseDelay={600}  component='div' key={CONTENT.id}  className='interna cases' animation={[{opacity:0, duration: 0, delay: 0, left:'0' },{opacity:1, ease: 'easeInOutExpo',duration: 2000, delay: 0, left:'0' }  ]} style={{opacity:0}}>
+                <div style={{width: '100%', height: '100%', background: 'white'}}>
+            <TweenOne id={CONTENT.id} reverse={this.state.reverse} reverseDelay={200}  component='div' key={CONTENT.id}  className='interna cases' animation={[{opacity:0, duration: 1000, top: '5vh',delay: 0, left:'0' },{opacity:1, ease: 'easeInOutExpo',duration: 1500,top: 40, delay: 0, left:'0' }  ]} style={{opacity:0}}>
                                 <Callback
                                     key={this.index}
                                     to={this.to}
@@ -283,24 +283,23 @@ titulo: [<h5 className="bx_margin">Análise de Métricas</h5>,<div className="mx
                                     cor1={Cores.cor}
                                     project={CONTENT.h4}
                                     client={CONTENT.h3}
-                                    cor2={Cores.cor_sec_2} style={{opacity:1}} onClick={this.onClick} />
+                                    cor2={Cores.cor_sec_2} style={{opacity:1, transform: `translateY(100px)`}} onClick={this.onClick} />
                     
-                    <ScrollOverPack appear={true} always={true} component='section' id='hero'
+                    <ScrollOverPack component='section' id='hero'
                             style={{
                             backgroundColor: CONTENT.bg,
                             height: '100vh'
-                        }}>
+                        }}
+                        playScale={['0%', '50%']}>
     
                         <QueueAnim
                             location={CONTENT.id}
                             component='header'
                             interval={PROP.interval}
-                            delay={[1000, 1000]}
+                            delay={[300, 200]}
                             duration={PROP.duration}
-                            forcedReplay
-                            leaveReverse
-                            reverse={true}
                             type={['bottom', 'top']}
+                            ease={['easeInOutExpo','easeInOutExpo']}
                             animConfig={[
                             [
                                 {
@@ -308,11 +307,10 @@ titulo: [<h5 className="bx_margin">Análise de Métricas</h5>,<div className="mx
                                         1, 0
                                     ],
                                     scale: [
-                                        1, 1.8
+                                        1, 1.2
                                     ],
-                                    y: [
-                                        0,0
-                                    ],
+                                    y:`20vh`,
+                                    
                                     x: [
                                         0 + 'vw',
                                         0 + 'vw'
@@ -322,11 +320,11 @@ titulo: [<h5 className="bx_margin">Análise de Métricas</h5>,<div className="mx
                                         1, 0
                                     ],
                                     scale: [
-                                        1, 1.8
+                                        1, 1.2
                                     ],
-                                    y: [
-                                        0, 0
-                                    ],
+                                    y:
+                                        `0vh`
+                                    ,
                                     x: [
                                         0 + 'vw',
                                         0 + 'vw'
@@ -337,7 +335,7 @@ titulo: [<h5 className="bx_margin">Análise de Métricas</h5>,<div className="mx
                             <img  key={this
                                     .state
                                     .items
-                                    .map((i) => i.key = 2)} src={hero} alt='' />
+                                    .map((i) => i.key+'000')} src={hero} alt='' />
                         </QueueAnim>
                     </ScrollOverPack>
                     <section
@@ -352,7 +350,6 @@ titulo: [<h5 className="bx_margin">Análise de Métricas</h5>,<div className="mx
                                 <label className='url'>{CONTENT.url}</label>
                             </div>
                             <div className="main-content">
-                                <h4 className="dark">{CONTENT.h4}</h4>
                                 <h5 className="dark">{CONTENT.titulo_projeto}</h5>
                                 <p>{CONTENT.objetivo}</p>
                                 <h6 className="dark">{CONTENT.titulo_desafio}</h6>

@@ -64,7 +64,7 @@ class SectionCases extends React.Component {
     }
     componentDidMount(){
         this.setState({
-            tw: this.i.tween
+            tw: this.i.tween, reverse: false
         });
         
         setTimeout(() => {
@@ -72,25 +72,26 @@ class SectionCases extends React.Component {
            this.state.hash === '#/' ? 
         
         this.smoothScroll.scrollTo(`#root`):this.smoothScroll.scrollTo(`#${Hash[2]}`)
-        }, 10)
+        }, 100)
     }
     onClick = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
+       
         this.setState({
-            reverse: true,
+            reverse: true, tw: this.i.tween2,
+            class: (this.class + " " + this.classAtivo)})
+        setTimeout(() => { 
+            this.props.history.push(this.to)
+            this.setState({
             items: [],
-            class: (this.class + " " + this.classAtivo),
-            tw: this.i.tween2
 
         });
-        setTimeout(() => {
-            this.props.history.push(this.to)
-        }, 2500)
+        }, 2600)
     }
     smoothScroll = {
         scrollTo: (id, callback) => {
             var settings = {
-                duration: 10,
+                duration: 1000,
                 easing: {
                     inoutQuint: function (x, t, b, c, d) {
                         return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
@@ -141,12 +142,12 @@ class SectionCases extends React.Component {
                         .easing
                         .inoutQuint(node, elapsed, offset, targetY, settings.duration);
                         console.log(yScroll)
-                    window.scrollTo(node, yScroll);
-                    this.timer = setTimeout(step, 0);
+                    window.scrollTo(node, yScroll+120);
+                    this.timer = setTimeout(step, 20);
                 }
             }
   
-            this.timer = setTimeout(step, 0);
+            this.timer = setTimeout(step, 20);
         }
     }
     render() {
@@ -167,33 +168,37 @@ class SectionCases extends React.Component {
                 id={ident}
                 component='section'
                 className={this.state.class}
-                playScale={[-0.3, 4]}>
+                playScale={['0%', '0%']}>
                <article>
                     <TweenOne
                         // reverse={this.state.reverse}
                         component='div'
                         key={ident}
-                        reverseDelay={0}
+                        // reverseDelay={0}
                         animation={this.state.tw}
                         style={{
-                            opacity: 1
-                        }}>
+                            opacity:1
+                        }}
+                        >
                         <ScrollParallax
-                                // always={false}
                                 location={ident}
                                 key={ident+'12'}
                                 className='bg'
-                                style={{
-                                    backgroundColor: estilo.bg, transform: 'translateY(-150px)'
-                                }}
-                                animation={{
-                        playScale: [0,3.5],
+                                // style={{
+                                //      transform: 'translateY(-50px)'
+                                // }}
+                                animation={[
+                                    {
+                                        playScale: [-1,-0.5],
+                                                        opacity: 1},
+                                    {
+                                        playScale: [0,0.5],
+                                                        opacity: 1},{
+                        playScale: [0.0,2.5],
                                         opacity: 1,
-                                        y: '250',
-                                        ease: 'easeInSine'
                         // onStart: () => { this.setCss('start'); },
                         // onComplete: () => { this.setCss('start'); },
-                         }}/>
+                         }]}/>
                          <ScrollParallax
                              // always={false}
                              key={ident+'13'}
@@ -212,14 +217,16 @@ class SectionCases extends React.Component {
                     </article>
                 <QueueAnim
                 component='header'
-                type={['bottom', 'top']} interval={[150, 100]} delay={[600, 100]}
-                duration={[600, 800]}
-                ease={['easeOutCirc', 'easeInOutCirc']} leaveReverse reverse={this.state.reverse} animConfig={[{ opacity: [1, 0], y: [0, 80] }, { opacity: [1, 0], y: [0, 80] }]}>
+                appear={true}
+                key={(index + '000')}
+                reverse={this.state.reverse}
+                type={['bottom', 'top']} interval={[200, 200]} 
+                duration={[1200, 1000]} leaveReverse  animConfig={[ { opacity: 0, y: 180, type: 'from' }, { opacity: 1, y: 0, type: 'to'  }]}>
                 {
                     this.state.items.map(() =>
                         [
-                            <h4 key={(index + '0')} style={{ opacity: 0}} >{content.h4}</h4>,
-                <p key={(index + '1')} style={{ opacity: 0}} >{content.p}</p>,
+                            <h4 key={(index + '0')} >{content.h4}</h4>,
+                <p key={(index + '1')} >{content.p}</p>,
                 <Link
                     to={to}
                     // targetId={target}
